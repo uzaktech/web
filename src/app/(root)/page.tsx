@@ -7,8 +7,8 @@ import { AvailabilityLable, Cta, ProjectView, Pyramid } from "@/components";
 export default function Home() {
   	return (
 		<sc.Root>
-			<sc.Section  $hero $fDirection="row" $breakAt={9} $gap="33px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center">
-				<sc.Content $minSize={["fit-content", "300px"]}>
+			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center">
+				<sc.Content $maxSize={["100%", "300px"]} $minSize={["auto", "fit-content"]} $dSize={["100%", "100%"]}>
 					<tx.H1>Building incomparable dreams with passion and creativity</tx.H1>
 
 					<sc.Copy>

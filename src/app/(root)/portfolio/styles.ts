@@ -30,6 +30,6 @@ export const HeroImageBox = styled(Box)`
 
 	@media (max-width: 400px) 
 	{
-		--width: 230px;
+		--width: 250px;
 	}
 `;
