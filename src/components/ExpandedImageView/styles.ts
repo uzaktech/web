@@ -7,7 +7,7 @@ import { css } from "styled-components";
 export const Background = styled.div`
 	background-color: rgba(${(p) => p.theme.colorsRgbC.boxShadow}, 0.3);
 	width: 100vw;
-	height: 100vh;
+	height: 100dvh;
 	position: fixed;
 	z-index: 130;
 	top: 0;
@@ -32,7 +32,7 @@ export const ImageFrame = styled.div`
 export const Image = styled.img`
 	height: fit-content;
 	width: fit-content;
-	max-height: 90vh;
+	max-height: 90dvh;
 	max-width: 95vw;
 	margin: none;
 `;
@@ -68,7 +68,7 @@ export const Arrow = styled.div<{$side: "left" | "right", $disable: boolean}>`
 	{
 		content: "";
 		position: relative;
-		box-shadow: 2px 2px 0 0 ${(p) => p.theme.colors.boxBackground};
+		box-shadow: 1.5px 1.5px 0 0 ${(p) => p.theme.colors.boxBackground};
 
 		${(p) => p.$side == "left" ? css`
 			transform: rotate(135deg);
