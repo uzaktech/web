@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
 			userAgent: "*",
 			allow: "/",
 		},
-		sitemap: "https://uzak.com.br/sitemap.xml",
+		sitemap: "https://www.uzak.com.br/sitemap.xml",
 	};
 }

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 		"freelance studio",
 		"portfolio"
 	],
-	metadataBase: new URL("https://uzak.com.br"),
+	metadataBase: new URL("https://www.uzak.com.br"),
 	alternates: {
 		canonical: "/"
 	},
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 		description:
 			"An indie developer studio focused on end-to-end web solutions and platforms.",
 		type: "website",
-		url: "https://uzak.com.br",
+		url: "https://www.uzak.com.br",
 		locale: "en_US",
 		siteName: "Uzak"
 	},
@@ -64,9 +64,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 							"@type": "SiteNavigationElement",
 							name: ["About", "Portfolio", "Contact Me"],
 							url: [
-								"https://uzak.com.br/about",
-								"https://uzak.com.br/portfolio",
-								"https://uzak.com.br/contact",
+								"https://www.uzak.com.br/about",
+								"https://www.uzak.com.br/portfolio",
+								"https://www.uzak.com.br/contact",
 							],
 						}),
 					}}
