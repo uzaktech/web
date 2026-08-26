@@ -25,7 +25,7 @@ export const Header = () => {
 			const handleScroll = () => {
 				const currentScrollY = parent.scrollTop;
 				const goingUp = currentScrollY < lastScrollY;
-				const pad = 33; // this adds a pad working as a margin for the scrolls
+				const pad = 33; 
 
 				lastScrollTop = goingUp ? (lastScrollTop ?? lastScrollY) : null;
 				lastScrollBot = !goingUp ? (lastScrollBot ?? lastScrollY) : null;
