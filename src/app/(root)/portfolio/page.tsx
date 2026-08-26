@@ -2,7 +2,7 @@ import * as s from "./styles";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AvailabilityLable, Cta, ProjectView, Stack } from "@/components";
+import { AnimatedBox, AvailabilityLable, Cta, ProjectView, Stack } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function Page() {
 	return (
 		<sc.Root>
 			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center">
-				<sc.Content $maxSize={["fit-content", "300px"]} $minSize={["auto", "fit-content"]} $dSize={["auto", "100%"]}>
+				<sc.Content $maxSize={["100%", "300px"]} $minSize={["auto", "fit-content"]} $dSize={["100%", "100%"]}>
 					<tx.H1>
 						Enzo Kazuki (aka. Uzak)
 					</tx.H1>
@@ -29,10 +29,16 @@ export default function Page() {
 					</wp.Row>
 				</sc.Content>
 
-				<s.HeroImageBox>
-					<s.HeroImage src={"/desktop_setup.jpg"} alt="complementary hero image" />
-					<tx.SmallInfo>my desk setup</tx.SmallInfo>
-				</s.HeroImageBox>
+				<AnimatedBox 
+					animationView="default" 
+					options={{oneTimeLoad: true}} 
+					boxStyle={{$padding: "0", $gap: "0", $width: "auto", $height: "auto", $aspectRatio: "1", $overflow: "visible"}}
+				>
+					<s.HeroImageBox>
+						<s.HeroImage src={"/desktop_setup.jpg"} alt="complementary hero image" />
+						<tx.SmallInfo>my desk setup</tx.SmallInfo>
+					</s.HeroImageBox>
+				</AnimatedBox>
 			</sc.Section>
 
 			<sc.Section>

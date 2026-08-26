@@ -2,7 +2,7 @@ import * as bx from "@/styles/primitive/box";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AvailabilityLable, Cta, ProjectView, Pyramid } from "@/components";
+import { AnimatedBox, AvailabilityLable, Cta, ProjectView, Pyramid } from "@/components";
 
 export default function Home() {
   	return (
@@ -21,7 +21,13 @@ export default function Home() {
 					</wp.Row>
 				</sc.Content>
 
-				<Pyramid />
+				<AnimatedBox 
+					animationView="default" 
+					options={{oneTimeLoad: true}} 
+					boxStyle={{$padding: "0", $gap: "0", $width: "auto", $height: "auto", $aspectRatio: "1"}}
+				>
+					<Pyramid />
+				</AnimatedBox>
 			</sc.Section>
 
 			<sc.Section>
@@ -55,7 +61,7 @@ export default function Home() {
 				</wp.Row>
 			</sc.Section>
 
-			<sc.Section>
+			<sc.Section id="process">
 				<sc.Label>Process</sc.Label>
 
 				<sc.Title>How I work</sc.Title>
@@ -65,32 +71,50 @@ export default function Home() {
 				</sc.Copy>
 
 				<wp.Row as="ul" $gap="13px" $pad="0" $breakAt={9}>
-					<bx.Box as="li" $padding="13px 17px" $gap="7px" $width="100%" $minWidth="130px">
+					<AnimatedBox 
+						as="li" 
+						animationView="intersection" 
+						options={{oneTimeLoad: true}} 
+						groupOptions={{position: 0, delay: {ms: .23, maxWidth: 9}}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+					>
 						<tx.P $size="xviii" $weight="450">Build</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
 							From prototype to production — code that ships and stays maintainable. Clean
 							architecture over clever shortcuts.
 						</tx.P>
-					</bx.Box>
+					</AnimatedBox>
 
-					<bx.Box as="li" $padding="13px 17px" $gap="7px" $width="100%" $minWidth="130px">
+					<AnimatedBox 
+						as="li" 
+						animationView="intersection" 
+						options={{oneTimeLoad: true}} 
+						groupOptions={{position: 1, delay: {ms: .23, maxWidth: 9}}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+					>
 						<tx.P $size="xviii" $weight="450">Design</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
 							Interfaces with a clear point of view — not templates, not noise. Every screen
 							earns its place.
 						</tx.P>
-					</bx.Box>
+					</AnimatedBox>
 
-					<bx.Box as="li" $padding="13px 17px" $gap="7px" $width="100%" $minWidth="130px">
+					<AnimatedBox 
+						as="li" 
+						animationView="intersection" 
+						options={{oneTimeLoad: true}} 
+						groupOptions={{position: 2, delay: {ms: .23, maxWidth: 9}}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+					>
 						<tx.P $size="xviii" $weight="450">Ship</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
 							Release, learn, refine — indie pace with professional follow-through, from first
 							commit to production.
 						</tx.P>
-					</bx.Box>
+					</AnimatedBox>
 				</wp.Row>
 			</sc.Section>
 

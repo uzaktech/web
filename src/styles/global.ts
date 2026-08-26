@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 		--height-btn-inp: 33px;
 		--height-btn: 33px;
 		--max-width: 1300px;
+		--corner-default-size: 13px;
 	}
 
 	@media (max-width: 1370px) 

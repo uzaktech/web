@@ -3,7 +3,7 @@
 import * as bx from "@/styles/primitive/box";
 import * as tx from "@/styles/primitive/text";
 import * as wp from "@/styles/primitive/wrapper";
-import { Link, Stack, StackLabels } from "../";
+import { AnimatedBox, Link, Stack, StackLabels } from "../";
 import { defaultTheme } from "@/styles";
 import { ImageShowCase } from "./ImageShowCase";
 
@@ -44,7 +44,12 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 	return (
 		<wp.Col $gap="13px">
 			{list.map((p, i) => (
-				<bx.Box $padding="13px 17px" $gap="13px" key={i}>
+				<AnimatedBox 
+					animationView="intersection" 
+					options={{oneTimeLoad: true}} 
+					boxStyle={{$padding: "13px 17px", $gap: "13px"}}
+					key={i}
+				>
 					<wp.Row $fWrap="wrap" $gap="3px 13px" $jc="space-between" $ai="center">
 						<tx.P $size="xviii" $weight="450">{p.title}</tx.P>
 						<tx.P $size="xv" $opc={0.5} $weight="500">{p.category}</tx.P>
@@ -72,7 +77,7 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 							}
 						</wp.Row>
 					}
-				</bx.Box>
+				</AnimatedBox>
 			))}
 			<bx.Box $padding="13px 17px" $shadow={false} $border={`dashed 1px rgba(${defaultTheme.colorsRgbC.boxShadow}, 0.5)`} $corner={{borderSize: "1px", color: `rgba(${defaultTheme.colorsRgbC.boxShadow}, 0.5)`, pad: 1}}>
 				<tx.Span $opc={0.5} $weight="450">new projects are being built</tx.Span>

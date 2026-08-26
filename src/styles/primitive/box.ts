@@ -36,7 +36,7 @@ export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: stri
 		position: absolute;
 		top: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
 		left: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
-		height: ${size ?? "15px"};
+		height: ${size ?? "var(--corner-default-size)"};
 		aspect-ratio: 1;
 		border-left: solid ${borderSize ?? "1px"} ${color ?? theme.colors.boxShadow};
 		border-top: solid ${borderSize ?? "1px"} ${color ?? theme.colors.boxShadow};
@@ -49,7 +49,7 @@ export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: stri
 		position: absolute;
 		bottom: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
 		right: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
-		height: ${size ?? "15px"};
+		height: ${size ?? "var(--corner-default-size)"};
 		aspect-ratio: 1;
 		border-right: solid ${borderSize ?? "1px"} ${color ?? theme.colors.boxShadow};
 		border-bottom: solid ${borderSize ?? "1px"} ${color ?? theme.colors.boxShadow};

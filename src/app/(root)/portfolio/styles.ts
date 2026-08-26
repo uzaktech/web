@@ -1,6 +1,5 @@
 "use client";
 
-import { Box } from "@/styles/primitive";
 import styled from "styled-components";
 
 export const HeroImage = styled.img`
@@ -18,18 +17,30 @@ export const HeroImage = styled.img`
 	}
 `;
 
-export const HeroImageBox = styled(Box)`
-	--width: 300px;
-	width: min(100%, var(--width));
-	max-width: min(100%, var(--width));
-	height: auto;
-	max-height: none;
-	margin: 0 0 0 auto;
+export const HeroImageBox = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	perspective: 1000px;
+	min-width: 300px;
+	min-height: 300px;
+	max-width: 300px;
+	max-height: 300px;
+	position: relative;
 	aspect-ratio: 1;
-	flex-shrink: 0;
+	padding: 9px;
+	overflow: visible !important;
 
 	@media (max-width: 400px) 
 	{
-		--width: 250px;
+		width: 250px;
+		height: 250px;
+		min-width: auto;
+		min-height: auto;
+		max-width: 100%;
+		max-height: none;
+		padding: 0 0 50px;
+		flex-shrink: 0;
+		overflow: visible;
 	}
 `;

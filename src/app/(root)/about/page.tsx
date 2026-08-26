@@ -2,7 +2,7 @@ import * as bx from "@/styles/primitive/box";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AvailabilityLable, Cta, Stack } from "@/components";
+import { AnimatedBox, AvailabilityLable, Cta, Stack } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -126,32 +126,50 @@ export default function Page() {
 				<sc.Title>What I care about</sc.Title>
 
 				<wp.Row as="ul" $gap="13px" $pad="0" $breakAt={9}>
-					<bx.Box as="li" $padding="13px 17px" $gap="7px" $width="100%" $minWidth="130px">
+					<AnimatedBox 
+						as="li" 
+						animationView="intersection" 
+						options={{oneTimeLoad: true}} 
+						groupOptions={{position: 0, delay: {ms: .23, maxWidth: 9}}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+					>
 						<tx.P $size="xviii" $weight="450">Ownership</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
 							Every decision, every bug, every deadline — mine to own. Nothing gets passed down the line.
 							The idea is all yours.
 						</tx.P>
-					</bx.Box>
+					</AnimatedBox>
 
-					<bx.Box as="li" $padding="13px 17px" $gap="7px" $width="100%" $minWidth="130px">
+					<AnimatedBox 
+						as="li" 
+						animationView="intersection" 
+						options={{oneTimeLoad: true}} 
+						groupOptions={{position: 1, delay: {ms: .23, maxWidth: 9}}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+					>
 						<tx.P $size="xviii" $weight="450">Craft</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
 							I&apos;d rather ship something later and get it right than rush something that breaks in a
 							month.
 						</tx.P>
-					</bx.Box>
+					</AnimatedBox>
 
-					<bx.Box as="li" $padding="13px 17px" $gap="7px" $width="100%" $minWidth="130px">
+					<AnimatedBox 
+						as="li" 
+						animationView="intersection" 
+						options={{oneTimeLoad: true}} 
+						groupOptions={{position: 2, delay: {ms: .23, maxWidth: 9}}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+					>
 						<tx.P $size="xviii" $weight="450">Honesty</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
 							Realistic timelines, real answers — if something&apos;s not going to work, you&apos;ll hear
 							it from me first.
 						</tx.P>
-					</bx.Box>
+					</AnimatedBox>
 				</wp.Row>
 			</sc.Section>
 

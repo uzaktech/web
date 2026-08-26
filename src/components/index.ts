@@ -8,3 +8,4 @@ export * from "./AvailabilityLable";
 export * from "./Input";
 export * from "./ContactMessageForm";
 export * from "./ExpandedImageView";
+export * from "./AnimatedBox";
