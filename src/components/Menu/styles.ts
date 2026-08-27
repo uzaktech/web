@@ -18,20 +18,20 @@ export const Root = styled.div`
 `;
 
 export const Background = styled.div`
-	background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxShadow}, 0.3)`};
+	background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 1)`};
 	position: absolute;
 	inset: 0 0;
 	width: 100%;
 	height: 100%;
 `;
 
-export const Menu = styled(Box).attrs({$padding: "26px 13px 13px", $display: "flex", $ai: "center", $jc: "center", $gap: "13px"})``;
+export const Menu = styled(Box).attrs({$padding: "13px", $display: "flex", $ai: "center", $jc: "center", $gap: "13px", $cornerP: "default", $shadow: false})``;
 
 export const Nav = styled.nav`
 	height: auto;
 	width: auto;
 	position: relative;
-	padding: 0 13px 0;
+	padding: 13px;
 `;
 
 export const Ul = styled.ul`
@@ -64,7 +64,7 @@ export const Li = styled.li<{$selected?: boolean}>`
 		text-decoration: none;
 		color: #000;
 		font-weight: 530;
-		font-size: ${({theme}) => theme.fontSize.xvi};
+		font-size: ${({theme}) => theme.fontSize.xvii};
 
 		&:hover {
 			text-decoration: underline;
@@ -85,7 +85,7 @@ export const Li = styled.li<{$selected?: boolean}>`
 
 	@media (max-width: 450px) {
 		& > a {
-			font-size: ${({theme}) => theme.fontSize.xv};
+			font-size: ${({theme}) => theme.fontSize.xvi};
 		}
 	}
 `;
@@ -95,13 +95,13 @@ export const Division = styled.div`
 	position: relative;
 	width: 100%;
 	height: 1px;
-	background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxShadow}, 0.13)`};
-	margin: 10px 0 3px;
+	background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxShadow}, 1)`};
+	margin: 0 0 13px;
 `;
 
 export const CloseBtn = styled.div`
 	position: relative;
-	height: 19px;
+	height: 23px;
 	aspect-ratio: 1;
 	cursor: pointer;
 

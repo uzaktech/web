@@ -9,6 +9,7 @@ export const Cta = styled.a<ButtonProps>`
 export const Link = styled.a<{$notStyle?: boolean, $poserStyle?: boolean, $opc?: string}>`
 	color: rgba(${(p) => p.theme.colorsRgbC.text}, ${(p) => p.$opc ?? "1"});
 	font-weight: 500;
+	font-size: inherit;
 
 	${(p) => p.$notStyle && css`
 		text-decoration: none;

@@ -62,8 +62,14 @@ export const MenuToggle = styled.div`
 	align-items: center;
 	justify-content: center;
 	padding: 5px;
-	gap: 7px;
+	gap: 5px;
 	cursor: pointer;
+	/*opacity: 0.5;
+
+	&:hover 
+	{
+		opacity: 1;
+	}*/
 
 	@media (max-width: 450px) {
 		display: flex;
@@ -72,7 +78,7 @@ export const MenuToggle = styled.div`
 
 export const MenuToggleLine = styled.div`
 	width: 100%;
-	height: 1px;
+	height: 2px;
 	background-color: ${(p) => p.theme.colors.boxShadow};
 `;
 

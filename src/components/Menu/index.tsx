@@ -17,7 +17,8 @@ export const Menu = () => {
 
 	return menu.visibility == true && createPortal(
 		<s.Root>
-			<s.Background onClick={() => menu.setVisibility(false)} />
+			{/*<s.Background onClick={() => menu.setVisibility(false)} />*/}
+			<s.Background />
 
 			<s.Menu>
 				<s.Nav>
