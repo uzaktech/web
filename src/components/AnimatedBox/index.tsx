@@ -23,6 +23,9 @@ export type AnimatedBoxGroupOptions = {
 	}
 }
 
+const RESIZE_DEBOUNCE_MS = 150;
+const RESIZE_COOLDOWN_MS = 800;
+
 export const AnimatedBox = ({ boxStyle, animationView, options, children, groupOptions, ...props }: AnimatedBoxProps) => {
 	const boxRef = useRef<HTMLDivElement | null>(null);
 
@@ -30,21 +33,26 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 	const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
 	const [boxRects, setBoxRects] = useState<{w: number, h: number} | null>(null);
 
+	const isFirstResize = useRef(true);
+	const resizeDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const resizeCooldownRef = useRef(false);
+	const lastWidthRef = useRef<number | null>(null);
+
 	const open = animationView == "intersection" ? boxRects != null ? (options?.oneTimeLoad ? wasIntersected : isIntersecting) : false : true;
 	const close = animationView == "intersection" ? (boxRects != null || options?.oneTimeLoad) ? false : !isIntersecting : false;
 
 	const reload = () => {
 		setBoxRects(null);
-		setIsIntersecting(false);
-		setWasIntersected(false);
 
 		let intersectionRt = () => {};
 
 		setTimeout(() => {
-			setBoxRects({w: boxRef.current!.getBoundingClientRect().width, h: boxRef.current!.getBoundingClientRect().height});
+			if (!boxRef.current) return;
+
+			setBoxRects({w: boxRef.current.getBoundingClientRect().width, h: boxRef.current.getBoundingClientRect().height});
 
 			intersectionRt = intersectionFn();
-		}, 30)
+		}, 30);
 
 		return intersectionRt;
 	}
@@ -70,27 +78,55 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 	useEffect(() => {
 		if (animationView == "intersection") return intersectionFn();
 	}, [animationView, boxRef, boxRects])
-	
+
 
 	useEffect(() => {
 		if (isIntersecting) setWasIntersected(true);
 	}, [isIntersecting])
 
-	
+
 	useEffect(() => {
 		const box = boxRef.current;
-		
+
 		if (box != null) {
 			let rt = () => {};
-			
-			const resizeObserver = new ResizeObserver(() => {
-				rt = reload();
+
+			const resizeObserver = new ResizeObserver(([entry]) => {
+				const currentWidth = entry.contentRect.width;
+
+				if (isFirstResize.current) {
+					isFirstResize.current = false;
+
+					rt = reload();
+
+					return;
+				}
+
+				if (Math.abs(lastWidthRef.current! - currentWidth) < 1) return;
+
+				lastWidthRef.current = currentWidth;
+
+				if (resizeCooldownRef.current) return;
+
+				if (resizeDebounceRef.current) clearTimeout(resizeDebounceRef.current);
+
+				resizeDebounceRef.current = setTimeout(() => {
+					resizeCooldownRef.current = true;
+
+					rt = reload();
+
+					setTimeout(() => {
+						resizeCooldownRef.current = false;
+					}, RESIZE_COOLDOWN_MS);
+				}, RESIZE_DEBOUNCE_MS);
 			});
 
 			resizeObserver.observe(document.documentElement);
-			
+
 			return () => {
 				resizeObserver.unobserve(document.documentElement);
+
+				if (resizeDebounceRef.current) clearTimeout(resizeDebounceRef.current);
 
 				return rt();
 			}

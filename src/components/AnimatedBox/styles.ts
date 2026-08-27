@@ -53,8 +53,8 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalW
 		}
 	}
 
-	${(p) => p.$open == true 
-		?css`
+	${(p) => p.$open == true
+		? css`
 			overflow: hidden;
 			opacity: 0;
 			max-height: ${p.$corner?.size ?? "var(--corner-default-size)"};
@@ -69,7 +69,7 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalW
 			${p.$delayMaxWidth && css`
 				@media (max-width: ${p.$delayMaxWidth * 100}px) 
 				{
-					animation: .5s ease-out forwards opening 0s !important;
+					animation: .47s ease-out forwards opening 0s !important;
 				}
 			`}
 		` : css`
