@@ -99,7 +99,7 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 
 					rt = reload();
 
-					return;
+					return lastWidthRef.current = currentWidth;;
 				}
 
 				if (Math.abs(lastWidthRef.current! - currentWidth) < 1) return;
