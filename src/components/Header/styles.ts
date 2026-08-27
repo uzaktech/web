@@ -56,30 +56,24 @@ export const Nav = styled.nav`
 export const MenuToggle = styled.div`
 	height: 100%;
 	aspect-ratio: 1;
+	overflow: hidden;
 	display: none;
 	margin: 0 0 0 auto;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	padding: 5px;
-	gap: 5px;
 	cursor: pointer;
-	/*opacity: 0.5;
-
-	&:hover 
-	{
-		opacity: 1;
-	}*/
+	gap: 5px;
+	background-image: url("/menu.svg");
+	background-position: center center;
+	background-size: 79% 100%;
+	background-repeat: no-repeat;
+	transform: translate(-3px, 0);
 
 	@media (max-width: 450px) {
 		display: flex;
 	}
-`;
-
-export const MenuToggleLine = styled.div`
-	width: 100%;
-	height: 2px;
-	background-color: ${(p) => p.theme.colors.boxShadow};
 `;
 
 export const Ul = styled.ul`

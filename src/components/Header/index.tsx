@@ -50,11 +50,7 @@ export const Header = () => {
 				<Logo />
 			</s.RootLogo>
 			
-			<s.MenuToggle onClick={() => menu.setVisibility(true)}>
-				<s.MenuToggleLine />
-				<s.MenuToggleLine />
-				<s.MenuToggleLine />
-			</s.MenuToggle>
+			<s.MenuToggle onClick={() => menu.setVisibility(true)} />
 			
 			<s.Nav>
 				<s.Ul>
