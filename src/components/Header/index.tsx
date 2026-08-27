@@ -5,9 +5,11 @@ import { usePathname } from "next/navigation";
 import { Link } from "@/components/Link";
 import { Logo } from "../Logo";
 import { useLayoutEffect, useRef, useState } from "react";
+import { useMenu } from "@/context";
 
 export const Header = () => {
 	const pathname = usePathname();
+	const menu = useMenu();
 
 	const [scrollingUp, setScrollingUp] = useState(true);
 
@@ -47,6 +49,12 @@ export const Header = () => {
 			<s.RootLogo>
 				<Logo />
 			</s.RootLogo>
+			
+			<s.MenuToggle onClick={() => menu.setVisibility(true)}>
+				<s.MenuToggleLine />
+				<s.MenuToggleLine />
+				<s.MenuToggleLine />
+			</s.MenuToggle>
 			
 			<s.Nav>
 				<s.Ul>

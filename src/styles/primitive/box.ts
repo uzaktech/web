@@ -75,6 +75,7 @@ export const Box = styled.div<BoxProps>`
 	flex-direction: ${(p) => p.$fDirection ?? "column"};
 	align-items: ${(p) => p.$ai};
 	justify-content: ${(p) => p.$jc};
+	background-color: ${(p) => p.theme.colors.boxBackground};
 
 	${(p) => p.$cornerP != "none" && (cornerBox(p.theme, p.$corner?.borderSize, p.$corner?.color, p.$corner?.size, p.$corner?.pad))}
 `;

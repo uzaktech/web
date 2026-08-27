@@ -9,3 +9,4 @@ export * from "./Input";
 export * from "./ContactMessageForm";
 export * from "./ExpandedImageView";
 export * from "./AnimatedBox";
+export * from "./Menu";

@@ -35,8 +35,6 @@ export const Root = styled.header<{$up?: boolean}>`
 	`}
 `;
 
-//export const Frame = styled(Box).attrs({$width: "calc(100% - 2px)", $height: "calc(100% - 2px)", $corner: {borderSize: "1px"}})``;
-
 export const RootLogo = styled.div`
 	height: var(--height-logo);
 	min-height: var(--height-logo);
@@ -49,6 +47,33 @@ export const Nav = styled.nav`
 	margin: 0 5px 0 auto;
 	position: relative;
 	padding: 0;
+	
+	@media (max-width: 450px) {
+		display: none;
+	}
+`;
+
+export const MenuToggle = styled.div`
+	height: 100%;
+	aspect-ratio: 1;
+	display: none;
+	margin: 0 0 0 auto;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+	gap: 7px;
+	cursor: pointer;
+
+	@media (max-width: 450px) {
+		display: flex;
+	}
+`;
+
+export const MenuToggleLine = styled.div`
+	width: 100%;
+	height: 1px;
+	background-color: ${(p) => p.theme.colors.boxShadow};
 `;
 
 export const Ul = styled.ul`
