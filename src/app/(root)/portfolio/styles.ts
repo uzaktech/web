@@ -21,7 +21,6 @@ export const HeroImageBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	perspective: 1000px;
 	min-width: 300px;
 	min-height: 300px;
 	max-width: 300px;
@@ -30,7 +29,7 @@ export const HeroImageBox = styled.div`
 	aspect-ratio: 1;
 	padding: 9px;
 	overflow: visible !important;
-
+	
 	@media (max-width: 400px) 
 	{
 		width: 250px;
@@ -39,7 +38,6 @@ export const HeroImageBox = styled.div`
 		min-height: auto;
 		max-width: 100%;
 		max-height: none;
-		padding: 0 0 50px;
 		flex-shrink: 0;
 		overflow: visible;
 	}

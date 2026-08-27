@@ -25,7 +25,9 @@ export const Background = styled.div`
 	height: 100%;
 `;
 
-export const Menu = styled(Box).attrs({$padding: "13px", $display: "flex", $ai: "center", $jc: "center", $gap: "13px", $shadow: false, $overflow: "visible"})``;
+export const Menu = styled(Box).attrs({$padding: "13px", $display: "flex", $ai: "center", $jc: "center", $gap: "13px", $corner: {borderSize: "2px"}, $shadow: false, $overflow: "visible"})`
+	z-index: 334;
+`;
 
 export const Nav = styled.nav`
 	height: auto;
