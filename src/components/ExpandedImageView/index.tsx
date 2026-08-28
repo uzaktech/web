@@ -34,7 +34,22 @@ export const ExpandedImageView = ({ images, show, hide }: ExpandedImageViewParam
 		if (_images.length == 0) setImages(images);
 	}, [images, _images])
 
-	useEffect(() => setImages(images), [show]);
+	useEffect(() => {
+		setImages(images);
+
+		if (show) {
+			const handleKeyDown = (e: KeyboardEvent) => {
+				if (e.key.toLowerCase() === "escape") {
+					e.preventDefault();
+					hide();
+				}
+			};
+
+			window.addEventListener('keydown', handleKeyDown);
+			
+			return () => window.removeEventListener('keydown', handleKeyDown);
+		}
+	}, [show]);
 
 	return show ? createPortal(
 		<>
