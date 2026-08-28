@@ -78,6 +78,7 @@ export const Li = styled.li<{$selected?: boolean}>`
 	}
 
 	${({$selected}) => $selected && css`
+		text-decoration: underline;
 		&::after {
 			visibility: visible;
 			width: 85%;
