@@ -46,13 +46,11 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 
 		let intersectionRt = () => {};
 
-		setTimeout(() => {
-			if (!boxRef.current) return;
+		if (!boxRef.current) return;
 
-			setBoxRects({w: boxRef.current.getBoundingClientRect().width, h: boxRef.current.getBoundingClientRect().height});
+		setBoxRects({w: boxRef.current.getBoundingClientRect().width, h: boxRef.current.getBoundingClientRect().height});
 
-			intersectionRt = intersectionFn();
-		}, 30);
+		intersectionRt = intersectionFn();
 
 		return intersectionRt;
 	}
@@ -89,7 +87,31 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 		const box = boxRef.current;
 
 		if (box != null) {
-			let rt = () => {};
+			let rt: (() => void) | undefined = () => {};
+
+			let cancelled = false;
+
+			const waitForStableLayout = () => {
+				//if (animationView == "default") {
+				//	if (cancelled) return;
+
+				//	rt = reload();
+
+				//	return;
+				//}
+
+				document.fonts.ready.then(() => {
+					if (cancelled) return;
+
+					requestAnimationFrame(() => {
+						requestAnimationFrame(() => {
+							if (cancelled) return;
+
+							rt = reload();
+						});
+					});
+				});
+			};
 
 			const resizeObserver = new ResizeObserver(([entry]) => {
 				const currentWidth = entry.contentRect.width;
@@ -97,7 +119,7 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 				if (isFirstResize.current) {
 					isFirstResize.current = false;
 
-					rt = reload();
+					waitForStableLayout();
 
 					return lastWidthRef.current = currentWidth;;
 				}
@@ -113,7 +135,7 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 				resizeDebounceRef.current = setTimeout(() => {
 					resizeCooldownRef.current = true;
 
-					rt = reload();
+					waitForStableLayout();
 
 					setTimeout(() => {
 						resizeCooldownRef.current = false;
@@ -128,7 +150,7 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 
 				if (resizeDebounceRef.current) clearTimeout(resizeDebounceRef.current);
 
-				return rt();
+				return rt?.();
 			}
 		}
 	}, [boxRef])
