@@ -11,7 +11,7 @@ export const HeroImage = styled.img`
 	object-fit: cover;
 	object-position: 0 79%;
 
-	@media (max-width: 400px) 
+	@media (max-width: 500px) 
 	{
 		max-width: 230px;
 	}
@@ -30,7 +30,7 @@ export const HeroImageBox = styled.div`
 	padding: 9px;
 	overflow: visible !important;
 	
-	@media (max-width: 400px) 
+	@media (max-width: 500px) 
 	{
 		width: 250px;
 		height: 250px;

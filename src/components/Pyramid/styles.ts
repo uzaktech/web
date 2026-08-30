@@ -19,7 +19,7 @@ export const Root = styled.div`
 	--stroke: #fff;
 	--stop: #000;
 
-	@media (max-width: 700px) {
+	@media (max-width: 500px) {
 		width: 250px;
 		height: 250px;
 		min-width: auto;
