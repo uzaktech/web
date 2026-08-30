@@ -53,6 +53,15 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalW
 		}
 	}
 
+	@keyframes openingLocker {
+		0%, 30% {
+			opacity: 0.3;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
 	${(p) => p.$open == true
 		? css`
 			overflow: hidden;
@@ -64,7 +73,7 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalW
 			width: ${p.$corner?.size ?? "var(--corner-default-size)"};
 			min-width: ${p.$corner?.size ?? "var(--corner-default-size)"};
 
-			animation: .47s ease-in forwards opening ${p.$delayMs ? `${p.$delayMs}s` : "0s"};
+			animation: .47s ease-out forwards opening ${p.$delayMs ? `${p.$delayMs}s` : "0s"};
 
 			${p.$delayMaxWidth && css`
 				@media (max-width: ${p.$delayMaxWidth * 100}px) 
@@ -72,6 +81,10 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalW
 					animation: .47s ease-out forwards opening 0s !important;
 				}
 			`}
+
+			& > div {
+				animation: .47s ease-out forwards openingLocker ${p.$delayMs ? `${p.$delayMs}s` : "0s"};
+			}
 		` : css`
 			overflow: hidden;
 			opacity: 0;
