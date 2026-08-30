@@ -46,11 +46,13 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 
 		let intersectionRt = () => {};
 
-		if (!boxRef.current) return;
+		setTimeout(() => {
+			if (!boxRef.current) return;
 
-		setBoxRects({w: boxRef.current.getBoundingClientRect().width, h: boxRef.current.getBoundingClientRect().height});
+			setBoxRects({w: boxRef.current.getBoundingClientRect().width, h: boxRef.current.getBoundingClientRect().height});
 
-		intersectionRt = intersectionFn();
+			intersectionRt = intersectionFn();
+		}, 30)
 
 		return intersectionRt;
 	}
