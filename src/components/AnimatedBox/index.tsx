@@ -38,8 +38,8 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 	const resizeCooldownRef = useRef(false);
 	const lastWidthRef = useRef<number | null>(null);
 
-	const open = animationView == "intersection" ? boxRects != null ? (options?.oneTimeLoad ? wasIntersected : isIntersecting) : false : true;
-	const close = animationView == "intersection" ? (boxRects != null || options?.oneTimeLoad) ? false : !isIntersecting : false;
+	const open = boxRects != null ? (animationView == "intersection" ? (options?.oneTimeLoad ? wasIntersected : isIntersecting) : true) : false;
+	const close = (boxRects != null || options?.oneTimeLoad) ? (animationView == "intersection" ? false : !isIntersecting) : false;
 
 	const reload = () => {
 		setBoxRects(null);
