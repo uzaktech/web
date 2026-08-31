@@ -77,20 +77,16 @@ export const GlobalStyle = createGlobalStyle`
 		border: 0;
 		background-color: ${({theme}) => theme.colors.bodyBackground};
 		width: 100vw;
-		height: 100vh;
 		height: 100dvh;
 		max-width: 100vw;
-		max-height: 100vh;
 		max-height: 100dvh;
 		position: relative;
-		overflow: hidden;
 	}
 
 	.filter
 	{
 		position: fixed;
 		overflow: hidden;
-		height: 100vh;
 		height: 100dvh;
 		width: 100vw;
 		pointer-events: none;

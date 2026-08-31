@@ -8,7 +8,6 @@ export const Root = styled.div`
 	max-width: 100vw;
 	overflow: auto;
 	height: 100%;
-	max-height: 100vh;
 	max-height: 100dvh;
 	position: relative;
 	display: flex;
