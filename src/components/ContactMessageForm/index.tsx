@@ -6,9 +6,9 @@ import * as wp from "@/styles/primitive/wrapper";
 import { ButtonLink, Input, Textarea } from "@/components";
 import { Button } from "@/styles/primitive/button";
 import { MouseEvent, SubmitEvent, useState } from "react";
-import { emailRegexp, emailTestRegexp, nameRegexp, objectsEqual } from "@/utils";
+import { emailRegexp, emailTestRegexp, nameRegexp } from "@/utils";
 import { FormProvider } from "@/context";
-import { api, ContactMessageEndpoint } from "@/services";
+import { sendEmail } from "@/actions/sendEmail";
 
 export const ContactMessageForm = () => {
 	const [submitFallback, setSubmitFallback] = useState<boolean | null>(null);
@@ -23,19 +23,17 @@ export const ContactMessageForm = () => {
 
 		const form = e.currentTarget as HTMLFormElement;
 
-		const body = {
-			email: form.email.value,
-			message: form.message.value,
-			subject: form.subject.value,
-			firstName: form.first_name.value,
-			lastName: form.last_name.value
-		}
-
-		const response = await api.post(ContactMessageEndpoint.root, body);
+		const success = await sendEmail(
+			form.message.value,
+			form.email.value, 
+			form.first_name.value,
+			form.last_name.value,
+			form.subject.value
+		);
 
 		setSubmitFallback(null);
 		
-		if (response.status == 201) setMessageStatus("sent");
+		if (success) setMessageStatus("sent");
 		else return setMessageStatus("error");
 	}
 

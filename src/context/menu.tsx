@@ -18,11 +18,11 @@ export const MenuProvider: FC<MenuProviderType> = ({ children }) => {
 
 	useEffect(() => {
 		const handleKeyDown = (e: KeyboardEvent) => {
-			if (e.altKey && e.key.toLowerCase() === 'm') {
+			if (e.altKey && e.key?.toLowerCase() === 'm') {
 				e.preventDefault();
 				setVisibility(true);
 			}
-			if (e.key.toLowerCase() === "escape" && visibility == true) {
+			if (e.key?.toLowerCase() === "escape" && visibility == true) {
 				e.preventDefault();
 				setVisibility(false);
 			}
