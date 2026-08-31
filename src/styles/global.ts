@@ -82,39 +82,6 @@ export const GlobalStyle = createGlobalStyle`
 		max-height: 100dvh;
 		position: relative;
 	}
-
-	.filter
-	{
-		position: fixed;
-		overflow: hidden;
-		height: 100dvh;
-		width: 100vw;
-		pointer-events: none;
-		
-		&::after {
-			content: "";
-			pointer-events: none;
-			position: absolute;
-			inset: 0;
-			transform: translate(0, -10px);
-			height: calc(100% + 20px);
-			background: repeating-linear-gradient(
-				to bottom,
-				${({theme}) => `rgba(${theme.colorsRgbC.boxShadow}, 0.1)`} 0px,
-				${({theme}) => `rgba(${theme.colorsRgbC.boxShadow}, 0.1)`} 1.5px,
-				transparent 3px,
-				transparent 6px
-			);
-			animation: scanlines 1.3s linear infinite;
-			mix-blend-mode: multiply; /* optional */
-		}
-		
-		@keyframes scanlines {
-			0%   { background-position: 0 0; opacity: 0.3; }
-			50%  { background-position: 0 2px; opacity: 0.5; }
-			100% { background-position: 0 4px; opacity: 0.3; }
-		}
-	}
 	
 	* 
 	{
