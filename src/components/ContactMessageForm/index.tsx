@@ -18,20 +18,27 @@ export const ContactMessageForm = () => {
 		e.preventDefault();
 
 		if (messageStatus == "sent") return;
+		
+		let success = false;
 
-		setSubmitFallback(true);
+		try {
+			setSubmitFallback(true);
 
-		const form = e.currentTarget as HTMLFormElement;
+			const form = e.currentTarget as HTMLFormElement;
 
-		const success = await sendEmail(
-			form.message.value,
-			form.email.value, 
-			form.first_name.value,
-			form.last_name.value,
-			form.subject.value
-		);
+			success = await sendEmail(
+				form.message.value,
+				form.email.value, 
+				form.first_name.value,
+				form.last_name.value,
+				form.subject.value
+			);
 
-		setSubmitFallback(null);
+			setSubmitFallback(null);
+		}
+		catch {
+			success = false;
+		}
 		
 		if (success) setMessageStatus("sent");
 		else return setMessageStatus("error");
