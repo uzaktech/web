@@ -20,7 +20,7 @@ export const Root = styled.header<{$up?: boolean}>`
 	transition: transform 0.3s ease;
 	backdrop-filter: blur(9px);
 	-webkit-backdrop-filter: blur(9px);
-	background-color: #ffffffd3;
+	background-color: #ffffffe3;
 	outline: 1px solid ${(p) => p.theme.colors.boxShadow};
 	z-index: 100;
 	top: 1px;

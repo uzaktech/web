@@ -21,22 +21,26 @@ export const Header = () => {
 
 		if (parent) {
 			let lastScrollY: number = parent.scrollTop;
-			let lastScrollTop: number | null = null;
-			let lastScrollBot: number | null = null;
+			let anchorY: number = parent.scrollTop; 
+			let wasGoingUp: boolean = false;
 
 			const handleScroll = () => {
 				const currentScrollY = parent.scrollTop;
 				const goingUp = currentScrollY < lastScrollY;
-				const pad = 33; 
+				const pad = 33;
 
-				lastScrollTop = goingUp ? (lastScrollTop ?? lastScrollY) : null;
-				lastScrollBot = !goingUp ? (lastScrollBot ?? lastScrollY) : null;
+				if (goingUp !== wasGoingUp) {
+					anchorY = lastScrollY;
+					wasGoingUp = goingUp;
+				}
+
+				const movedFromAnchor = anchorY - currentScrollY;
+
+				if (currentScrollY <= pad) setScrollingUp(false);
+				else if (goingUp && movedFromAnchor > pad) setScrollingUp(true);
+				else if (!goingUp && -movedFromAnchor > pad) setScrollingUp(false);
+
 				lastScrollY = currentScrollY;
-
-				setScrollingUp(currentScrollY > pad && 
-					((goingUp && (lastScrollTop ?? lastScrollY) - currentScrollY > pad) || 
-					(!goingUp && ((lastScrollBot ?? lastScrollY) - currentScrollY) * -1 < pad))
-				);
 			};
 
 			parent.addEventListener("scroll", handleScroll, { passive: true });
