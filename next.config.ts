@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   	devIndicators: false,
-	reactCompiler: false,
   	reactStrictMode: true,
 	compiler: {
 		styledComponents: {
