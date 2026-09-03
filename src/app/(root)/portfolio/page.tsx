@@ -144,7 +144,10 @@ export default function Page() {
 				<wp.Col $gap="9px">
 					<sc.Copy>
 						I'm currently (Sep. 2026) interning as a React Developer at <Link target="__blank" href="https://www.youbloom.com" poserStyle>youbloom</Link>, where 
-						I'm gaining hands-on experience in a professional team workflow. Prior to this, my 4 years of coding experience came from personal projects and freelance work.
+						I'm gaining hands-on experience in a professional team workflow. 
+					</sc.Copy>
+					<sc.Copy>
+						Prior to this, 4 years of self-directed development came from personal projects and freelance work.
 					</sc.Copy>
 					<sc.Copy>
 						Open to new opportunities and connections as I grow my career in software development.
