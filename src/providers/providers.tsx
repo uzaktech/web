@@ -1,12 +1,17 @@
 import { MenuProvider } from "@/context";
 import { StyleRegistry } from "@/styles";
+import { PageLoadFormatter } from "./pageLoadFormatter";
 
 export const Providers = ({ children }: { children: React.ReactNode}) => {
    return (
-		<StyleRegistry>
-			<MenuProvider>
-				{children}
-			</MenuProvider>
-		</StyleRegistry>
+		<>
+			<PageLoadFormatter />
+			
+			<StyleRegistry>
+				<MenuProvider>
+					{children}
+				</MenuProvider>
+			</StyleRegistry>
+		</>
    );
 };

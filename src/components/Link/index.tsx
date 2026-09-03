@@ -3,7 +3,7 @@
 import * as s from "./styles";
 import { ButtonProps } from "@/styles/primitive/button";
 import { useRouter } from "next/navigation";
-import { ComponentPropsWithoutRef, MouseEvent, ReactNode } from "react";
+import { ComponentPropsWithoutRef, MouseEvent, ReactNode, useEffect } from "react";
 
 export type LinkProps = {
 	clientRender?: boolean,

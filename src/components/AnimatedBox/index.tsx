@@ -60,8 +60,8 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 	const intersectionFn = () => {
 		const _options = options?.intersectionOptions ?? {
 			root: null,
-			rootMargin: "0px",
-			threshold: 0
+			rootMargin: "-3px",
+			threshold: 0.13
 		};
 
 		const observer = new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting), _options);
