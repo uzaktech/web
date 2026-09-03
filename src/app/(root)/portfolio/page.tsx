@@ -2,7 +2,7 @@ import * as s from "./styles";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AnimatedBox, AvailabilityLable, Cta, ProjectView, Stack } from "@/components";
+import { AnimatedBox, AvailabilityLable, Cta, Link, ProjectView, Stack } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function Page() {
 					<wp.Row $fWrap="wrap" $gap="10px">
 						<Cta href="#projects">See projects</Cta>
 						<Cta clientRender href="/contact" btnProps={{$style: "ghost_link"}}>Contact me</Cta>
-						<Cta clientRender href="#experience" btnProps={{$style: "ghost_link"}}>See experience</Cta>
+						<Cta href="#experience" btnProps={{$style: "ghost_link"}}>See experience</Cta>
 					</wp.Row>
 				</sc.Content>
 
@@ -143,10 +143,11 @@ export default function Page() {
 				
 				<wp.Col $gap="9px">
 					<sc.Copy>
-						I currently have no professional experience in a career path, all my experience of 4 years of coding comes from personal ideas and freelance projects.
+						I'm currently (Sep. 2026) interning as a React Developer at <Link target="__blank" href="https://www.youbloom.com" poserStyle>youbloom</Link>, where 
+						I'm gaining hands-on experience in a professional team workflow. Prior to this, my 4 years of coding experience came from personal projects and freelance work.
 					</sc.Copy>
 					<sc.Copy>
-						I'm available and open to start my professional career.
+						Open to new opportunities and connections as I grow my career in software development.
 					</sc.Copy>
 				</wp.Col>
 			</sc.Section>

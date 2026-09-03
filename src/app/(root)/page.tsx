@@ -16,7 +16,7 @@ export default function Home() {
 					</sc.Copy>
 
 					<wp.Row $fWrap="wrap" $gap="13px">
-						<Cta clientRender href="#work">Selected work</Cta>
+						<Cta href="#work">Selected work</Cta>
 						<Cta clientRender btnProps={{$style: "ghost_link"}} href="/contact">Contact me</Cta>
 					</wp.Row>
 				</sc.Content>
