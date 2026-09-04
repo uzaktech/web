@@ -1,6 +1,5 @@
 "use client";
 
-import { Box } from "@/styles/primitive";
 import styled from "styled-components";
 
 export const Root = styled.div`
@@ -39,8 +38,7 @@ export const Root = styled.div`
 
 		.front .stop
 		{
-			stop-color: #ff000030 !important;
-			stop-color: #fff7 !important;
+			stop-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 0.57)`} !important;
 				
 			&:nth-child(2)
 			{
@@ -50,8 +48,7 @@ export const Root = styled.div`
 
 		.back .stop
 		{
-			stop-color: #0011ff30 !important;
-			stop-color: #fff7 !important;
+			stop-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 0.57)`} !important;
 				
 			&:nth-child(2)
 			{
@@ -61,8 +58,7 @@ export const Root = styled.div`
 
 		.right .stop
 		{
-			stop-color: #019c0130 !important;
-			stop-color: #fff7 !important;
+			stop-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 0.57)`} !important;
 				
 			&:nth-child(2)
 			{
@@ -72,8 +68,7 @@ export const Root = styled.div`
 
 		.left .stop
 		{
-			stop-color: #ffe60030 !important;
-			stop-color: #fff7 !important;
+			stop-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 0.57)`} !important;
 				
 			&:nth-child(2)
 			{
@@ -131,7 +126,7 @@ export const Root = styled.div`
 		{
 			.stop 
 			{
-				stop-color: #000;
+				stop-color: var(--stop);
 				transition: all .2s ease;
 				
 				&:nth-child(2)
@@ -146,8 +141,9 @@ export const Root = styled.div`
 			position: absolute;
 			width: 150px;
 			height: 150px;
-			border: 1px solid var(--stroke);
-			transform: rotateX(90deg) translateZ(-66.6px);
+			box-shadow: inset 0 0 0 1px var(--stroke);
+			transform: rotateX(90deg) translateZ(-67px);
+			background-color: ${(p) => p.theme.colors.boxBackground};
 		}
 
 		@keyframes spin 
