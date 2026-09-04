@@ -40,6 +40,7 @@ export const Root = styled.div`
 		.front .stop
 		{
 			stop-color: #ff000030 !important;
+			stop-color: #fff7 !important;
 				
 			&:nth-child(2)
 			{
@@ -50,6 +51,7 @@ export const Root = styled.div`
 		.back .stop
 		{
 			stop-color: #0011ff30 !important;
+			stop-color: #fff7 !important;
 				
 			&:nth-child(2)
 			{
@@ -60,6 +62,7 @@ export const Root = styled.div`
 		.right .stop
 		{
 			stop-color: #019c0130 !important;
+			stop-color: #fff7 !important;
 				
 			&:nth-child(2)
 			{
@@ -70,6 +73,7 @@ export const Root = styled.div`
 		.left .stop
 		{
 			stop-color: #ffe60030 !important;
+			stop-color: #fff7 !important;
 				
 			&:nth-child(2)
 			{
