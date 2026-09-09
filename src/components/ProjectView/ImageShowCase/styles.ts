@@ -1,5 +1,6 @@
 "use client";
 
+import { rgba } from "@/styles";
 import { cornerBox, Span } from "@/styles/primitive";
 import styled from "styled-components";
 
@@ -14,7 +15,7 @@ export const Root = styled.div<{$moving?: boolean}>`
 	gap: 13px;
 	overflow: auto;
 	overflow-y: hidden;
-	scrollbar-color: ${({theme}) => `rgba(${theme.colorsRgbC.boxShadow}, 0.23)`} transparent;
+	scrollbar-color: ${({theme}) => rgba(theme.colors.boxShadow, 0.23)} transparent;
 	cursor: ${(p) => p.$moving ? "crosshair" : "default"};
 `;
 
@@ -48,7 +49,7 @@ export const HoverText = styled(Span).attrs({$size: "xv", $weight: "450", $color
 	inset: 0;
   	place-self: center;
 	padding: 3px 9px;
-	background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxShadow}, 0.55)`};
+	background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.55)};
 	backdrop-filter: blur(3px);
 	-webkit-backdrop-filter: blur(3px);
 	z-index: 30;

@@ -17,7 +17,8 @@ export const colors = {
 	greenText: "#36b416"
 } as const;
 
-const colorsRgbC = Object.fromEntries(Object.entries(colors).map(([key, value]) => [key, hexToRgb(value).join(", ")]));
+
+export const rgba = (color: string, alpha: number | string) => `rgba(${hexToRgb(color).join(", ")}, ${alpha})`;
 
 export const defaultTheme = {
 	fontSize: {
@@ -34,6 +35,5 @@ export const defaultTheme = {
 	effects: {
 		transition: "all .13s ease-in"
 	},
-	colors,
-	colorsRgbC
+	colors
 };

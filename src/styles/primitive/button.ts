@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import { cornerBox } from "./box";
 import { css } from "styled-components";
+import { rgba } from "../theme";
 
 export type ButtonProps = {
 	$style?: "ghost_link" | undefined,
@@ -41,25 +42,25 @@ export const buttonStyle = (p: ButtonProps) => css`
 	${p.$style == undefined ? css`
 		color: #fff;
 		text-decoration: none;
-		background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxShadow}, 0.93)`};
+		background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.93)};
 		
 		&:focus,
 		&:hover
 		{
-			${(p) => cornerBox(p.theme, "1px", "#fff", undefined, 2)};
+			${(p) => cornerBox(p.theme, "1px", p.theme.colors.boxBackground, undefined, 2)};
 		}
 		
 		&:active:hover
 		{
 			box-shadow: 
 				inset 0 0 0 3px ${(p) => p.theme.colors.boxShadow},
-				inset 0 0 0 4px #fff;
+				inset 0 0 0 4px ${(p) => p.theme.colors.boxBackground};
 		}
 
 		&:disabled 
 		{
 			pointer-events: none;
-			background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxShadow}, 0.3)`};
+			background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.3)};
 		}
 		
 	` : p.$style == "ghost_link" ? css`
@@ -71,7 +72,7 @@ export const buttonStyle = (p: ButtonProps) => css`
 		
 		&:hover
 		{
-			background-color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 0.03)`};
+			background-color: ${(p) => rgba(p.theme.colors.text, 0.03)};
 			text-decoration: underline;
 		}
 	` : css``}

@@ -2,6 +2,7 @@
 
 import styled, { css } from "styled-components";
 import { Styles } from "styled-components/dist/types";
+import { rgba } from "../theme";
 
 export type PadProps = {
 	$pad?: string,
@@ -104,7 +105,7 @@ export const Division = styled(Wrapper)<{$orientation?: 0 | 1, $breakAt?: number
 		width: 100%;
 		min-height: 1px;
 		min-width: 1px;
-		background-color: ${({theme, $transparent}) => `rgba(${theme.colorsRgbC.boxShadow}, ${$transparent ? 0 : 0.13})`};
+		background-color: ${(p) => rgba(p.theme.colors.boxShadow, p.$transparent ? 0 : 0.13)};
 	}
 
 	${({$breakAt, $breakTo, $orientation}) => ($breakAt && $breakTo) && css`

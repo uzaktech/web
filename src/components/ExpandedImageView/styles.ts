@@ -1,11 +1,12 @@
 "use client";
 
-import { Span } from "@/styles/primitive";
 import styled from "styled-components";
+import { rgba } from "@/styles";
+import { Span } from "@/styles/primitive";
 import { css } from "styled-components";
 
 export const Background = styled.div`
-	background-color: rgba(${(p) => p.theme.colorsRgbC.boxShadow}, 0.3);
+	background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.3)};
 	width: 100vw;
 	height: 100dvh;
 	position: fixed;

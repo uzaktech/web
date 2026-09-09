@@ -1,5 +1,6 @@
 "use client";
 
+import { rgba } from "@/styles";
 import { Span } from "@/styles/primitive/text";
 import styled, { css } from "styled-components";
 
@@ -27,8 +28,7 @@ export const InputBox = styled.div<{$focus?: boolean, $status?: 1 | 2}>`
 	${(p) => p.$focus == true && css`
 		box-shadow: 
 			0 0 0 1px ${p.theme.colors[p.$status == 1 ? "redError" : "boxShadow"]}, 
-			inset 2px 0 0 0 rgba(${p.theme.colorsRgbC[p.$status == 1 ? "redError" : "boxShadow"]}, 1);
-			//0 0 0 3px rgba(${p.theme.colorsRgbC[p.$status == 1 ? "redError" : "boxShadow"]}, 0.09);
+			inset 2px 0 0 0 ${p.theme.colors[p.$status == 1 ? "redError" : "boxShadow"]};
 	`}
 `;
 
@@ -60,7 +60,7 @@ const InputStyle = (p: {status?: 1 | 2}) => css`
 		&:focus 
 		{
 			box-shadow: 
-				inset 2px 0 0 0 rgba(${(pp) => pp.theme.colorsRgbC[p.status == 1 ? "redError" : "boxShadow"]}, 1), 
+				inset 2px 0 0 0 ${(pp) => pp.theme.colors[p.status == 1 ? "redError" : "boxShadow"]}, 
 				inset 0 0 0 1000px ${(pp) => pp.theme.colors.boxBackground} !important;
 		}
 	}
@@ -100,16 +100,16 @@ export const PasswordBtn = styled.div<{$focus?: boolean}>`
 	border-radius: 50%;
 	margin: 0 3px;
 	font-size: ${(p) => p.theme.fontSize.xiii};
-	color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 0.7)`};
+	color: ${(p) => rgba(p.theme.colors.text, 0.7)};
 	transition: ${(p) => p.theme.effects.transition};
 	text-align: center;
 	user-select: none;
 
-	${(p) => p.$focus && css`color: rgba(${p.theme.colorsRgbC.text}, 1);`};
+	${(p) => p.$focus && css`color: ${p.theme.colors.text};`};
 	
 	&:hover 
 	{
-		color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 1)`};
+		color: ${(p) => p.theme.colors.text};
 	}
 `;
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { rgba } from "@/styles";
 import { cornerBox } from "@/styles/primitive";
 import styled from "styled-components";
 import { css } from "styled-components";
@@ -148,24 +149,24 @@ export const Li = styled.li<{$selected?: boolean}>`
 	& > a {
 		position: relative;
 		text-decoration: none;
-		color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 1)`};
+		color: ${(p) => rgba(p.theme.colors.text, 1)};
 		font-weight: 470;
 		font-size: ${({theme}) => theme.fontSize.xvi};
 		
 		&:hover {
-			color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 1)`};
+			color: ${(p) => rgba(p.theme.colors.text, 1)};
 		}
 	}
 	
 	${({$selected}) => $selected && css`
 		& > a {
-			color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 1)`};
+			color: ${(p) => rgba(p.theme.colors.text, 1)};
 		}
 	`}
 
 	@media (max-width: 450px) {
 		& > a {
-			font-size: ${({theme}) => theme.fontSize.xv} ;
+			font-size: ${({theme}) => theme.fontSize.xv};
 		}
 	}
 

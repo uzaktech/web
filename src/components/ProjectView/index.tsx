@@ -4,7 +4,7 @@ import * as bx from "@/styles/primitive/box";
 import * as tx from "@/styles/primitive/text";
 import * as wp from "@/styles/primitive/wrapper";
 import { AnimatedBox, Link, Stack, StackLabels } from "../";
-import { defaultTheme } from "@/styles";
+import { defaultTheme, rgba } from "@/styles";
 import { ImageShowCase } from "./ImageShowCase";
 
 export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
@@ -66,12 +66,12 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 					{(p.frontendSource || p.backendSource) && 
 						<wp.Row $gap="3px 19px" $jc="space-between" $fWrap="wrap">
 							{p.frontendSource && 
-								<Link href={p.frontendSource} target="_blank" opc="0.3" poserStyle>
+								<Link href={p.frontendSource} target="_blank" opc={0.3} poserStyle>
 									{p.backendSource != null ? "Front-end source" : "Source"}
 								</Link>
 							}
 							{p.backendSource && 
-								<Link href={p.backendSource} target="_blank" opc="0.3" poserStyle>
+								<Link href={p.backendSource} target="_blank" opc={0.3} poserStyle>
 									{p.frontendSource != null ? "Back-end source" : "Source"}
 								</Link>
 							}
@@ -79,7 +79,12 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 					}
 				</AnimatedBox>
 			))}
-			<bx.Box $padding="13px 17px" $shadow={false} $border={`dashed 1px rgba(${defaultTheme.colorsRgbC.boxShadow}, 0.5)`} $corner={{borderSize: "1px", color: `rgba(${defaultTheme.colorsRgbC.boxShadow}, 0.5)`, pad: 1}}>
+			<bx.Box 
+				$padding="13px 17px" 
+				$shadow={false} 
+				$border={`dashed 1px ${rgba(defaultTheme.colors.boxShadow, 0.5)}`} 
+				$corner={{borderSize: "1px", opc: 0.5, pad: 1}}
+			>
 				<tx.Span $opc={0.5} $weight="450">new projects are being built</tx.Span>
 			</bx.Box>
 		</wp.Col>

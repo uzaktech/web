@@ -1,5 +1,6 @@
 "use client";
 
+import { rgba } from "@/styles";
 import styled from "styled-components";
 
 export const Root = styled.div`
@@ -38,7 +39,7 @@ export const Root = styled.div`
 
 		.front .stop
 		{
-			stop-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 0.57)`} !important;
+			stop-color: ${(p) => rgba(p.theme.colors.boxBackground, 0.57)} !important;
 				
 			&:nth-child(2)
 			{
@@ -48,7 +49,7 @@ export const Root = styled.div`
 
 		.back .stop
 		{
-			stop-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 0.57)`} !important;
+			stop-color: ${(p) => rgba(p.theme.colors.boxBackground, 0.57)} !important;
 				
 			&:nth-child(2)
 			{
@@ -58,7 +59,7 @@ export const Root = styled.div`
 
 		.right .stop
 		{
-			stop-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 0.57)`} !important;
+			stop-color: ${(p) => rgba(p.theme.colors.boxBackground, 0.57)} !important;
 				
 			&:nth-child(2)
 			{
@@ -68,7 +69,7 @@ export const Root = styled.div`
 
 		.left .stop
 		{
-			stop-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 0.57)`} !important;
+			stop-color: ${(p) => rgba(p.theme.colors.boxBackground, 0.57)} !important;
 				
 			&:nth-child(2)
 			{

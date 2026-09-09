@@ -2,6 +2,7 @@
 
 import styled, { css } from "styled-components";
 import { DefaultTheme } from "styled-components/dist/types";
+import { rgba } from "../theme";
 
 export type BoxProps = {
 	$padding?: string;
@@ -14,7 +15,8 @@ export type BoxProps = {
 		borderSize: string,
 		color?: string,
 		size?: string,
-		pad?: number
+		pad?: number,
+		opc?: number
 	};
 	$cornerP?: "none" | "default",
 	$shadow?: boolean,
@@ -29,7 +31,7 @@ export type BoxProps = {
 	$jc?: string
 }
 
-export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: string | undefined, size?: string | undefined, pad?: number) => css`
+export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: string | undefined, size?: string | undefined, pad?: number, opc?: number) => css`
 	&::after 
 	{
 		content: "";
@@ -38,8 +40,8 @@ export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: stri
 		left: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
 		height: ${size ?? "var(--corner-default-size)"};
 		aspect-ratio: 1;
-		border-left: solid ${borderSize ?? "1px"} ${color ?? theme.colors.boxShadow};
-		border-top: solid ${borderSize ?? "1px"} ${color ?? theme.colors.boxShadow};
+		border-left: solid ${borderSize ?? "1px"} ${rgba((color ?? theme.colors.boxShadow), (opc ?? 1))};
+		border-top: solid ${borderSize ?? "1px"} ${rgba((color ?? theme.colors.boxShadow), (opc ?? 1))};
 		z-index: 1;
 	}
 	
@@ -51,8 +53,8 @@ export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: stri
 		right: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
 		height: ${size ?? "var(--corner-default-size)"};
 		aspect-ratio: 1;
-		border-right: solid ${borderSize ?? "1px"} ${color ?? theme.colors.boxShadow};
-		border-bottom: solid ${borderSize ?? "1px"} ${color ?? theme.colors.boxShadow};
+		border-right: solid ${borderSize ?? "1px"} ${rgba((color ?? theme.colors.boxShadow), (opc ?? 1))};
+		border-bottom: solid ${borderSize ?? "1px"} ${rgba((color ?? theme.colors.boxShadow), (opc ?? 1))};
 		z-index: 1;
 	}
 `;
@@ -77,5 +79,5 @@ export const Box = styled.div<BoxProps>`
 	justify-content: ${(p) => p.$jc};
 	background-color: ${(p) => p.theme.colors.boxBackground};
 
-	${(p) => p.$cornerP != "none" && (cornerBox(p.theme, p.$corner?.borderSize, p.$corner?.color, p.$corner?.size, p.$corner?.pad))}
+	${(p) => p.$cornerP != "none" && (cornerBox(p.theme, p.$corner?.borderSize, p.$corner?.color, p.$corner?.size, p.$corner?.pad, p.$corner?.opc))}
 `;

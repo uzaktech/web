@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { rgba } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
  	:root 
@@ -75,7 +76,7 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		margin: 0;
 		border: 0;
-		background-color: ${({theme}) => theme.colors.bodyBackground};
+		background-color: ${(p) => p.theme.colors.bodyBackground};
 		width: 100vw;
 		height: 100dvh;
 		max-width: 100vw;
@@ -85,7 +86,7 @@ export const GlobalStyle = createGlobalStyle`
 	
 	* 
 	{
-		scrollbar-color: ${({theme}) => `rgba(${theme.colorsRgbC.boxShadow}, 0.43)`} transparent;
+		scrollbar-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.43)} transparent;
 		scrollbar-width: thin;
 		-webkit-tap-highlight-color: transparent;
 		outline: none;
@@ -95,7 +96,7 @@ export const GlobalStyle = createGlobalStyle`
 
 		&::selection 
 		{
-			background-color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 0.1)`};
+			background-color: ${(p) => rgba(p.theme.colors.text, 0.1)};
 			color: ${(p) => p.theme.colors.text};
 		}
 	}

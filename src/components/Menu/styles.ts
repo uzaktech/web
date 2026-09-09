@@ -1,5 +1,6 @@
 "use client";
 
+import { rgba } from "@/styles";
 import { Box } from "@/styles/primitive";
 import styled, { css } from "styled-components";
 
@@ -18,7 +19,7 @@ export const Root = styled.div`
 `;
 
 export const Background = styled.div`
-	background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxBackground}, 1)`};
+	background-color: ${(p) => p.theme.colors.boxBackground};
 	position: absolute;
 	inset: 0 0;
 	width: 100%;
@@ -98,7 +99,7 @@ export const Division = styled.div`
 	position: relative;
 	width: 100%;
 	height: 1px;
-	background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxShadow}, 1)`};
+	background-color: ${(p) => p.theme.colors.boxShadow};
 	margin: 0 0 13px;
 `;
 
@@ -117,7 +118,7 @@ export const CloseBtn = styled.div`
 		left: 50%;
 		height: calc(100% - 3px);
 		width: 1px;
-		background-color: ${(p) => `rgba(${p.theme.colorsRgbC.boxShadow}, 0.13)`};
+		background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.13)};
 		background-color: ${(p) => p.theme.colors.boxShadow};
 	}
 

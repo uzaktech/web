@@ -1,13 +1,13 @@
 "use client";
 
 import styled, { css } from "styled-components";
-import { defaultTheme } from "../theme";
+import { defaultTheme, rgba } from "../theme";
 import { cornerBox } from "./box";
 import { DefaultTheme } from "styled-components/dist/types";
 
 export type TextProps = {
 	$size?: keyof typeof defaultTheme.fontSize, 
-	$colorPreset?: keyof typeof defaultTheme.colorsRgbC, 
+	$colorPreset?: keyof typeof defaultTheme.colors, 
 	$color?: string, 
 	$margin?: string, 
 	$weight?: string, 
@@ -32,8 +32,8 @@ export const defaultText = (props: TextProps & {theme: DefaultTheme}) => css`
 	font-size: ${props.theme.fontSize[props.$size ?? "xvii"]};
 	margin: 0;
 	color: ${
-		props.$colorPreset ? `rgba(${props.theme.colorsRgbC[props.$colorPreset]}, var(--opc))`
-		: props.$color ?? `rgba(${props.theme.colorsRgbC.text}, var(--opc))`};
+		props.$colorPreset ? rgba(props.theme.colors[props.$colorPreset], "var(--opc)")
+		: props.$color ?? rgba(props.theme.colors.text, "var(--opc)")};
 	font-weight: ${props.$weight ?? 400};
 	margin: ${props.$margin};
 	font-style: ${props.$italic && "italic"};
@@ -67,7 +67,7 @@ export const H1 = styled.h1<TextProps>`
 	position: relative;
 	font-size: ${({theme, $size}) => $size != null ? theme.fontSize[$size] : theme.fontSize.xxiii};
 	width: fit-content;
-	color: ${({theme, $color, $opc}) => $color || `rgba(${theme.colorsRgbC.text}, ${$opc || 1})`};
+	color: ${({theme, $color, $opc}) => $color || rgba(theme.colors.text, $opc || 1)};
 	font-weight: ${({$weight}) => $weight || 550};
 	margin: ${({$margin}) => $margin ?? "0"};
 	line-height: ${({$lineHeight}) => $lineHeight};
@@ -94,6 +94,6 @@ export const Label = styled.label<TextProps>`
 
 	font-size: ${(p) => p.theme.fontSize.xv};
 	cursor: ${(p) => p.$cursor ?? "default"};
-	color: ${(p) => p.$color ?? `rgba(${p.theme.colorsRgbC.text}, 0.9)`};
+	color: ${(p) => p.$color ?? rgba(p.theme.colors.text, 0.9)};
 	font-weight: ${(p) => p.$weight ?? 450};
 `;
