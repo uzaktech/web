@@ -1,8 +1,7 @@
-import * as bx from "@/styles/primitive/box";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AnimatedBox, AvailabilityLable, Cta, Stack } from "@/components";
+import { AnimatedBox, Cta, Stack } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -177,8 +176,6 @@ export default function Page() {
 
 			<sc.Section>
 				<wp.Col $gap="5px">
-					<AvailabilityLable />
-
 					<sc.Title>Let&apos;s talk about your project!</sc.Title>
 				</wp.Col>
 				

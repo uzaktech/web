@@ -14,7 +14,7 @@ export const buttonStyle = (p: ButtonProps) => css`
 	display: inline-flex;
 	align-items: center;
 	padding: 10px 16px;
-	font-weight: 530;
+	font-weight: 500;
 	font-size: ${(p) => p.theme.fontSize.xv};
 	position: relative;
 	height: ${p.$cta == true ? "var(--height-btn-cta)" : "var(--height-btn)"};
@@ -65,7 +65,7 @@ export const buttonStyle = (p: ButtonProps) => css`
 	` : p.$style == "ghost_link" ? css`
 		background-color: ${(p) => p.theme.colors.boxBackground};
 		color: ${(p) => p.theme.colors.text};
-		font-weight: 530;
+		font-weight: 500;
 		box-shadow: inset 0 0 0 1px ${(p) => p.theme.colors.boxShadow};
 		text-decoration: none;
 		

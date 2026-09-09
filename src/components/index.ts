@@ -4,7 +4,6 @@ export * from "./Logo";
 export * from "./ProjectView";
 export * from "./Pyramid";
 export * from "./Stack";
-export * from "./AvailabilityLable";
 export * from "./Input";
 export * from "./ContactMessageForm";
 export * from "./ExpandedImageView";

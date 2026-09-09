@@ -148,24 +148,18 @@ export const Li = styled.li<{$selected?: boolean}>`
 	& > a {
 		position: relative;
 		text-decoration: none;
-		color: #000;
-		font-weight: 530;
+		color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 1)`};
+		font-weight: 470;
 		font-size: ${({theme}) => theme.fontSize.xvi};
-
+		
 		&:hover {
-			text-decoration: underline;
+			color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 1)`};
 		}
 	}
-
-	&:hover::after {
-		visibility: visible;
-	}
-
+	
 	${({$selected}) => $selected && css`
-		&::after {
-			visibility: visible;
-			width: 85%;
-			box-shadow: 0 3px 10px #fff;
+		& > a {
+			color: ${(p) => `rgba(${p.theme.colorsRgbC.text}, 1)`};
 		}
 	`}
 

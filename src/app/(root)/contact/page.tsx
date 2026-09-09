@@ -3,7 +3,7 @@ import * as bx from "@/styles/primitive/box";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AvailabilityLable, ContactMessageForm, Link } from "@/components";
+import { ContactMessageForm, Link } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,8 +17,6 @@ export default function Page() {
 				<sc.Content $gap="18px">
 					<wp.Col $gap="5px">
 						<tx.H1>Contact me</tx.H1>
-
-						<AvailabilityLable />
 					</wp.Col>
 
 					<sc.Copy>

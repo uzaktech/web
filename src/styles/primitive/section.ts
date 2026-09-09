@@ -47,7 +47,7 @@ export const Content = styled(Wrapper)`
 	}
 `;
 
-export const Label = styled(Span).attrs({$size: "xvi", $opc: 0.5, $lSpacing: "0.08em", $weight: "550", $margin: "0 0 -9px"})`
+export const Label = styled(Span).attrs({$size: "xvi", $opc: 0.4, $lSpacing: "0.08em", $weight: "550", $margin: "0 0 -9px"})`
 	text-transform: uppercase !important;
 `;
 
