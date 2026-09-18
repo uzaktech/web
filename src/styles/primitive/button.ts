@@ -70,10 +70,18 @@ export const buttonStyle = (p: ButtonProps) => css`
 		box-shadow: inset 0 0 0 1px ${(p) => p.theme.colors.boxShadow};
 		text-decoration: none;
 		
+		&:focus,
 		&:hover
 		{
-			background-color: ${(p) => rgba(p.theme.colors.text, 0.03)};
-			text-decoration: underline;
+			${(p) => cornerBox(p.theme, "1px", p.theme.colors.boxShadow, undefined, 2)};
+		}
+		
+		&:active:hover
+		{
+			box-shadow: 
+				inset 0 0 0 1px ${(p) => p.theme.colors.boxShadow},
+				inset 0 0 0 3px ${(p) => p.theme.colors.boxBackground},
+				inset 0 0 0 4px ${(p) => p.theme.colors.boxShadow};
 		}
 	` : css``}
 `;
