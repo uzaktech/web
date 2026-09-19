@@ -105,7 +105,6 @@ export const Division = styled(Wrapper)<{$orientation?: 0 | 1, $breakAt?: number
 		width: 100%;
 		min-height: 1px;
 		min-width: 1px;
-		background-color: ${(p) => rgba(p.theme.colors.boxShadow, p.$transparent ? 0 : (p.$opc ?? 0.13))};
 	}
 
 	${({$breakAt, $breakTo, $orientation}) => ($breakAt && $breakTo) && css`
@@ -129,14 +128,16 @@ export const Division = styled(Wrapper)<{$orientation?: 0 | 1, $breakAt?: number
 		}
 	`}
 
-	${({$orientation}) => $orientation === 1 ? css`
+	${({$orientation, ...p}) => $orientation === 1 ? css`
 			min-width: 100%;
 			width: 100%;
-			min-height: 1px;
+			min-height: 0px;
+			border-bottom: solid 1px ${rgba(p.theme.colors.boxShadow, p.$transparent ? 0 : (p.$opc ?? 0.13))};
 		` : css`
 			min-height: 100%;
 			height: 100%;
-			min-width: 1px;
+			min-width: 0px;
+			border-right: solid 1px ${rgba(p.theme.colors.boxShadow, p.$transparent ? 0 : (p.$opc ?? 0.13))};
 		`
 	}
 `;
