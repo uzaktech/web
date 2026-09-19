@@ -50,11 +50,10 @@ export const buttonStyle = (p: ButtonProps) => css`
 			${(p) => cornerBox(p.theme, "1px", p.theme.colors.boxBackground, undefined, 2)};
 		}
 		
+		
 		&:active:hover
 		{
-			box-shadow: 
-				inset 0 0 0 3px ${(p) => p.theme.colors.boxShadow},
-				inset 0 0 0 4px ${(p) => p.theme.colors.boxBackground};
+			${(p) => cornerBox(p.theme, "1px", p.theme.colors.boxBackground, "100%", 2)};
 		}
 
 		&:disabled 
@@ -67,7 +66,8 @@ export const buttonStyle = (p: ButtonProps) => css`
 		background-color: ${(p) => p.theme.colors.boxBackground};
 		color: ${(p) => p.theme.colors.text};
 		font-weight: 500;
-		box-shadow: inset 0 0 0 1px ${(p) => p.theme.colors.boxShadow};
+		outline: solid 1px ${(p) => p.theme.colors.boxShadow};
+		outline-offset: -1px;
 		text-decoration: none;
 		
 		&:focus,
@@ -78,10 +78,7 @@ export const buttonStyle = (p: ButtonProps) => css`
 		
 		&:active:hover
 		{
-			box-shadow: 
-				inset 0 0 0 1px ${(p) => p.theme.colors.boxShadow},
-				inset 0 0 0 3px ${(p) => p.theme.colors.boxBackground},
-				inset 0 0 0 4px ${(p) => p.theme.colors.boxShadow};
+			${(p) => cornerBox(p.theme, "1px", p.theme.colors.boxShadow, "100%", 2)};
 		}
 	` : css``}
 `;
