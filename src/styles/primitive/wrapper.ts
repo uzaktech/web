@@ -93,7 +93,7 @@ export const Col = styled(Wrapper).attrs({$display: "flex"})`
 	flex-direction: column;
 `;
 
-export const Division = styled(Wrapper)<{$orientation?: 0 | 1, $breakAt?: number, $breakTo?: "hid" | "show" | "invert", $transparent?: boolean}>`
+export const Division = styled(Wrapper)<{$orientation?: 0 | 1, $breakAt?: number, $breakTo?: "hid" | "show" | "invert", $transparent?: boolean, $opc?: number}>`
 	position: relative;
 	display: flex;
 
@@ -105,7 +105,7 @@ export const Division = styled(Wrapper)<{$orientation?: 0 | 1, $breakAt?: number
 		width: 100%;
 		min-height: 1px;
 		min-width: 1px;
-		background-color: ${(p) => rgba(p.theme.colors.boxShadow, p.$transparent ? 0 : 0.13)};
+		background-color: ${(p) => rgba(p.theme.colors.boxShadow, p.$transparent ? 0 : (p.$opc ?? 0.13))};
 	}
 
 	${({$breakAt, $breakTo, $orientation}) => ($breakAt && $breakTo) && css`

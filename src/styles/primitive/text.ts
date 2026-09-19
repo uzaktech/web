@@ -23,7 +23,8 @@ export type TextProps = {
 	$lineHeight?: number,
 	$lSpacing?: string,
 	$align?: string,
-	$tDecoration?: string
+	$tDecoration?: string,
+	$uSelect?: string
 }
 
 export const defaultText = (props: TextProps & {theme: DefaultTheme}) => css`
@@ -46,6 +47,7 @@ export const defaultText = (props: TextProps & {theme: DefaultTheme}) => css`
 	text-align: ${props.$align};
 	text-decoration: ${props.$tDecoration};
 	letter-spacing: ${props.$lSpacing};
+	user-select: ${props.$uSelect};
 
 	${props.$opcHover != null && css`
 		&:hover 
