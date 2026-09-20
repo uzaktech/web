@@ -96,7 +96,7 @@ export const GlobalStyle = createGlobalStyle`
 
 		&::selection 
 		{
-			background-color: ${(p) => rgba(p.theme.colors.text, 0.1)};
+			background-color: ${(p) => rgba(p.theme.colors.text, 0.07)};
 			color: ${(p) => p.theme.colors.text};
 		}
 	}
