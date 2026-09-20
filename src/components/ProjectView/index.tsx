@@ -114,10 +114,10 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 					<wp.Division $orientation={1} $opc={1} />
 
 					{/* Footer Card */}
-					<wp.Row $jc="space-between" $pad="9px 17px" $gap="9px" $ai="center">
+					<wp.Row $jc="space-between" $pad="8px 17px" $gap="9px" $ai="center">
 						<Stack justIcon list={p.stackLabels.map(a => {return {label: a, icon: portfolio == true}})}/>
 
-						<tx.Span $wSpace="nowrap" $weight="500" $opc={0.5} $size="xvi">
+						<tx.Span $wSpace="nowrap" $weight="500" $opc={0.5} $size="xv">
 							{p.linesCount}+ lines
 						</tx.Span>
 					</wp.Row>
