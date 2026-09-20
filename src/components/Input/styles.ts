@@ -13,23 +13,17 @@ export const Root = styled.div<{$width?: string, $maxWidth?: string}>`
 	gap: 5px;
 `;
 
-export const InputBox = styled.div<{$focus?: boolean, $status?: 1 | 2}>`
+export const InputBox = styled.div<{$status?: 1 | 2}>`
 	min-height: var(--height-btn-inp);
 	cursor: text;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	background-color: ${(p) => p.theme.colors.boxBackground};
-	box-shadow: 0 0 0 1px ${(p) => p.theme.colors[p.$status == 1 ? "redError" : "boxShadow"]};
+	outline: solid 1px ${(p) => p.theme.colors[p.$status == 1 ? "redError" : "boxShadow"]};
 	height: fit-content;
 	max-width: 100%;
 	overflow: auto;
-	
-	${(p) => p.$focus == true && css`
-		box-shadow: 
-			0 0 0 1px ${p.theme.colors[p.$status == 1 ? "redError" : "boxShadow"]}, 
-			inset 2px 0 0 0 ${p.theme.colors[p.$status == 1 ? "redError" : "boxShadow"]};
-	`}
 `;
 
 const InputStyle = (p: {status?: 1 | 2}) => css`
@@ -53,16 +47,13 @@ const InputStyle = (p: {status?: 1 | 2}) => css`
 		user-select: none;
 	}
 
-	&:is(:-webkit-autofill, :autofill) 
-	{
-		box-shadow: inset 0 0 0 1000px ${(pp) => pp.theme.colors.boxBackground} !important;
+	box-shadow: inset 0 0 0 1000px ${(pp) => pp.theme.colors.boxBackground} !important;
 
-		&:focus 
-		{
-			box-shadow: 
-				inset 2px 0 0 0 ${(pp) => pp.theme.colors[p.status == 1 ? "redError" : "boxShadow"]}, 
-				inset 0 0 0 1000px ${(pp) => pp.theme.colors.boxBackground} !important;
-		}
+	&:focus 
+	{
+		box-shadow: 
+			inset 2px 0 0 0 ${(pp) => pp.theme.colors[p.status == 1 ? "redError" : "boxShadow"]}, 
+			inset 0 0 0 1000px ${(pp) => pp.theme.colors.boxBackground} !important;
 	}
 `;
 
