@@ -69,6 +69,7 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 					key={i}
 				>
 					<wp.Col $pad="13px 17px" $gap="9px">
+						{/* Header Card */}
 						<wp.Row $fWrap="wrap" $gap="3px 13px" $jc="space-between" $ai="center">
 							<tx.P $size="xviii" $weight="450">{p.title}</tx.P>
 							<tx.P $size="xv" $opc={0.5} $weight="500">{p.category}</tx.P>
@@ -80,32 +81,39 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 								{!p.dateRange.end ? "present" : `${p.dateRange.end.toLocaleString('default', { month: 'short' })} ${p.dateRange.end.getFullYear()}`}
 							</tx.Span>
 						}
-						
-						<tx.P $maxWidth="43rem" $opc={0.7} $margin="3px 0 3px">
-							{p.description}
-						</tx.P>
 
-						{p.links && 
-							<wp.Row $gap="3px 9px" $fWrap="wrap">
-								{p.links.map((l, i) => (
-									<Fragment key={i}>
-										{i != 0 && 
-											<tx.Span $uSelect="none" $cursor="default" $opc={.3}>/</tx.Span>
-										}
+						<wp.Row $pad="0 0px" $gap="13px" $breakAt={9}>
+							{/* Information Column */}
+							<wp.Col $pad="0 0px" $gap="9px" $dSize={["100%", undefined]}>
+								<tx.P $maxWidth="43rem" $opc={0.7} $margin="3px 0 3px">
+									{p.description}
+								</tx.P>
 
-										<Link href={l.url} target="_blank" poserStyle opc={.9} size="xvi">
-											{l.label}
-										</Link>
-									</Fragment>
-								))}
-							</wp.Row>
-						}
+								{p.links && 
+									<wp.Row $gap="3px 9px" $fWrap="wrap">
+										{p.links.map((l, i) => (
+											<Fragment key={i}>
+												{i != 0 && 
+													<tx.Span $uSelect="none" $cursor="default" $opc={.3}>/</tx.Span>
+												}
 
-						{p.imagesUrl.length > 0 && <ImageShowCase images={p.imagesUrl} />}
+												<Link href={l.url} target="_blank" poserStyle opc={.9} size="xvi">
+													{l.label}
+												</Link>
+											</Fragment>
+										))}
+									</wp.Row>
+								}
+							</wp.Col>
+
+							{/* Image ShowCase */}
+							{p.imagesUrl.length > 0 && <ImageShowCase images={p.imagesUrl} />}
+						</wp.Row>
 					</wp.Col>
 
 					<wp.Division $orientation={1} $opc={1} />
 
+					{/* Footer Card */}
 					<wp.Row $jc="space-between" $pad="9px 17px" $gap="9px" $ai="center">
 						<Stack justIcon list={p.stackLabels.map(a => {return {label: a, icon: portfolio == true}})}/>
 
