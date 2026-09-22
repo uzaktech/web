@@ -27,9 +27,7 @@ export const projects = (portfolio?: boolean): ProjectType[] => [
 			"/project_captures/dentalv/6.png", 
 			"/project_captures/dentalv/7.png"
 		],
-		stackLabels: !portfolio
-			? ["c_sharp", "pgsql", "next_js", "ts", "docker"]
-			: ["c_sharp", "pgsql", "next_js", "ts", "docker", "nginx"],
+		stackLabels: ["c_sharp", "dot_net", "pgsql", "next_js", "ts", "sass", "react_js", "nodejs"],
 		dateRange: {start: new Date(2025, 5, 1), end: new Date(2025, 9, 1)},
 		linesCount: 65000
 	},
@@ -50,10 +48,9 @@ export const projects = (portfolio?: boolean): ProjectType[] => [
 			"/project_captures/gd/8.jpeg",
 			"/project_captures/gd/9.jpeg"
 		],
-		stackLabels: ["c_sharp", "pgsql", "next_js", "ts", "stripe"],
+		stackLabels: ["c_sharp", "dot_net", "pgsql", "next_js", "ts", "styled", "react_js", "stripe"],
 		links: [
-			{label: "Front-End Repo", url: "https://github.com/enzoKazuki/greendollar.web"},
-			{label: "Back-End Repo", url: "https://github.com/enzoKazuki/greendollar.api"}
+			{label: "GitHub (Back-End)", url: "https://github.com/enzoKazuki/greendollar.api"}
 		],
 		dateRange: {start: new Date(2026, 1, 1), end: new Date(2026, 5, 1)},
 		linesCount: 29000
