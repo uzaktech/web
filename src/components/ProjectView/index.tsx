@@ -70,9 +70,16 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 					<wp.Row $jc="space-between" $pad="8px 17px" $gap="9px" $ai="center">
 						<Stack justIcon list={p.stackLabels.map(a => {return {label: a, icon: portfolio == true}})}/>
 
-						<tx.Span $wSpace="nowrap" $weight="500" $opc={0.5} $size="xv">
-							{p.linesCount}+ lines
-						</tx.Span>
+						{p.linesCount && <tx.Span $wSpace="nowrap" $weight="500" $opc={0.5} $size="xv">
+							{(p.linesCount >= 1e9 
+									? `${(p.linesCount / 1e9).toFixed(1)}B` 
+									: p.linesCount >= 1e6 
+										? `${(p.linesCount / 1e6).toFixed(1)}M` 
+										: p.linesCount >= 1e3 
+											? `${(p.linesCount / 1e3).toFixed(1)}K` 
+											: p.linesCount
+							)}+ lines
+						</tx.Span>}
 					</wp.Row>
 				</AnimatedBox>
 			))}
