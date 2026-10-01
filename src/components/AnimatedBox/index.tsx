@@ -2,7 +2,7 @@
 
 import * as b from "@/styles/primitive/box";
 import * as s from "./styles";
-import { ComponentPropsWithoutRef, ElementType, ReactNode, useEffect, useRef, useState } from "react";
+import { AnimationEvent, ComponentPropsWithoutRef, ElementType, ReactNode, useEffect, useRef, useState } from "react";
 
 export type AnimatedBoxProps = {
 	boxStyle?: b.BoxProps,
@@ -79,10 +79,15 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 		};
 	}
 
+	const onAnimation = (e: AnimationEvent) => {
+		if (e.target == e.currentTarget) {
+			setOpened(e.type == "animationend");
+		}
+	}
+
 	useEffect(() => {
 		if (animationView == "intersection") return intersectionFn();
 	}, [animationView, boxRef, boxRects])
-
 
 	useEffect(() => setWasIntersected(isIntersecting ? true : wasIntersected), [isIntersecting])
 
@@ -159,8 +164,8 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 				$delayMaxWidth={groupOptions?.delay?.maxWidth}
 				$boxHeight={boxStyle?.$height}
 				$boxWidth={boxStyle?.$width}
-				onAnimationStart={(e) => setOpened(e.target === e.currentTarget ? false : opened)}
-				onAnimationEnd={(e) => setOpened(e.target === e.currentTarget ? true : opened)}
+				onAnimationStart={onAnimation}
+				onAnimationEnd={onAnimation}
 			>
 				<s.ContentLock 
 					{...props}
