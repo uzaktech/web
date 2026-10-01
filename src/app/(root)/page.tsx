@@ -7,7 +7,9 @@ import { AnimatedBox, Cta, ProjectView, Pyramid } from "@/components";
 export default function Home() {
   	return (
 		<sc.Root>
-			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center">
+			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center" 
+				$cssStage={{n: 9, css: {alignItems: "flex-end"}}}
+			>
 				<sc.Content $maxSize={["100%", "300px"]} $minSize={["auto", "fit-content"]} $dSize={["100%", "100%"]}>
 					<tx.H1>Building incomparable dreams with passion and creativity</tx.H1>
 
@@ -24,7 +26,7 @@ export default function Home() {
 				<AnimatedBox 
 					animationView="default" 
 					options={{oneTimeLoad: true}} 
-					boxStyle={{$padding: "0", $gap: "0", $margin: "0 0 0 auto", $width: "auto", $height: "auto", $aspectRatio: "1"}}
+					boxStyle={{$padding: "0", $gap: "0", $width: "auto", $height: "auto", $aspectRatio: "1"}}
 				>
 					<Pyramid />
 				</AnimatedBox>
@@ -121,25 +123,61 @@ export default function Home() {
 					I focus on web products where I can handle the design, development, and infrastructure myself.
 				</sc.Copy>
 
-				<wp.Row $fWrap="wrap" $gap="9px">
-					<bx.Box $cornerP="none" $padding="8px 9px" $fDirection="row" $ai="center" $gap="9px">
+				<wp.Row $fWrap="wrap" $gap="9px" $ai="flex-start">
+					<AnimatedBox 
+						animationView="intersection"
+						animationSpeed="fast"
+						options={{oneTimeLoad: true}}
+						groupOptions={{position: 0, delay: { ms: .09 }}}
+						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
+					>
 						<tx.Span $size="xv" $weight="450">SaaS MVPs</tx.Span>
-					</bx.Box>
-					<bx.Box $cornerP="none" $padding="8px 9px" $fDirection="row" $ai="center" $gap="9px">
+					</AnimatedBox>
+					<AnimatedBox 
+						animationView="intersection"
+						animationSpeed="fast"
+						options={{oneTimeLoad: true}}
+						groupOptions={{position: 1, delay: { ms: .09 }}}
+						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
+					>
 						<tx.Span $size="xv" $weight="450">Web apps</tx.Span>
-					</bx.Box>
-					<bx.Box $cornerP="none" $padding="8px 9px" $fDirection="row" $ai="center" $gap="9px">
+					</AnimatedBox>
+					<AnimatedBox 
+						animationView="intersection"
+						animationSpeed="fast"
+						options={{oneTimeLoad: true}}
+						groupOptions={{position: 2, delay: { ms: .09 }}}
+						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
+					>
 						<tx.Span $size="xv" $weight="450">Internal tools</tx.Span>
-					</bx.Box>
-					<bx.Box $cornerP="none" $padding="8px 9px" $fDirection="row" $ai="center" $gap="9px">
+					</AnimatedBox>
+					<AnimatedBox 
+						animationView="intersection"
+						animationSpeed="fast"
+						options={{oneTimeLoad: true}}
+						groupOptions={{position: 3, delay: { ms: .09 }}}
+						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
+					>
 						<tx.Span $size="xv" $weight="450">Design systems</tx.Span>
-					</bx.Box>
-					<bx.Box $cornerP="none" $padding="8px 9px" $fDirection="row" $ai="center" $gap="9px">
+					</AnimatedBox>
+					<AnimatedBox 
+						animationView="intersection"
+						animationSpeed="fast"
+						options={{oneTimeLoad: true}}
+						groupOptions={{position: 4, delay: { ms: .09 }}}
+						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
+					>
 						<tx.Span $size="xv" $weight="450">Infrastructure</tx.Span>
-					</bx.Box>
-					<bx.Box $cornerP="none" $padding="8px 9px" $fDirection="row" $ai="center" $gap="9px">
+					</AnimatedBox>
+					<AnimatedBox 
+						animationView="intersection"
+						animationSpeed="fast"
+						options={{oneTimeLoad: true}}
+						groupOptions={{position: 5, delay: { ms: .09 }}}
+						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
+					>
 						<tx.Span $size="xv" $weight="450">Payment integration</tx.Span>
-					</bx.Box>
+					</AnimatedBox>
 				</wp.Row>
 			</sc.Section>
 

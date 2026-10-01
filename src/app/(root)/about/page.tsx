@@ -1,7 +1,7 @@
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AnimatedBox, Cta, Stack } from "@/components";
+import { AnimatedBox, Cta, StackSkills } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,8 +18,7 @@ export default function Page() {
 				</tx.H1>
 
 				<sc.Copy>
-					Uzak isn&apos;t a team, it&apos;s an independent developer studio. Every line of code, every pixel,
-					every decision — one person, start to finish.
+					Uzak isn't a team. It's a one-person studio where I handle the design, development, and everything in between.
 				</sc.Copy>
 			</sc.Section>
 
@@ -29,18 +28,14 @@ export default function Page() {
 
 				<wp.Col $gap="9px">
 					<sc.Copy>
-						Uzak started as a simple idea: I&apos;m a passionate full-stack developer who wanted the
-						freedom to explore that creativity without limits. Instead of joining a team, I saw the
-						opportunity to build my own independent studio — growing my skills while turning ideas
-						into real, working products.
+						Uzak started from a simple idea: I wanted a place where I could build things my own way. Instead of working on someone else's products all the time, I wanted to create my own and see them through from idea to finished product.
 					</sc.Copy>
 					<sc.Copy>
 						Uzak doesn&apos;t have a literal meaning, but to me it represents strength and creativity,
 						but also it's my nickname. 
 					</sc.Copy>
 					<sc.Copy>
-						I&apos;m drawn most to SaaS products, e-commerce platforms, and bold, unconventional
-						ideas.
+						I&apos;m drawn most to SaaS products, e-commerce platforms, and ideas that are a little different from the usual.
 					</sc.Copy>
 				</wp.Col>
 			</sc.Section>
@@ -53,71 +48,7 @@ export default function Page() {
 					The tools change project to project, but this is home base.
 				</sc.Copy>
 
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Back-end</tx.Span>
-					
-					<Stack list={[
-						{label: "c_sharp", icon: true},
-						{label: "dot_net", icon: true},
-						{label: "stripe", icon: true},
-						{label: "nodejs", icon: true},
-					]} />
-				</wp.Col>
-				
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Front-end</tx.Span>
-					
-					<Stack list={[
-						{label: "ts", icon: true},
-						{label: "next_js", icon: true},
-						{label: "react_js", icon: true},
-						{label: "vite", icon: true},
-						{label: "sass", icon: true},
-						{label: "styled", icon: true},
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Database</tx.Span>
-					
-					<Stack list={[
-						{label: "pgsql", icon: true},
-						{label: "mssql", icon: true}
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">DevOps</tx.Span>
-					
-					<Stack list={[
-						{label: "git", icon: true},
-						{label: "docker", icon: true},
-						{label: "nginx", icon: true},
-						{label: "aws", icon: true},
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Tools</tx.Span>
-					
-					<Stack list={[
-						{label: "vs_code", icon: true},
-						{label: "v_studio", icon: true},
-						{label: "dbeaver", icon: true},
-						{label: "github", icon: true},
-						{label: "gimp", icon: true},
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">AI Agents</tx.Span>
-					
-					<Stack list={[
-						{label: "cursor", icon: true},
-						{label: "gemini", icon: true},
-						{label: "claude", icon: true},
-					]} />
-				</wp.Col>
+				<StackSkills />
 			</sc.Section>
 
 			<sc.Section>
@@ -135,8 +66,7 @@ export default function Page() {
 						<tx.P $size="xviii" $weight="450">Ownership</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
-							Every decision, every bug, every deadline — mine to own. Nothing gets passed down the line.
-							The idea is all yours.
+							I take responsibility for the whole project, from the first idea to the final release. There's no handoff between different people or teams. 
 						</tx.P>
 					</AnimatedBox>
 
@@ -150,8 +80,7 @@ export default function Page() {
 						<tx.P $size="xviii" $weight="450">Craft</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
-							I&apos;d rather ship something later and get it right than rush something that breaks in a
-							month.
+							I care about getting the details right. I'd rather take a little longer than rush something that needs to be rebuilt later.
 						</tx.P>
 					</AnimatedBox>
 
@@ -165,8 +94,7 @@ export default function Page() {
 						<tx.P $size="xviii" $weight="450">Honesty</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
-							Realistic timelines, real answers — if something&apos;s not going to work, you&apos;ll hear
-							it from me first.
+							I'll tell you what I think, even when the answer isn't what you expected. If I think something won't work, I'd rather say so early.
 						</tx.P>
 					</AnimatedBox>
 				</wp.Row>

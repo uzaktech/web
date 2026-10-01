@@ -4,6 +4,7 @@ export * from "./Logo";
 export * from "./ProjectView";
 export * from "./Pyramid";
 export * from "./Stack";
+export * from "./Stack/StackSkills";
 export * from "./Input";
 export * from "./ContactMessageForm";
 export * from "./ExpandedImageView";

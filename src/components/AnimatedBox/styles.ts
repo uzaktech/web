@@ -17,7 +17,7 @@ export const FrameRoot = styled(Box)`
 	}
 `;
 
-export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWidth?: string, $boxHeight?: string, $starterW?: string, $starterH?: string, $delayMs?: number, $delayMaxWidth?: number}>`
+export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWidth?: string, $boxHeight?: string, $starterW?: string, $starterH?: string, $delayMs?: number, $delayMaxWidth?: number, $animationSpeed?: "default" | "fast"}>`
 	padding: 0;
 
 	@keyframes openingAnimatedBox {
@@ -64,17 +64,17 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWid
 			overflow: hidden;
 			opacity: ${(p.$starterH || p.$starterW) ? 1 : 0};
 
-			animation: .47s ease-out forwards openingAnimatedBox ${p.$delayMs ?? 0}s;
+			animation: ${p.$animationSpeed == "fast" ? ".23s" : ".47s"} ease-out forwards openingAnimatedBox ${p.$delayMs ?? 0}s;
 
 			${p.$delayMaxWidth && css`
 				@media (max-width: ${p.$delayMaxWidth * 100}px) 
 				{
-					animation: .47s ease-out forwards openingAnimatedBox 0s !important;
+					animation: ${p.$animationSpeed == "fast" ? ".23s" : ".47s"} ease-out forwards openingAnimatedBox 0s !important;
 				}
 			`}
 
 			& > div {
-				animation: .47s ease-out forwards openingLocker ${p.$delayMs ? `${p.$delayMs}s` : "0s"};
+				animation: ${p.$animationSpeed == "fast" ? ".23s" : ".47s"} ease-out forwards openingLocker ${p.$delayMs ? `${p.$delayMs}s` : "0s"};
 			}
 		` : css`
 			overflow: hidden;

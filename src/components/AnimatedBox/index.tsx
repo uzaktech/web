@@ -7,6 +7,7 @@ import { AnimationEvent, ComponentPropsWithoutRef, ElementType, ReactNode, useEf
 export type AnimatedBoxProps = {
 	boxStyle?: b.BoxProps,
 	animationView: "intersection" | "default",
+	animationSpeed?: "default" | "fast",
 	options: {
 		intersectionOptions?: IntersectionObserverInit | null,
 		oneTimeLoad?: boolean
@@ -27,7 +28,7 @@ export type AnimatedBoxGroupOptions = {
 const RESIZE_DEBOUNCE_MS = 150;
 const RESIZE_COOLDOWN_MS = 800;
 
-export const AnimatedBox = ({ boxStyle, animationView, options, children, groupOptions, resizeSignal, ...props }: AnimatedBoxProps) => {
+export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, children, groupOptions, resizeSignal, ...props }: AnimatedBoxProps) => {
 	const boxRef = useRef<HTMLDivElement | null>(null);
 	const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -158,12 +159,14 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 	return (
 		<s.FrameRoot {...boxStyle} ref={boxRef}>
 			<s.AnimatedBox 
+				{...boxStyle}
 				$open={open}
 				$close={close}
 				$delayMs={groupOptions?.delay?.ms ? (groupOptions.delay.ms * groupOptions.position) : undefined}
 				$delayMaxWidth={groupOptions?.delay?.maxWidth}
 				$boxHeight={boxStyle?.$height}
 				$boxWidth={boxStyle?.$width}
+				$animationSpeed={animationSpeed}
 				onAnimationStart={onAnimation}
 				onAnimationEnd={onAnimation}
 			>

@@ -2,7 +2,7 @@ import * as s from "./styles";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AnimatedBox, Cta, ExperienceView, Link, ProjectView, Stack } from "@/components";
+import { AnimatedBox, Cta, ExperienceView, ProjectView, StackSkills } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,9 @@ export const metadata: Metadata = {
 export default function Page() {
 	return (
 		<sc.Root>
-			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center">
+			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center" 
+				$cssStage={{n: 9, css: {alignItems: "flex-end"}}}
+			>
 				<sc.Content $maxSize={["100%", "300px"]} $minSize={["auto", "fit-content"]} $dSize={["100%", "100%"]}>
 					<tx.H1>
 						Enzo Kazuki (aka. Uzak)
@@ -32,7 +34,7 @@ export default function Page() {
 				<AnimatedBox 
 					animationView="default" 
 					options={{oneTimeLoad: true}} 
-					boxStyle={{$padding: "0", $gap: "0", $margin: "0 0 0 auto", $width: "auto", $height: "auto", $aspectRatio: "1", $overflow: "visible"}}
+					boxStyle={{$padding: "0", $gap: "0", $width: "auto", $height: "auto", $aspectRatio: "1", $overflow: "visible"}}
 				>
 					<s.HeroImageBox>
 						<s.HeroImage src={"/desktop_setup.jpg"} alt="complementary hero image" />
@@ -57,75 +59,12 @@ export default function Page() {
 			<sc.Section id="skills">
 				<sc.Label>Skills</sc.Label>
 				<sc.Title>What I work with</sc.Title>
+
 				<sc.Copy>
 					I'm a full-stack developer. I work across the stack, but I tend to enjoy the back-end more.
 				</sc.Copy>
 
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Back-end</tx.Span>
-					
-					<Stack list={[
-						{label: "c_sharp", icon: true},
-						{label: "dot_net", icon: true},
-						{label: "stripe", icon: true},
-						{label: "nodejs", icon: true},
-					]} />
-				</wp.Col>
-				
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Front-end</tx.Span>
-					
-					<Stack list={[
-						{label: "ts", icon: true},
-						{label: "next_js", icon: true},
-						{label: "react_js", icon: true},
-						{label: "vite", icon: true},
-						{label: "sass", icon: true},
-						{label: "styled", icon: true},
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Database</tx.Span>
-					
-					<Stack list={[
-						{label: "pgsql", icon: true},
-						{label: "mssql", icon: true}
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">DevOps</tx.Span>
-					
-					<Stack list={[
-						{label: "git", icon: true},
-						{label: "docker", icon: true},
-						{label: "nginx", icon: true},
-						{label: "aws", icon: true},
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Tools</tx.Span>
-					
-					<Stack list={[
-						{label: "vs_code", icon: true},
-						{label: "v_studio", icon: true},
-						{label: "dbeaver", icon: true},
-						{label: "github", icon: true},
-						{label: "gimp", icon: true},
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">AI tools</tx.Span>
-					
-					<Stack list={[
-						{label: "cursor", icon: true},
-						{label: "gemini", icon: true},
-						{label: "claude", icon: true},
-					]} />
-				</wp.Col>
+				<StackSkills />
 			</sc.Section>
 
 			<sc.Section id="projects">

@@ -3,6 +3,7 @@ import * as w from "@/styles/primitive/wrapper";
 import * as b from "@/styles/primitive/box";
 import * as t from "@/styles/primitive/text";
 import { Fragment } from "react/jsx-runtime";
+import { AnimatedBox } from "../AnimatedBox";
 
 export const StackLabels = [
 	"aws",
@@ -68,12 +69,13 @@ export const StackNames = [
 
 export type StackProps = {
 	list: {label: (typeof StackLabels)[number], icon?: boolean}[],
-	justIcon?: boolean
+	justIcon?: boolean,
+	animation?: "intersection" | "default" | "none"
 }
 
-export const Stack = ({list, justIcon}: StackProps) => {
+export const Stack = ({list, justIcon, animation}: StackProps) => {
 	return (
-		<w.Row $fWrap="wrap" $gap={justIcon ? "8px" : "9px"}>
+		<w.Row $fWrap="wrap" $gap={justIcon ? "8px" : "9px"} $ai="flex-start">
 			{list.map((o, i) => (
 				<Fragment key={i}>
 					{justIcon 
@@ -82,15 +84,32 @@ export const Stack = ({list, justIcon}: StackProps) => {
 								<s.Icon src={`/stack_icons/${o.label}.svg`} alt={`icon: ${o.label}`} $small />
 							</s.Abbr>
 						: 
-							<b.Box $cornerP="none" $padding="7px 9px" $fDirection="row" $ai="center" $gap="9px">
-								{o.icon && 
-									<s.Icon src={`/stack_icons/${o.label}.svg`} alt={`icon: ${o.label}`} $small />
-								}
+							!animation || animation == "none" ?
+								<b.Box $cornerP="none" $padding="7px 9px" $fDirection="row" $ai="center" $gap="9px">
+									{o.icon && 
+										<s.Icon src={`/stack_icons/${o.label}.svg`} alt={`icon: ${o.label}`} $small />
+									}
 
-								<t.Span $size="xv" $weight="450">
-									{StackNames[StackLabels.findIndex(l => l == o.label)]}
-								</t.Span>
-							</b.Box>
+									<t.Span $size="xv" $weight="450">
+										{StackNames[StackLabels.findIndex(l => l == o.label)]}
+									</t.Span>
+								</b.Box>
+							:
+								<AnimatedBox
+									animationView={animation}
+									options={{oneTimeLoad: true}} 
+									groupOptions={{position: i, delay: {ms: .09, maxWidth: undefined}}}
+									animationSpeed="fast"
+									boxStyle={{$padding: "7px 9px", $gap: "9px", $ai: "center", $fDirection: "row", $cornerP: "none"}}
+								>
+									{o.icon && 
+										<s.Icon src={`/stack_icons/${o.label}.svg`} alt={`icon: ${o.label}`} $small />
+									}
+
+									<t.Span $size="xv" $weight="450">
+										{StackNames[StackLabels.findIndex(l => l == o.label)]}
+									</t.Span>
+								</AnimatedBox>
 					}
 				</Fragment>
 			))}
