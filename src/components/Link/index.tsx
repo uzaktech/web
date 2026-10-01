@@ -1,5 +1,6 @@
 "use client";
 
+import { TextProps } from "@/styles/primitive";
 import * as s from "./styles";
 import { ButtonProps } from "@/styles/primitive/button";
 import { useRouter } from "next/navigation";
@@ -15,13 +16,13 @@ export type LinkProps = {
 	size?: string,
 	cta?: "button" | "raw_cta",
 	btnProps?: ButtonProps
-} & ComponentPropsWithoutRef<"a">;
+} & ComponentPropsWithoutRef<"a"> & TextProps;
 
 export type LinkPoserProps = {
 	children?: ReactNode
 } & ComponentPropsWithoutRef<"span">;
 
-export const Link = ({ clientRender, children, blockDown, poserStyle, notStyle, cta, btnProps, opc, size, ...props }: LinkProps) => { 
+export const Link = ({ clientRender, children, blockDown, poserStyle, notStyle, cta, btnProps, ...props }: LinkProps) => { 
 	const navr = useRouter();
 
 	const clickHandle = (e: MouseEvent) => {
@@ -41,7 +42,7 @@ export const Link = ({ clientRender, children, blockDown, poserStyle, notStyle, 
 			{children}
 		</s.Cta>
 	) : (
-		<s.Link onMouseDown={downHandle} onClick={clickHandle} $notStyle={notStyle} $poserStyle={poserStyle} $opc={opc} $size={size} {...props}>
+		<s.Link onMouseDown={downHandle} onClick={clickHandle} $notStyle={notStyle} $poserStyle={poserStyle} {...props}>
 			{children}
 		</s.Link>
 	)

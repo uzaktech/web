@@ -41,7 +41,7 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 							<tx.Span $size="xv" $margin="3px 0 0" $uSelect="none" $weight="500" $opc={0.5}>/</tx.Span>
 
 							<tx.Span $wSpace="nowrap">
-								<Link poserStyle onClick={expand} size="xvi" opc={0.4}>{expanded == true ? "less" : "more"}</Link>
+								<Link poserStyle onClick={expand} $size="xvi" $opc={0.4}>{expanded == true ? "less" : "more"}</Link>
 							</tx.Span>
 						</wp.Row>
 						
