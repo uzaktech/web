@@ -65,7 +65,7 @@ export const buttonStyle = (p: ButtonProps) => css`
 	` : p.$style == "ghost_link" ? css`
 		background-color: ${(p) => p.theme.colors.boxBackground};
 		color: ${(p) => p.theme.colors.text};
-		font-weight: 500;
+		font-weight: 450;
 		outline: solid 1px ${(p) => p.theme.colors.boxShadow};
 		outline-offset: -1px;
 		text-decoration: none;
