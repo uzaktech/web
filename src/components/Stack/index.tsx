@@ -2,11 +2,14 @@ import * as s from "./styles";
 import * as w from "@/styles/primitive/wrapper";
 import * as b from "@/styles/primitive/box";
 import * as t from "@/styles/primitive/text";
+import { Fragment } from "react/jsx-runtime";
+import { AnimatedBox } from "../AnimatedBox";
 
 export const StackLabels = [
 	"aws",
 	"c_sharp", 
 	"claude",
+	"css",
 	"cursor",
 	"dbeaver",
 	"docker",
@@ -15,11 +18,14 @@ export const StackLabels = [
 	"gimp",
 	"git",
 	"github",
+	"html",
+	"js",
 	"mssql",
 	"next_js",
 	"nginx",
 	"nodejs",
 	"pgsql",
+	"python",
 	"react_js",
 	"sass",
 	"stripe",
@@ -34,6 +40,7 @@ export const StackNames = [
 	"AWS",
 	"C#", 
 	"Claude",
+	"CSS",
 	"Cursor",
 	"DBeaver",
 	"Docker",
@@ -42,11 +49,14 @@ export const StackNames = [
 	"GIMP",
 	"Git",
 	"GitHub",
+	"HTML",
+	"JavaScript",
 	"SQL Server",
 	"Next.js", 
 	"Nginx",
 	"Node.js",
 	"PostgreSQL",
+	"Python",
 	"React.js",
 	"Sass",
 	"Stripe",
@@ -57,19 +67,51 @@ export const StackNames = [
 	"Vite"
 ] as const;
 
-export const Stack = ({list}: {list: {label: (typeof StackLabels)[number], icon?: boolean}[]}) => {
-	return (
-		<w.Row $fWrap="wrap" $gap="9px">
-			{list.map((o, i) => (
-				<b.Box key={i} $cornerP="none" $padding="7px 9px" $fDirection="row" $ai="center" $gap="9px">
-					{o.icon && 
-						<s.Icon src={`/stack_icons/${o.label}.svg`} alt={`icon: ${o.label}`} />
-					}
+export type StackProps = {
+	list: {label: (typeof StackLabels)[number], icon?: boolean}[],
+	justIcon?: boolean,
+	animation?: "intersection" | "default" | "none"
+}
 
-					<t.Span $size="xv" $weight="450">
-						{StackNames[StackLabels.findIndex(l => l == o.label)]}
-					</t.Span>
-				</b.Box>
+export const Stack = ({list, justIcon, animation}: StackProps) => {
+	return (
+		<w.Row $fWrap="wrap" $gap={justIcon ? "8px" : "9px"} $ai="flex-start">
+			{list.map((o, i) => (
+				<Fragment key={i}>
+					{justIcon 
+						? 
+							<s.Abbr title={StackNames[StackLabels.findIndex(l => l == o.label)]}>
+								<s.Icon src={`/stack_icons/${o.label}.svg`} alt={`icon: ${o.label}`} $small />
+							</s.Abbr>
+						: 
+							!animation || animation == "none" ?
+								<b.Box $cornerP="none" $padding="7px 9px" $fDirection="row" $ai="center" $gap="9px">
+									{o.icon && 
+										<s.Icon src={`/stack_icons/${o.label}.svg`} alt={`icon: ${o.label}`} $small />
+									}
+
+									<t.Span $size="xv" $weight="450">
+										{StackNames[StackLabels.findIndex(l => l == o.label)]}
+									</t.Span>
+								</b.Box>
+							:
+								<AnimatedBox
+									animationView={animation}
+									options={{oneTimeLoad: true}} 
+									groupOptions={{position: i, delay: {ms: .09, maxWidth: undefined}}}
+									animationSpeed="fast"
+									boxStyle={{$padding: "7px 9px", $gap: "9px", $ai: "center", $fDirection: "row", $cornerP: "none"}}
+								>
+									{o.icon && 
+										<s.Icon src={`/stack_icons/${o.label}.svg`} alt={`icon: ${o.label}`} $small />
+									}
+
+									<t.Span $size="xv" $weight="450">
+										{StackNames[StackLabels.findIndex(l => l == o.label)]}
+									</t.Span>
+								</AnimatedBox>
+					}
+				</Fragment>
 			))}
 		</w.Row>
 	)

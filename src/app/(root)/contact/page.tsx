@@ -20,9 +20,8 @@ export default function Page() {
 					</wp.Col>
 
 					<sc.Copy>
-						I hope you find what you were looking for when you joined here.
-						<br />
-						It would be great to hear from you!
+						Have a project in mind, an idea you've been thinking about, or just want to talk?
+						I'd be happy to hear what you're working on.
 					</sc.Copy>
 
 					<bx.Box $padding="9px 13px" $gap="9px" $maxWidth="min(fit-content, 100%)" $width="fit-content">
@@ -46,7 +45,7 @@ export default function Page() {
 							</Link>
 
 							<Link poserStyle target="_blank" href="https://www.linkedin.com/in/enzoKazuki">
-								<wp.Row $pad="3px 9px" $gap="9px" $ai="center">
+								<wp.Row $pad="3px 9px" $gap="9px" $ai="center" $dSize={["fit-content", undefined]}>
 									<s.Icon src={"/social_icons/linkedin.svg"} alt="linkedin icon" />
 
 									<tx.Span $lSpacing=".03rem" $size="xvi" $weight="500">/ enzoKazuki</tx.Span>

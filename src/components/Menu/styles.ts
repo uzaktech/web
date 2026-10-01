@@ -59,17 +59,18 @@ export const Li = styled.li<{$selected?: boolean}>`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	overflow: hidden;
+	overflow: visible;
 	position: relative;
 
 	& > a {
 		position: relative;
 		text-decoration: none;
 		color: #000;
-		font-weight: 530;
+		font-weight: 450;
 		font-size: ${({theme}) => theme.fontSize.xvii};
 
-		&:hover {
+		&:hover,
+		&:focus {
 			text-decoration: underline;
 		}
 	}
@@ -79,11 +80,23 @@ export const Li = styled.li<{$selected?: boolean}>`
 	}
 
 	${({$selected}) => $selected && css`
-		text-decoration: underline;
-		&::after {
-			visibility: visible;
-			width: 85%;
-			box-shadow: 0 3px 10px #fff;
+		& > a {
+			font-weight: 500;
+		}
+
+		&::before {
+			content: "";
+			min-width: 100%;
+			padding: 0 7px;
+			height: 1.1em;
+			top: 50%;
+			left: 50%;
+			position: absolute;
+			cursor: pointer;
+			z-index: 1;
+			background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0)};
+			backdrop-filter: invert(100%);
+			transform: skewX(-30deg) translate(calc(-50% - 5px), calc(-50% - .5px));
 		}
 	`}
 
@@ -92,15 +105,6 @@ export const Li = styled.li<{$selected?: boolean}>`
 			font-size: ${({theme}) => theme.fontSize.xvi};
 		}
 	}
-`;
-
-export const Division = styled.div`
-	display: flex;
-	position: relative;
-	width: 100%;
-	height: 1px;
-	background-color: ${(p) => p.theme.colors.boxShadow};
-	margin: 0 0 13px;
 `;
 
 export const CloseBtn = styled.div`

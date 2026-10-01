@@ -2,7 +2,7 @@ import * as s from "./styles";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AnimatedBox, Cta, Link, ProjectView, Stack } from "@/components";
+import { AnimatedBox, Cta, ExperienceView, ProjectView, StackSkills } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,9 @@ export const metadata: Metadata = {
 export default function Page() {
 	return (
 		<sc.Root>
-			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center">
+			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center" 
+				$cssStage={{n: 9, css: {alignItems: "flex-end"}}}
+			>
 				<sc.Content $maxSize={["100%", "300px"]} $minSize={["auto", "fit-content"]} $dSize={["100%", "100%"]}>
 					<tx.H1>
 						Enzo Kazuki (aka. Uzak)
@@ -32,7 +34,7 @@ export default function Page() {
 				<AnimatedBox 
 					animationView="default" 
 					options={{oneTimeLoad: true}} 
-					boxStyle={{$padding: "0", $gap: "0", $margin: "0 0 0 auto", $width: "auto", $height: "auto", $aspectRatio: "1", $overflow: "visible"}}
+					boxStyle={{$padding: "0", $gap: "0", $width: "auto", $height: "auto", $aspectRatio: "1", $overflow: "visible"}}
 				>
 					<s.HeroImageBox>
 						<s.HeroImage src={"/desktop_setup.jpg"} alt="complementary hero image" />
@@ -43,96 +45,31 @@ export default function Page() {
 
 			<sc.Section>
 				<sc.Label>About</sc.Label>
-				<sc.Title>Developer, designer, and product-minded builder</sc.Title>
+				<sc.Title>Full-stack developer, designer, and builder</sc.Title>
 				<wp.Col $gap="9px">
 					<sc.Copy>
-						I currently work as an independent developer focused on web products that requires a secure and solid [backend, database & infra]
-						and need thoughtful UX, reliable systems, and a clear point of view. 
+						I'm an independent developer focused on web products that need a solid backend, database, and infrastructure, along with thoughtful UX and reliable systems.
 					</sc.Copy>
 					<sc.Copy>
-						I enjoy taking ownership across the stack, from interface design and product
-						decisions to deployment and iterations.
+						I like having ownership across the stack, from interface design and product decisions to deployment and everything that comes after.
 					</sc.Copy>
 				</wp.Col>
 			</sc.Section>
 
 			<sc.Section id="skills">
 				<sc.Label>Skills</sc.Label>
-				<sc.Title>Tools and technologies</sc.Title>
+				<sc.Title>What I work with</sc.Title>
+
 				<sc.Copy>
-					I'm a full-stack developer, but my balance leans more to the back-end side.
+					I'm a full-stack developer. I work across the stack, but I tend to enjoy the back-end more.
 				</sc.Copy>
 
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Back-end</tx.Span>
-					
-					<Stack list={[
-						{label: "c_sharp", icon: true},
-						{label: "dot_net", icon: true},
-						{label: "stripe", icon: true},
-						{label: "nodejs", icon: true},
-					]} />
-				</wp.Col>
-				
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Front-end</tx.Span>
-					
-					<Stack list={[
-						{label: "ts", icon: true},
-						{label: "next_js", icon: true},
-						{label: "react_js", icon: true},
-						{label: "vite", icon: true},
-						{label: "sass", icon: true},
-						{label: "styled", icon: true},
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Database</tx.Span>
-					
-					<Stack list={[
-						{label: "pgsql", icon: true},
-						{label: "mssql", icon: true}
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">DevOps</tx.Span>
-					
-					<Stack list={[
-						{label: "git", icon: true},
-						{label: "docker", icon: true},
-						{label: "nginx", icon: true},
-						{label: "aws", icon: true},
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">Tools</tx.Span>
-					
-					<Stack list={[
-						{label: "vs_code", icon: true},
-						{label: "v_studio", icon: true},
-						{label: "dbeaver", icon: true},
-						{label: "github", icon: true},
-						{label: "gimp", icon: true},
-					]} />
-				</wp.Col>
-
-				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">AI Agents</tx.Span>
-					
-					<Stack list={[
-						{label: "cursor", icon: true},
-						{label: "gemini", icon: true},
-						{label: "claude", icon: true},
-					]} />
-				</wp.Col>
+				<StackSkills />
 			</sc.Section>
 
 			<sc.Section id="projects">
-				<sc.Label>Selected projects</sc.Label>
-				<sc.Title>Recent work</sc.Title>
+				<sc.Label>Projects</sc.Label>
+				<sc.Title>What I've built</sc.Title>
 				
 				<ProjectView portfolio />
 			</sc.Section>
@@ -141,18 +78,7 @@ export default function Page() {
 				<sc.Label>Career</sc.Label>
 				<sc.Title>My professional experience</sc.Title>
 				
-				<wp.Col $gap="9px">
-					<sc.Copy>
-						I'm currently (Sep. 2026) interning as a React Developer at <Link target="__blank" href="https://www.youbloom.com" poserStyle>youbloom</Link>, where 
-						I'm gaining hands-on experience in a professional team workflow. 
-					</sc.Copy>
-					<sc.Copy>
-						Prior to this, 4 years of self-directed development came from personal projects and freelance work.
-					</sc.Copy>
-					<sc.Copy>
-						Open to new opportunities and connections as I grow my career in software development.
-					</sc.Copy>
-				</wp.Col>
+				<ExperienceView />
 			</sc.Section>
 
 			<wp.Division $orientation={1} />

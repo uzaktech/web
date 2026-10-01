@@ -6,28 +6,24 @@ import { useEffect, useState } from "react";
 
 export type ExpandedImageViewObject = {
 	label: string, 
-	src: string, 
-	selected: boolean
+	src: string
 }
 
 export type ExpandedImageViewParams = {
 	images: ExpandedImageViewObject[],
 	show: boolean,
+	index: number,
+	setIndex: (i: number) => void,
 	hide: () => void
 }
 
-export const ExpandedImageView = ({ images, show, hide }: ExpandedImageViewParams) => {
+export const ExpandedImageView = ({ images, show, index, setIndex, hide }: ExpandedImageViewParams) => {
 	const [_images, setImages] = useState<ExpandedImageViewObject[]>([]);
 
-	const arrowClick = (index: 0 | 1) => {
-		const selectedIndex = _images.findIndex(a => a.selected == true);
+	const arrowClick = (_index: 0 | 1) => {
+		const newIndex = _index == 1 ? (Math.min(index + 1, images.length)) : (Math.max(index - 1, 0));
 
-		let newImages = [..._images];
-
-		newImages[selectedIndex].selected = false;
-		newImages[selectedIndex - (index == 0 ? 1 : -1)].selected = true;
-
-		setImages(newImages);
+		setIndex(newIndex);
 	}
 
 	useEffect(() => {
@@ -56,13 +52,13 @@ export const ExpandedImageView = ({ images, show, hide }: ExpandedImageViewParam
 			<s.Background onClick={hide} />
 			<s.ImageFrame>
 				<s.TitleFrame>
-					<s.Arrow $side="left" onClick={() => arrowClick(0)} $disable={_images.findIndex(a => a.selected == true) <= 0} />
+					<s.Arrow $side="left" onClick={() => arrowClick(0)} $disable={index == 0} />
 
-					<s.Label>{_images.filter(a => a.selected == true)[0]?.label}</s.Label>
+					<s.Label>{_images[index ?? 0]?.label}</s.Label>
 
-					<s.Arrow $side="right" onClick={() => arrowClick(1)} $disable={_images.findIndex(a => a.selected == true) >= (_images.length - 1)} />
+					<s.Arrow $side="right" onClick={() => arrowClick(1)} $disable={index == images.length - 1} />
 				</s.TitleFrame>
-				<s.Image src={_images.filter(a => a.selected == true)[0]?.src} />
+				<s.Image src={_images[index ?? 0]?.src} />
 			</s.ImageFrame>
 		</>,
 		document.body

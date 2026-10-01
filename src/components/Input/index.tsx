@@ -134,8 +134,8 @@ const useFocus = <T extends HTMLElement>(ref: RefObject<T | null>) => {
 // presentation only: label, wrapper, error, children.
 // no validation logic, no form logic, no input logic.
 // ---
-const FieldContainer = ({id, label, required, focused, hasError, errorMessage, onBoxClick, $width, $maxWidth, scaleToRoot, children}: 
-	{id?: string; label?: string; required?: boolean; focused: boolean; hasError: boolean; errorMessage: string | null; onBoxClick: () => void; $width?: string; $maxWidth?: string; scaleToRoot?: boolean; children: React.ReactNode}) => {
+const FieldContainer = ({id, label, required, hasError, errorMessage, onBoxClick, $width, $maxWidth, scaleToRoot, children}: 
+	{id?: string; label?: string; required?: boolean; hasError: boolean; errorMessage: string | null; onBoxClick: () => void; $width?: string; $maxWidth?: string; scaleToRoot?: boolean; children: React.ReactNode}) => {
 
 	return (
 		<s.Root $width={scaleToRoot ? $width : undefined} $maxWidth={scaleToRoot ? $maxWidth : undefined}>
@@ -145,7 +145,7 @@ const FieldContainer = ({id, label, required, focused, hasError, errorMessage, o
 				</t.Label>
 			)}
 
-			<s.InputBox onClick={onBoxClick} $focus={focused} $status={hasError ? 1 : 2}> {children} </s.InputBox>
+			<s.InputBox onClick={onBoxClick} $status={hasError ? 1 : 2}> {children} </s.InputBox>
 
 			{hasError && <s.ErrorText>{errorMessage}</s.ErrorText>}
 		</s.Root>
@@ -181,7 +181,6 @@ export const Input = ({ label, placeholder, name, type, onChange, setValue, rege
 			id={name} 
 			label={label} 
 			required={required}
-			focused={focused} 
 			hasError={error !== 0} 
 			errorMessage={error === 1 ? "This field is required." : errorMsg}
 			onBoxClick={focus}
@@ -239,7 +238,6 @@ export const Textarea = ({ label, placeholder, name, onChange, setValue, regex, 
 			id={name} 
 			label={label} 
 			required={required}
-			focused={focused} 
 			hasError={error !== 0} 
 			errorMessage={error === 1 ? "This field is required." : errorMsg}
 			onBoxClick={focus}

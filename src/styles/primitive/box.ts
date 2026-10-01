@@ -7,6 +7,7 @@ import { rgba } from "../theme";
 export type BoxProps = {
 	$padding?: string;
 	$maxWidth?: string;
+	$minHeight?: string;
 	$maxHeight?: string;
 	$minWidth?: string;
 	$width?: string;
@@ -38,11 +39,18 @@ export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: stri
 		position: absolute;
 		top: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
 		left: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
-		height: ${size ?? "var(--corner-default-size)"};
-		aspect-ratio: 1;
 		border-left: solid ${borderSize ?? "1px"} ${rgba((color ?? theme.colors.boxShadow), (opc ?? 1))};
 		border-top: solid ${borderSize ?? "1px"} ${rgba((color ?? theme.colors.boxShadow), (opc ?? 1))};
 		z-index: 1;
+		background-color: transparent;
+		
+		${size == "100%" ? css`
+			height: calc(100% - ${((pad ?? -1) * 2) + 3}px);
+			width: calc(100% - ${((pad ?? -1) * 2) + 3}px);
+		` : css`
+			height: ${size ?? "var(--corner-default-size)"};
+			aspect-ratio: 1;
+		`}
 	}
 	
 	&::before
@@ -51,11 +59,18 @@ export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: stri
 		position: absolute;
 		bottom: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
 		right: calc(${borderSize ?? "1px"} + ${pad ?? -1}px);
-		height: ${size ?? "var(--corner-default-size)"};
-		aspect-ratio: 1;
 		border-right: solid ${borderSize ?? "1px"} ${rgba((color ?? theme.colors.boxShadow), (opc ?? 1))};
 		border-bottom: solid ${borderSize ?? "1px"} ${rgba((color ?? theme.colors.boxShadow), (opc ?? 1))};
 		z-index: 1;
+		background-color: transparent;
+
+		${size == "100%" ? css`
+			height: calc(100% - ${((pad ?? -1) * 2) + 3}px);
+			width: calc(100% - ${((pad ?? -1) * 2) + 3}px);
+		` : css`
+			height: ${size ?? "var(--corner-default-size)"};
+			aspect-ratio: 1;
+		`}
 	}
 `;
 
@@ -63,6 +78,7 @@ export const Box = styled.div<BoxProps>`
 	position: relative;
 	width: ${(p) => p.$width ?? "auto"};
 	height: ${(p) => p.$height ?? "auto"};
+	min-height: ${(p) => p.$minHeight ?? "auto"};
 	max-height: ${(p) => p.$maxHeight ?? "100%"};
 	max-width: ${(p) => p.$maxWidth ?? "100%"};
 	min-width: ${(p) => p.$minWidth ?? "auto"};

@@ -143,24 +143,45 @@ export const Li = styled.li<{$selected?: boolean}>`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	overflow: hidden;
+	overflow: visible;
 	position: relative;
 
 	& > a {
 		position: relative;
 		text-decoration: none;
 		color: ${(p) => rgba(p.theme.colors.text, 1)};
-		font-weight: 470;
+		font-weight: 450;
 		font-size: ${({theme}) => theme.fontSize.xvi};
 		
-		&:hover {
-			color: ${(p) => rgba(p.theme.colors.text, 1)};
+		&:hover,
+		&:focus {
+			text-decoration: underline;
 		}
 	}
 	
 	${({$selected}) => $selected && css`
 		& > a {
-			color: ${(p) => rgba(p.theme.colors.text, 1)};
+			font-weight: 550;
+			text-decoration: none;
+			
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+		}
+
+		&::before {
+			content: "";
+			min-width: 100%;
+			padding: 0 7px;
+			height: 1.1em;
+			top: 50%;
+			left: 50%;
+			position: absolute;
+			cursor: pointer;
+			z-index: 1;
+			backdrop-filter: invert(100%);
+			transform: skewX(-30deg) translate(calc(-50% - 5px), calc(-50% + 0px));
 		}
 	`}
 
