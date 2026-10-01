@@ -16,10 +16,10 @@ export const projects = (portfolio?: boolean): ProjectType[] => [
 		title: "Fundraising platform",
 		category: "Web · Indie",
 		description: !portfolio 
-			? `Independent full-stack fundraising platform with campaign management, secure Stripe payments, authentication, and a scalable architecture designed from product concept to deployment. 
-			It has a very unique and not popular UI/UX which makes it as the top feature of the project.`
-			: `A full-stack fundraising platform integrating Stripe Connect, secure payment workflows, accountability, campaign management and donations with a possibility to attatch custom Cards to it. It's personality is what makes it stand out, 
-			I built the UI/UX the way it is due to personal choice, I wanted to give it a different feeling from what is on display in the web nowadays.`,
+			? `Independent full-stack fundraising platform with campaign management, secure Stripe payments, authentication, and a scalable architecture designed from concept to deployment. 
+			Its distinctive UI/UX was intentionally designed to move away from the polished, standardized look common in modern web products.`
+			: `A full-stack fundraising platform integrating Stripe Connect, secure payment workflows, accountability, campaign management, and donations with support for attaching custom Cards to contributions. 
+			Its personality comes from a deliberately unconventional UI/UX, designed to give the product a different feeling from the visual conventions common across the modern web.`,
 		imagesUrl: [
 			"/project_captures/gd/1.jpeg", 
 			"/project_captures/gd/2.jpeg", 
@@ -42,10 +42,10 @@ export const projects = (portfolio?: boolean): ProjectType[] => [
 		title: "Dental SaaS",
 		category: "Web · Product",
 		description: !portfolio 
-			? `Full-stack SaaS built for dental clinics, featuring patient and workflow management, PostgreSQL backend, and a production-ready architecture focused on maintainability and reliability. It wraps
-			features such as a wired scheduling method, user managment, patient managment with all clinical needs, clinic managment including procedures, billing and custom PDFs templates for documents.`
-			: `End-to-end SaaS for dental clinics, combining a modern Next.js frontend with a complex .NET solution with 30+ controllers with 3+ endpoints each, a PostgreSQL database, and Nginx working together with Docker to deliver a scalable, production-focused application. 
-			It features, a wired scheduling method, user managment, patient managment with all clinical needs, clinic managment including procedures, billing and custom PDFs templates for documents.`,
+			? `Full-stack SaaS built for dental clinics, with patient and workflow management, clinic administration, billing, scheduling, and custom PDF document generation. 
+			Built with Next.js, .NET, and PostgreSQL around a production-focused architecture designed for reliability and maintainability.`
+			: `End-to-end SaaS for dental clinics, combining a Next.js frontend, .NET backend, PostgreSQL database, and Docker-based deployment. 
+			The system includes scheduling, user and patient management, clinic administration, billing, clinical workflows, and customizable PDF templates for documents.`,
 		imagesUrl: [
 			"/project_captures/dentalv/1.png", 
 			"/project_captures/dentalv/2.png", 
@@ -63,9 +63,10 @@ export const projects = (portfolio?: boolean): ProjectType[] => [
 		title: "Service monitoring SaaS",
 		category: "Web · Tool · Indie",
 		description: !portfolio 
-			? "A minimalist independent full-stack service monitoring SaaS inspired by Grafana, where its possible to donwload a local service to watch determined parameters of specified services/applications throught custom queries. It's a independent experimental project and it's not deployed."
-			: `A simple independent full-stack service monitoring SaaS inspired by Grafana, featuring dashboards managment throught folders and organizations, where it's possible to donwload an local service to watch determined parameters of specified services/applications throught custom queries. 
-			It's also one of my first full-stack projects and hasn't been deployed by the reason that it was made as an experimental project.`,
+			? `A minimalist service monitoring SaaS inspired by Grafana. It combines dashboard management with a lightweight local monitoring service capable of collecting custom metrics from specified applications and services through user-defined queries. 
+			Built as an experimental project to explore monitoring infrastructure and full-stack architecture.`
+			: `One of my first full-stack projects, built as an independent experiment in application monitoring. 
+			It was never deployed publicly, but served as a practical exploration of dashboards, custom metric collection, and communication between a web platform and a local monitoring service.`,
 		imagesUrl: [
 			"/project_captures/pm/1.jpeg", 
 			"/project_captures/pm/2.jpeg", 

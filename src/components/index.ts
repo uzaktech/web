@@ -9,3 +9,5 @@ export * from "./ContactMessageForm";
 export * from "./ExpandedImageView";
 export * from "./AnimatedBox";
 export * from "./Menu";
+export * from "./ExperienceView";
+export * from "./ShrinkWrapper";

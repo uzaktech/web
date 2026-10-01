@@ -7,6 +7,7 @@ import { rgba } from "../theme";
 export type BoxProps = {
 	$padding?: string;
 	$maxWidth?: string;
+	$minHeight?: string;
 	$maxHeight?: string;
 	$minWidth?: string;
 	$width?: string;
@@ -77,6 +78,7 @@ export const Box = styled.div<BoxProps>`
 	position: relative;
 	width: ${(p) => p.$width ?? "auto"};
 	height: ${(p) => p.$height ?? "auto"};
+	min-height: ${(p) => p.$minHeight ?? "auto"};
 	max-height: ${(p) => p.$maxHeight ?? "100%"};
 	max-width: ${(p) => p.$maxWidth ?? "100%"};
 	min-width: ${(p) => p.$minWidth ?? "auto"};

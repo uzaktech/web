@@ -12,6 +12,7 @@ export type AnimatedBoxProps = {
 		oneTimeLoad?: boolean
 	},
 	groupOptions?: AnimatedBoxGroupOptions,
+	resizeSignal?: unknown,
 	children: ReactNode
 } & ComponentPropsWithoutRef<"div"> & {as?: ElementType};
 
@@ -26,12 +27,14 @@ export type AnimatedBoxGroupOptions = {
 const RESIZE_DEBOUNCE_MS = 150;
 const RESIZE_COOLDOWN_MS = 800;
 
-export const AnimatedBox = ({ boxStyle, animationView, options, children, groupOptions, ...props }: AnimatedBoxProps) => {
+export const AnimatedBox = ({ boxStyle, animationView, options, children, groupOptions, resizeSignal, ...props }: AnimatedBoxProps) => {
 	const boxRef = useRef<HTMLDivElement | null>(null);
+	const contentRef = useRef<HTMLDivElement | null>(null);
 
 	const [wasIntersected, setWasIntersected] = useState<boolean>(false);
 	const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
 	const [boxRects, setBoxRects] = useState<{w: number, h: number} | null>(null);
+	const [opened, setOpened] = useState<boolean>(false);
 
 	const isFirstResize = useRef(true);
 	const resizeDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -45,11 +48,12 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 		setBoxRects(null);
 
 		let intersectionRt = () => {};
-
+		
 		setTimeout(() => {
 			if (!boxRef.current) return;
-
+			
 			setBoxRects({w: boxRef.current.getBoundingClientRect().width, h: boxRef.current.getBoundingClientRect().height});
+			setOpened(false);
 
 			intersectionRt = intersectionFn();
 		}, 30)
@@ -80,10 +84,7 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 	}, [animationView, boxRef, boxRects])
 
 
-	useEffect(() => {
-		if (isIntersecting) setWasIntersected(true);
-	}, [isIntersecting])
-
+	useEffect(() => setWasIntersected(isIntersecting ? true : wasIntersected), [isIntersecting])
 
 	useEffect(() => {
 		const box = boxRef.current;
@@ -94,14 +95,6 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 			let cancelled = false;
 
 			const waitForStableLayout = () => {
-				//if (animationView == "default") {
-				//	if (cancelled) return;
-
-				//	rt = reload();
-
-				//	return;
-				//}
-
 				document.fonts.ready.then(() => {
 					if (cancelled) return;
 
@@ -164,12 +157,18 @@ export const AnimatedBox = ({ boxStyle, animationView, options, children, groupO
 				$close={close}
 				$delayMs={groupOptions?.delay?.ms ? (groupOptions.delay.ms * groupOptions.position) : undefined}
 				$delayMaxWidth={groupOptions?.delay?.maxWidth}
+				$boxHeight={boxStyle?.$height}
+				$boxWidth={boxStyle?.$width}
+				onAnimationStart={(e) => setOpened(e.target === e.currentTarget ? false : opened)}
+				onAnimationEnd={(e) => setOpened(e.target === e.currentTarget ? true : opened)}
 			>
 				<s.ContentLock 
 					{...props}
 					{...boxStyle} 
-					$width={boxRects?.w ? `${boxRects?.w}px` : "100%"}
-					$height={boxRects?.h ? `${boxRects?.h}px` : "100%"}
+					ref={contentRef}
+					$cWidth={(boxRects?.w ? `${boxRects.w}px` : "100%")}
+					$cHeight={(boxRects?.h ? `${boxRects.h}px` : "100%")}
+					$opened={opened}
 				>
 					{children}
 				</s.ContentLock>

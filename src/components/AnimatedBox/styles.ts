@@ -17,24 +17,22 @@ export const FrameRoot = styled(Box)`
 	}
 `;
 
-export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalWidth?: string, $totalHeight?: string, $delayMs?: number, $delayMaxWidth?: number}>`
+export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWidth?: string, $boxHeight?: string, $starterW?: string, $starterH?: string, $delayMs?: number, $delayMaxWidth?: number}>`
 	padding: 0;
 
-	@keyframes opening {
+	@keyframes openingAnimatedBox {
 		0% {
 			overflow: hidden;
-			opacity: 0;
-			max-height: ${(p) => p.$corner?.size ?? "var(--corner-default-size)"};
-			height: ${(p) => p.$corner?.size ?? "var(--corner-default-size)"};
-			min-height: ${(p) => p.$corner?.size ?? "var(--corner-default-size)"};
-			max-width: ${(p) => p.$corner?.size ?? "var(--corner-default-size)"};
-			width: ${(p) => p.$corner?.size ?? "var(--corner-default-size)"};
-			min-width: ${(p) => p.$corner?.size ?? "var(--corner-default-size)"};
+			opacity: ${(p) => (p.$starterH || p.$starterW) ? 1 : 0};
+			height: ${(p) => p.$starterH ?? (p.$corner?.size ?? "var(--corner-default-size)")};
+			min-height: ${(p) => p.$starterH ?? (p.$corner?.size ?? "var(--corner-default-size)")};
+			max-width: ${(p) => p.$starterW ?? (p.$corner?.size ?? "var(--corner-default-size)")};
+			width: ${(p) => p.$starterW ?? (p.$corner?.size ?? "var(--corner-default-size)")};
+			min-width: ${(p) => p.$starterW ?? (p.$corner?.size ?? "var(--corner-default-size)")};
 		}
 		99% { 
 			overflow: hidden;
 			opacity: 1;
-			max-height: 100%;
 			height: 100%;
 			min-height: 100%;
 			max-width: 100%;
@@ -44,9 +42,8 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalW
 		100% {
 			overflow: visible;
 			opacity: 1;
-			max-height: 100%;
-			height: 100%;
-			min-height: 100%;
+			height: ${(p) => p.$boxHeight ?? "fit-content"};
+			min-height: ${(p) => p.$boxHeight ?? "fit-content"};
 			max-width: 100%;
 			width: 100%;
 			min-width: 100%;
@@ -55,7 +52,7 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalW
 
 	@keyframes openingLocker {
 		0%, 30% {
-			opacity: 0.3;
+			opacity: ${(p) => (p.$starterH || p.$starterW) ? 1 : 0.3};
 		}
 		100% {
 			opacity: 1;
@@ -65,20 +62,14 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalW
 	${(p) => p.$open == true
 		? css`
 			overflow: hidden;
-			opacity: 0;
-			max-height: ${p.$corner?.size ?? "var(--corner-default-size)"};
-			height: ${p.$corner?.size ?? "var(--corner-default-size)"};
-			min-height: ${p.$corner?.size ?? "var(--corner-default-size)"};
-			max-width: ${p.$corner?.size ?? "var(--corner-default-size)"};
-			width: ${p.$corner?.size ?? "var(--corner-default-size)"};
-			min-width: ${p.$corner?.size ?? "var(--corner-default-size)"};
+			opacity: ${(p.$starterH || p.$starterW) ? 1 : 0};
 
-			animation: .47s ease-out forwards opening ${p.$delayMs ? `${p.$delayMs}s` : "0s"};
+			animation: .47s ease-out forwards openingAnimatedBox ${p.$delayMs ?? 0}s;
 
 			${p.$delayMaxWidth && css`
 				@media (max-width: ${p.$delayMaxWidth * 100}px) 
 				{
-					animation: .47s ease-out forwards opening 0s !important;
+					animation: .47s ease-out forwards openingAnimatedBox 0s !important;
 				}
 			`}
 
@@ -96,11 +87,11 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $totalW
 	};
 `;
 
-export const ContentLock = styled(Box).attrs({$cornerP: "none"})<{$width?: string, $height?: string}>`
+export const ContentLock = styled(Box).attrs({$cornerP: "none"})<{$cWidth?: string, $cHeight?: string, $opened?: boolean}>`
 	background-color: transparent;
 	outline: none;
-   width: ${(p) => p.$width};
-   height: ${(p) => p.$height};
-   min-width: ${(p) => p.$width};
-   min-height: ${(p) => p.$height};
+   width: ${(p) => p.$opened ? (p.$width ?? "auto") : p.$cWidth};
+   height: ${(p) => p.$opened ? (p.$height ?? "auto") : p.$cHeight};
+   min-width: ${(p) => p.$opened ? (p.$width ?? "auto") : p.$cWidth};
+   min-height: ${(p) => p.$opened ? (p.$height ?? "auto") : p.$cHeight};
 `;

@@ -130,7 +130,7 @@ export default function Page() {
 						animationView="intersection" 
 						options={{oneTimeLoad: true}} 
 						groupOptions={{position: 0, delay: {ms: .23, maxWidth: 9}}}
-						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%"}}
 					>
 						<tx.P $size="xviii" $weight="450">Ownership</tx.P>
 
@@ -145,7 +145,7 @@ export default function Page() {
 						animationView="intersection" 
 						options={{oneTimeLoad: true}} 
 						groupOptions={{position: 1, delay: {ms: .23, maxWidth: 9}}}
-						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%"}}
 					>
 						<tx.P $size="xviii" $weight="450">Craft</tx.P>
 
@@ -160,7 +160,7 @@ export default function Page() {
 						animationView="intersection" 
 						options={{oneTimeLoad: true}} 
 						groupOptions={{position: 2, delay: {ms: .23, maxWidth: 9}}}
-						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%"}}
 					>
 						<tx.P $size="xviii" $weight="450">Honesty</tx.P>
 

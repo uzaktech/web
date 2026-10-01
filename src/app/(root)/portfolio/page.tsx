@@ -2,7 +2,7 @@ import * as s from "./styles";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AnimatedBox, Cta, Link, ProjectView, Stack } from "@/components";
+import { AnimatedBox, Cta, ExperienceView, Link, ProjectView, Stack } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -43,24 +43,22 @@ export default function Page() {
 
 			<sc.Section>
 				<sc.Label>About</sc.Label>
-				<sc.Title>Developer, designer, and product-minded builder</sc.Title>
+				<sc.Title>Full-stack developer, designer, and builder</sc.Title>
 				<wp.Col $gap="9px">
 					<sc.Copy>
-						I currently work as an independent developer focused on web products that requires a secure and solid [backend, database & infra]
-						and need thoughtful UX, reliable systems, and a clear point of view. 
+						I'm an independent developer focused on web products that need a solid backend, database, and infrastructure, along with thoughtful UX and reliable systems.
 					</sc.Copy>
 					<sc.Copy>
-						I enjoy taking ownership across the stack, from interface design and product
-						decisions to deployment and iterations.
+						I like having ownership across the stack, from interface design and product decisions to deployment and everything that comes after.
 					</sc.Copy>
 				</wp.Col>
 			</sc.Section>
 
 			<sc.Section id="skills">
 				<sc.Label>Skills</sc.Label>
-				<sc.Title>Tools and technologies</sc.Title>
+				<sc.Title>What I work with</sc.Title>
 				<sc.Copy>
-					I'm a full-stack developer, but my balance leans more to the back-end side.
+					I'm a full-stack developer. I work across the stack, but I tend to enjoy the back-end more.
 				</sc.Copy>
 
 				<wp.Col $gap="9px">
@@ -120,7 +118,7 @@ export default function Page() {
 				</wp.Col>
 
 				<wp.Col $gap="9px">
-					<tx.Span $opc={0.4} $weight="500">AI Agents</tx.Span>
+					<tx.Span $opc={0.4} $weight="500">AI tools</tx.Span>
 					
 					<Stack list={[
 						{label: "cursor", icon: true},
@@ -131,8 +129,8 @@ export default function Page() {
 			</sc.Section>
 
 			<sc.Section id="projects">
-				<sc.Label>Selected projects</sc.Label>
-				<sc.Title>Recent work</sc.Title>
+				<sc.Label>Projects</sc.Label>
+				<sc.Title>What I've built</sc.Title>
 				
 				<ProjectView portfolio />
 			</sc.Section>
@@ -141,18 +139,7 @@ export default function Page() {
 				<sc.Label>Career</sc.Label>
 				<sc.Title>My professional experience</sc.Title>
 				
-				<wp.Col $gap="9px">
-					<sc.Copy>
-						I'm currently (Sep. 2026) interning as a React Developer at <Link target="__blank" href="https://www.youbloom.com" poserStyle>youbloom</Link>, where 
-						I'm gaining hands-on experience in a professional team workflow. 
-					</sc.Copy>
-					<sc.Copy>
-						Prior to this, 4 years of self-directed development came from personal projects and freelance work.
-					</sc.Copy>
-					<sc.Copy>
-						Open to new opportunities and connections as I grow my career in software development.
-					</sc.Copy>
-				</wp.Col>
+				<ExperienceView />
 			</sc.Section>
 
 			<wp.Division $orientation={1} />

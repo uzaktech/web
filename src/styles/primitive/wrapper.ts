@@ -28,6 +28,7 @@ export type FlexProps = {
 	$display?: string,
 	$fDirection?: string,
 	$fWrap?: string,
+	$cursor?: string,
 	$css?: Styles<object>,
 	$cssStage?: {n?: number, css?: Styles<object>}
 }
@@ -56,6 +57,7 @@ export const Wrapper = styled.div<WrapperProps>`
 	right: ${({$cords}) => $cords?.[1]};
 	bottom: ${({$cords}) => $cords?.[2]};
 	left: ${({$cords}) => $cords?.[3]};
+	cursor: ${({$cursor}) => $cursor};
 	
 	padding: ${({$pad}) =>$pad};
 	gap: ${({$gap}) => $gap};
@@ -78,8 +80,9 @@ export const WrapperCenter = styled(Wrapper)`
 	height: 100%;
 `;
 
-export const Row = styled(Wrapper).attrs<{$breakAt?: number, $aiAt?: string, $invertAt?: boolean}>({$display: "flex"})`
+export const Row = styled(Wrapper).attrs<{$breakAt?: number, $aiAt?: string, $invertAt?: boolean}>({})`
 	flex-direction: row;
+	display: ${({$display}) => $display ?? "flex"};
 
 	${({$breakAt, $aiAt, $ai, $invertAt}) => $breakAt && css`
 		@media (max-width: ${$breakAt * 100}px) {
@@ -89,13 +92,14 @@ export const Row = styled(Wrapper).attrs<{$breakAt?: number, $aiAt?: string, $in
 	`}
 `;
 
-export const Col = styled(Wrapper).attrs({$display: "flex"})`
+export const Col = styled(Wrapper).attrs({})`
 	flex-direction: column;
+	display: ${({$display}) => $display ?? "flex"};
 `;
 
 export const Division = styled(Wrapper)<{$orientation?: 0 | 1, $breakAt?: number, $breakTo?: "hid" | "show" | "invert", $transparent?: boolean, $opc?: number}>`
 	position: relative;
-	display: flex;
+	display: ${({$display}) => $display ?? "flex"};
 
 	&::after 
 	{
