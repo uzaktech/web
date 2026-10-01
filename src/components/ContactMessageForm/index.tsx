@@ -58,7 +58,7 @@ export const ContactMessageForm = () => {
 			<tx.P $size="xviii" $weight="450">Leave a message</tx.P>
 
 			<wp.Col $pad="3px 9px" $gap="13px">
-				<tx.P $opc={0.79}>Get in contact by sending me a direct message, I'll reply as soon as possible!</tx.P>
+				<tx.P $opc={0.79}>Tell me a little about it, where you are with it, and what you're looking for. I'll take a look and get back to you as soon as I can.</tx.P>
 			</wp.Col>
 
 			<FormProvider onSubmit={submitMessage}>

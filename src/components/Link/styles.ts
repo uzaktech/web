@@ -10,6 +10,7 @@ export const Cta = styled.a<ButtonProps>`
 export const Link = styled.a<{$notStyle?: boolean, $poserStyle?: boolean, $opc?: number, $size?: string}>`
 	color:  ${(p) => rgba(p.theme.colors.text, p.$opc ?? 1)};
 	font-weight: 500;
+	width: fit-content;
 	font-size: inherit;
 	font-size: ${(p) => (p.theme.fontSize as any)[p.$size ?? "xvii"]};
 	cursor: pointer;
