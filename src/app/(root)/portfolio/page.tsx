@@ -80,23 +80,6 @@ export default function Page() {
 				
 				<ExperienceView />
 			</sc.Section>
-
-			<wp.Division $orientation={1} />
-
-			<sc.Section>
-				<wp.Col $gap="5px">
-					<sc.Title>Interested in working together?</sc.Title>
-				</wp.Col>
-
-				<sc.Copy>
-					I&apos;m open to freelance work, product builds, and long-term collaborations that value quality and clarity.
-				</sc.Copy>
-				
-				<wp.Row $fWrap="wrap" $gap="10px">
-					<Cta clientRender href="/contact">Contact me</Cta>
-					<Cta clientRender btnProps={{$style: "ghost_link"}} href="/about">About the studio</Cta>
-				</wp.Row>
-			</sc.Section>
 		</sc.Root>
 	);
 }

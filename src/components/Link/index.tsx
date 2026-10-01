@@ -10,10 +10,8 @@ export type LinkProps = {
 	clientRender?: boolean,
 	children?: ReactNode,
 	blockDown?: boolean,
-	opc?: number,
 	poserStyle?: boolean,
 	notStyle?: boolean,
-	size?: string,
 	cta?: "button" | "raw_cta",
 	btnProps?: ButtonProps
 } & ComponentPropsWithoutRef<"a"> & TextProps;

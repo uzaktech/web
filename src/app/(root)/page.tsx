@@ -180,23 +180,6 @@ export default function Home() {
 					</AnimatedBox>
 				</wp.Row>
 			</sc.Section>
-
-			<wp.Division $orientation={1} />
-
-			<sc.Section>
-				<wp.Col $gap="5px">
-					<sc.Title>Have something in mind?</sc.Title>
-				</wp.Col>
-
-				<sc.Copy>
-					Tell me about your product or idea — I&apos;ll help shape it into something real.
-				</sc.Copy>
-
-				<wp.Row $fWrap="wrap" $gap="13px">
-					<Cta clientRender href="/contact">Start a conversation</Cta>
-					<Cta clientRender btnProps={{$style: "ghost_link"}} href="/about">About the studio</Cta>
-				</wp.Row>
-			</sc.Section>
 		</sc.Root>
   	);
 }

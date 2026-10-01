@@ -10,6 +10,7 @@ export const Root = styled.div`
 	flex-direction: column;
 	gap: 48px;
 	width: 100%;
+	padding: 0 0 23px;
 `;
 
 export const Section = styled(Wrapper).attrs<{$breakAt?: number, $hero?: boolean}>({as: "section"})`

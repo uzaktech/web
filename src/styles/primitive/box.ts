@@ -21,6 +21,7 @@ export type BoxProps = {
 	};
 	$cornerP?: "none" | "default",
 	$shadow?: boolean,
+	$shadowColor?: string,
 	$overflow?: string,
 	$aspectRatio?: string,
 	$margin?: string,
@@ -29,7 +30,8 @@ export type BoxProps = {
 	$gap?: string,
 	$border?: string,
 	$ai?: string,
-	$jc?: string
+	$jc?: string,
+	$bg?: string
 }
 
 export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: string | undefined, size?: string | undefined, pad?: number, opc?: number) => css`
@@ -85,7 +87,7 @@ export const Box = styled.div<BoxProps>`
 	padding: ${(p) => p.$padding ?? "9px"};
 	aspect-ratio: ${(p) => p.$aspectRatio};
 	overflow: ${(p) => p.$overflow};
-	outline: ${(p) => p.$shadow != false && `solid 1px ${p.theme.colors.boxShadow}`};
+	outline: ${(p) => p.$shadow != false && `solid 1px ${p.$shadowColor ?? p.theme.colors.boxShadow}`};
 	border: ${(p) => p.$border};
 	margin: ${(p) => p.$margin};
 	display: ${(p) => p.$display ?? "flex"};
@@ -93,7 +95,7 @@ export const Box = styled.div<BoxProps>`
 	flex-direction: ${(p) => p.$fDirection ?? "column"};
 	align-items: ${(p) => p.$ai};
 	justify-content: ${(p) => p.$jc};
-	background-color: ${(p) => p.theme.colors.boxBackground};
+	background-color: ${(p) => p.$bg ?? p.theme.colors.boxBackground};
 
 	${(p) => p.$cornerP != "none" && (cornerBox(p.theme, p.$corner?.borderSize, p.$corner?.color, p.$corner?.size, p.$corner?.pad, p.$corner?.opc))}
 `;
