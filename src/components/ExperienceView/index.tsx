@@ -71,13 +71,15 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 				hiddenOnZero
 			>
 				{/* Information Column */}
-				<wp.Col  $pad="0 17px 13px" $gap="9px" $dSize={["100%", undefined]}>
-					<tx.P $maxWidth="43rem" $opc={0.7} $margin="3px 0 3px">
-						{e.description}
-					</tx.P>
+				<wp.Col  $pad="0 17px 13px" $gap="7px" $dSize={["100%", undefined]}>
+					{e.description.map((m, i) => 
+						<tx.P $maxWidth="43rem" $opc={0.7} $margin={`${i == 0 ? "3px" : "0"} 0 ${i == e.description.length ? "3px" : "0"}`} $wSpace="pre-line" key={i}>
+							{m}
+						</tx.P>
+					)}
 
 					{e.links && 
-						<wp.Row $gap="3px 9px" $fWrap="wrap">
+						<wp.Row $gap="3px 9px" $fWrap="wrap" $pad="5px 0 0">
 							{e.links.map((l, i) => (
 								<Fragment key={i}>
 									{i != 0 && 
