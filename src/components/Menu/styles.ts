@@ -94,8 +94,9 @@ export const Li = styled.li<{$selected?: boolean}>`
 			position: absolute;
 			cursor: pointer;
 			z-index: 1;
-			background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.1)};
-			transform: skewX(-30deg) translate(calc(-50% - 5px), calc(-50% + .5px));
+			background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0)};
+			backdrop-filter: invert(100%);
+			transform: skewX(-30deg) translate(calc(-50% - 5px), calc(-50% - .5px));
 		}
 	`}
 
@@ -104,15 +105,6 @@ export const Li = styled.li<{$selected?: boolean}>`
 			font-size: ${({theme}) => theme.fontSize.xvi};
 		}
 	}
-`;
-
-export const Division = styled.div`
-	display: flex;
-	position: relative;
-	width: 100%;
-	height: 1px;
-	background-color: ${(p) => p.theme.colors.boxShadow};
-	margin: 0 0 13px;
 `;
 
 export const CloseBtn = styled.div`

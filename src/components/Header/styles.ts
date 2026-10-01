@@ -161,7 +161,7 @@ export const Li = styled.li<{$selected?: boolean}>`
 	
 	${({$selected}) => $selected && css`
 		& > a {
-			font-weight: 600;
+			font-weight: 550;
 			text-decoration: none;
 			
 			&:hover,
@@ -181,7 +181,7 @@ export const Li = styled.li<{$selected?: boolean}>`
 			cursor: pointer;
 			z-index: 1;
 			backdrop-filter: invert(100%);
-			transform: skewX(-30deg) translate(calc(-50% - 5px), calc(-50% + .5px));
+			transform: skewX(-30deg) translate(calc(-50% - 5px), calc(-50% + 0px));
 		}
 	`}
 

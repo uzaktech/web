@@ -1,6 +1,7 @@
 "use client";
 
 import * as s from "./styles";
+import * as w from "@/styles/primitive/wrapper";
 import { useMenu } from "@/context"
 import { createPortal } from "react-dom";
 import { Link } from "../Link";
@@ -38,7 +39,7 @@ export const Menu = () => {
 					</s.Ul>
 				</s.Nav>
 
-				<s.Division />
+				<w.Division $orientation={1} $opc={1} $margin="0 0 13px" />
 
 				<s.CloseBtn onClick={() => menu.setVisibility(false)} />
 			</s.Menu>
