@@ -12,11 +12,11 @@ import { ShrinkWrapper } from "../ShrinkWrapper";
 
 export const ExperienceView = () => {
 	return (
-		<wp.Col $gap="13px">
+		<wp.UlCol $gap="13px" $listStyle="none">
 			{experiences.map((e, i) => (
 				<ExperienceBox e={e} key={i} />
 			))}
-		</wp.Col>
+		</wp.UlCol>
 	)
 }
 
@@ -27,6 +27,7 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 
 	return (
 		<AnimatedBox 
+			as="li"
 			animationView="intersection" 
 			options={{oneTimeLoad: true}} 
 			boxStyle={{$padding: `0 0 ${expanded ? "0" : "4px"}`, $gap: "9px"}}
@@ -41,7 +42,7 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 							<tx.Span $size="xv" $margin="3px 0 0" $uSelect="none" $weight="500" $opc={0.5}>/</tx.Span>
 
 							<tx.Span $wSpace="nowrap">
-								<Link poserStyle onClick={expand} size="xvi" opc={0.4}>{expanded == true ? "less" : "more"}</Link>
+								<Link poserStyle onClick={expand} $size="xvi" $opc={0.4}>{expanded == true ? "less" : "more"}</Link>
 							</tx.Span>
 						</wp.Row>
 						
@@ -86,7 +87,7 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 										<tx.Span $uSelect="none" $cursor="default" $opc={.3}>/</tx.Span>
 									}
 
-									<Link href={l.url} target="_blank" poserStyle opc={.9} size="xvi">
+									<Link href={l.url} target="_blank" poserStyle $opc={.9} $size="xvi">
 										{l.label}
 									</Link>
 								</Fragment>

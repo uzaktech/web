@@ -12,3 +12,4 @@ export * from "./AnimatedBox";
 export * from "./Menu";
 export * from "./ExperienceView";
 export * from "./ShrinkWrapper";
+export * from "./Footer";

@@ -16,6 +16,7 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 		<wp.Col $gap="13px">
 			{list.map((p, i) => (
 				<AnimatedBox 
+					as="article"
 					animationView="intersection" 
 					options={{oneTimeLoad: true}} 
 					boxStyle={{$padding: "0"}}
@@ -50,7 +51,7 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 													<tx.Span $uSelect="none" $cursor="default" $opc={.3}>/</tx.Span>
 												}
 
-												<Link href={l.url} target="_blank" poserStyle opc={.9} size="xvi">
+												<Link href={l.url} target="_blank" poserStyle $opc={.9} $size="xvi">
 													{l.label}
 												</Link>
 											</Fragment>

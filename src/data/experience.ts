@@ -31,7 +31,7 @@ export const experiences: ExperiencesType[] = [
 		],
 		links: [{label: "Studio website", url: "https://www.vexiostudio.com.br"}],
 		stackLabels: ["c_sharp", "dot_net", "pgsql", "next_js", "ts", "sass", "react_js", "nodejs"],
-		dateRange: {start: new Date(2025, 5, 1), end: new Date(2025, 9, 1)}
+		dateRange: {start: new Date(2025, 5, 1), end: new Date(2026, 2, 1)}
 	},
 	{
 		title: "Web Development Assistant",
@@ -41,6 +41,6 @@ export const experiences: ExperiencesType[] = [
 			"I resolved 20+ bugs across the Next.js and React codebase, including a Python issue involving the Selenium library."
 		],
 		stackLabels: ["next_js", "ts", "react_js", "docker", "nodejs", "python"],
-		dateRange: {start: new Date(2024, 1, 1), end: new Date(2024, 3, 1)}
+		dateRange: {start: new Date(2024, 1, 1), end: new Date(2024, 7, 1)}
 	}
 ]

@@ -6,7 +6,7 @@ import { css } from "styled-components";
 import { rgba } from "../theme";
 
 export type ButtonProps = {
-	$style?: "ghost_link" | undefined,
+	$style?: "ghost_link" | "chill_black" | undefined,
 	$cta?: boolean,
 	$fullMaxWidth?: string
 };
@@ -40,9 +40,10 @@ export const buttonStyle = (p: ButtonProps) => css`
 	}
 
 	${p.$style == undefined ? css`
-		color: #fff;
+		color: ${(p) => p.theme.colors.boxBackground};
 		text-decoration: none;
 		background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.93)};
+		outline: solid 1px ${(p) => p.theme.colors.boxBackground};
 		
 		&:focus,
 		&:hover
@@ -79,6 +80,24 @@ export const buttonStyle = (p: ButtonProps) => css`
 		&:active:hover
 		{
 			${(p) => cornerBox(p.theme, "1px", p.theme.colors.boxShadow, "100%", 2)};
+		}
+	` : p.$style == "chill_black" ? css`
+		background-color: ${(p) => p.theme.colors.boxShadow};
+		color: ${(p) => p.theme.colors.boxBackground};
+		font-weight: 400;
+		outline: solid 1px ${(p) => rgba(p.theme.colors.boxBackground, 0.7)};
+		outline-offset: -1px;
+		text-decoration: none;
+		
+		&:focus,
+		&:hover
+		{
+			${(p) => cornerBox(p.theme, "1px", p.theme.colors.boxBackground, undefined, 2, 0.7)};
+		}
+		
+		&:active:hover
+		{
+			${(p) => cornerBox(p.theme, "1px", p.theme.colors.boxBackground, "100%", 2, 0.7)};
 		}
 	` : css``}
 `;

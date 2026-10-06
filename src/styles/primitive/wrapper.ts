@@ -30,7 +30,9 @@ export type FlexProps = {
 	$fWrap?: string,
 	$cursor?: string,
 	$css?: Styles<object>,
-	$cssStage?: {n?: number, css?: Styles<object>}
+	$cssStage?: {n?: number, css?: Styles<object>},
+	$flex?: string,
+	$listStyle?: string
 }
 
 export type WrapperProps = PadProps & SizeProps & FlexProps;
@@ -58,6 +60,8 @@ export const Wrapper = styled.div<WrapperProps>`
 	bottom: ${({$cords}) => $cords?.[2]};
 	left: ${({$cords}) => $cords?.[3]};
 	cursor: ${({$cursor}) => $cursor};
+	flex: ${({$flex}) => $flex};
+	list-style: ${({$listStyle}) => $listStyle};
 	
 	padding: ${({$pad}) =>$pad};
 	gap: ${({$gap}) => $gap};
@@ -96,6 +100,14 @@ export const Col = styled(Wrapper).attrs({})`
 	flex-direction: column;
 	display: ${({$display}) => $display ?? "flex"};
 `;
+
+export const UlCol = styled(Wrapper).attrs({as: "ul"})`
+	flex-direction: column;
+	display: ${({$display}) => $display ?? "flex"};
+	padding: ${({$pad}) => $pad ?? "0px"};
+`;
+
+export const Li = styled(Wrapper).attrs({as: "li"})``;
 
 export const Division = styled(Wrapper)<{$orientation?: 0 | 1, $breakAt?: number, $breakTo?: "hid" | "show" | "invert", $transparent?: boolean, $opc?: number}>`
 	position: relative;

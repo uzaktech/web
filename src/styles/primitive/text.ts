@@ -34,7 +34,7 @@ export const defaultText = (props: TextProps & {theme: DefaultTheme}) => css`
 	margin: 0;
 	color: ${
 		props.$colorPreset ? rgba(props.theme.colors[props.$colorPreset], "var(--opc)")
-		: props.$color ?? rgba(props.theme.colors.text, "var(--opc)")};
+		: props.$color ? rgba(props.$color, "var(--opc)") : (props.$opc != null ? rgba(props.theme.colors.text, "var(--opc)") : "inherit")};
 	font-weight: ${props.$weight ?? 400};
 	margin: ${props.$margin};
 	font-style: ${props.$italic && "italic"};
