@@ -56,7 +56,7 @@ export const projects = (portfolio?: boolean): ProjectType[] => [
 			"/project_captures/dentalv/7.png"
 		],
 		stackLabels: ["c_sharp", "dot_net", "pgsql", "next_js", "ts", "sass", "react_js", "nodejs"],
-		dateRange: {start: new Date(2025, 5, 1), end: new Date(2025, 9, 1)},
+		dateRange: {start: new Date(2025, 5, 1), end: new Date(2026, 2, 1)},
 		linesCount: 65000
 	},
 	{
