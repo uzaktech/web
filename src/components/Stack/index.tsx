@@ -75,7 +75,7 @@ export type StackProps = {
 
 export const Stack = ({list, justIcon, animation}: StackProps) => {
 	return (
-		<w.Row $fWrap="wrap" $gap={justIcon ? "8px" : "9px"} $ai="flex-start">
+		<w.Row as={justIcon ? "div" : "ul"} $listStyle="none" $pad="0px" $fWrap="wrap" $gap={justIcon ? "8px" : "9px"} $ai="flex-start">
 			{list.map((o, i) => (
 				<Fragment key={i}>
 					{justIcon 
@@ -85,7 +85,7 @@ export const Stack = ({list, justIcon, animation}: StackProps) => {
 							</s.Abbr>
 						: 
 							!animation || animation == "none" ?
-								<b.Box $cornerP="none" $padding="7px 9px" $fDirection="row" $ai="center" $gap="9px">
+								<b.Box as="li" $cornerP="none" $padding="7px 9px" $fDirection="row" $ai="center" $gap="9px">
 									{o.icon && 
 										<s.Icon src={`/stack_icons/${o.label}.svg`} alt={`icon: ${o.label}`} $small />
 									}
@@ -96,6 +96,7 @@ export const Stack = ({list, justIcon, animation}: StackProps) => {
 								</b.Box>
 							:
 								<AnimatedBox
+								 	as="li"
 									animationView={animation}
 									options={{oneTimeLoad: true}} 
 									groupOptions={{position: i, delay: {ms: .09, maxWidth: undefined}}}

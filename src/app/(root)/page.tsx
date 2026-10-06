@@ -123,8 +123,9 @@ export default function Home() {
 					I focus on web products where I can handle the design, development, and infrastructure myself.
 				</sc.Copy>
 
-				<wp.Row $fWrap="wrap" $gap="9px" $ai="flex-start">
+				<wp.Row as="ul" $pad="0px" $listStyle="none" $fWrap="wrap" $gap="9px" $ai="flex-start">
 					<AnimatedBox 
+						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
 						options={{oneTimeLoad: true}}
@@ -134,6 +135,7 @@ export default function Home() {
 						<tx.Span $size="xv" $weight="450">SaaS MVPs</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
+						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
 						options={{oneTimeLoad: true}}
@@ -143,6 +145,7 @@ export default function Home() {
 						<tx.Span $size="xv" $weight="450">Web apps</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
+						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
 						options={{oneTimeLoad: true}}
@@ -152,6 +155,7 @@ export default function Home() {
 						<tx.Span $size="xv" $weight="450">Internal tools</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
+						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
 						options={{oneTimeLoad: true}}
@@ -161,6 +165,7 @@ export default function Home() {
 						<tx.Span $size="xv" $weight="450">Design systems</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
+						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
 						options={{oneTimeLoad: true}}
@@ -170,6 +175,7 @@ export default function Home() {
 						<tx.Span $size="xv" $weight="450">Infrastructure</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
+						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
 						options={{oneTimeLoad: true}}

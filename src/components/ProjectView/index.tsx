@@ -13,9 +13,10 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 	const list = projects(portfolio);
 
 	return (
-		<wp.Col $gap="13px">
+		<wp.UlCol $gap="13px" $listStyle="none">
 			{list.map((p, i) => (
 				<AnimatedBox 
+					as="li"
 					animationView="intersection" 
 					options={{oneTimeLoad: true}} 
 					boxStyle={{$padding: "0"}}
@@ -91,6 +92,6 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 			>
 				<tx.Span $opc={0.5} $weight="450">new projects are being built</tx.Span>
 			</bx.Box>
-		</wp.Col>
+		</wp.UlCol>
 	)
 }

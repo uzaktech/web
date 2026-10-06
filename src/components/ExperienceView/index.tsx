@@ -12,11 +12,11 @@ import { ShrinkWrapper } from "../ShrinkWrapper";
 
 export const ExperienceView = () => {
 	return (
-		<wp.Col $gap="13px">
+		<wp.UlCol $gap="13px" $listStyle="none">
 			{experiences.map((e, i) => (
 				<ExperienceBox e={e} key={i} />
 			))}
-		</wp.Col>
+		</wp.UlCol>
 	)
 }
 
@@ -27,6 +27,7 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 
 	return (
 		<AnimatedBox 
+			as="li"
 			animationView="intersection" 
 			options={{oneTimeLoad: true}} 
 			boxStyle={{$padding: `0 0 ${expanded ? "0" : "4px"}`, $gap: "9px"}}

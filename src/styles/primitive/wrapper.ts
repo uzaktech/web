@@ -31,7 +31,8 @@ export type FlexProps = {
 	$cursor?: string,
 	$css?: Styles<object>,
 	$cssStage?: {n?: number, css?: Styles<object>},
-	$flex?: string
+	$flex?: string,
+	$listStyle?: string
 }
 
 export type WrapperProps = PadProps & SizeProps & FlexProps;
@@ -60,6 +61,7 @@ export const Wrapper = styled.div<WrapperProps>`
 	left: ${({$cords}) => $cords?.[3]};
 	cursor: ${({$cursor}) => $cursor};
 	flex: ${({$flex}) => $flex};
+	list-style: ${({$listStyle}) => $listStyle};
 	
 	padding: ${({$pad}) =>$pad};
 	gap: ${({$gap}) => $gap};
@@ -99,11 +101,10 @@ export const Col = styled(Wrapper).attrs({})`
 	display: ${({$display}) => $display ?? "flex"};
 `;
 
-export const UlCol = styled(Wrapper).attrs({as: "ul"})<{$listStyle?: string}>`
+export const UlCol = styled(Wrapper).attrs({as: "ul"})`
 	flex-direction: column;
 	display: ${({$display}) => $display ?? "flex"};
 	padding: ${({$pad}) => $pad ?? "0px"};
-	list-style: ${({$listStyle}) => $listStyle};
 `;
 
 export const Li = styled(Wrapper).attrs({as: "li"})``;
