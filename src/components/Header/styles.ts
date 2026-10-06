@@ -185,7 +185,7 @@ export const Li = styled.li<{$selected?: boolean}>`
 		}
 	`}
 
-	@media (max-width: 450px) {
+	@media (max-width: 470px) {
 		& > a {
 			font-size: ${({theme}) => theme.fontSize.xv};
 		}
