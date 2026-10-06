@@ -5,6 +5,7 @@ import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
 import { ContactMessageForm, Link } from "@/components";
 import { Metadata } from "next";
+import { links, linksLabels } from "@/data";
 
 export const metadata: Metadata = {
 	title: "Contact"
@@ -28,27 +29,35 @@ export default function Page() {
 						<tx.P $size="xviii" $weight="450">My links</tx.P>
 
 						<wp.Col $gap="3px">
-							<wp.Col>
+							<Link poserStyle target="_blank" href={links.email}>
 								<wp.Row $pad="3px 9px" $gap="9px" $ai="center">
 									<s.Icon src={"/social_icons/email.svg"} alt="email icon" />
 
-									<tx.Span $lSpacing=".03rem" $size="xvi" $weight="500" $tDecoration="none">enzo.kazuki9@gmail.com</tx.Span>
-								</wp.Row>
-							</wp.Col>
-
-							<Link poserStyle target="_blank" href="https://www.github.com/enzoKazuki">
-								<wp.Row $pad="3px 9px" $gap="9px" $ai="center">
-									<s.Icon src={"/social_icons/github.svg"} alt="github icon" />
-
-									<tx.Span $lSpacing=".03rem" $size="xvi" $weight="500" $tDecoration="none">/ enzoKazuki</tx.Span>
+									<tx.Span $lSpacing=".03rem" $size="xvi" $weight="500" $tDecoration="none">{linksLabels.email}</tx.Span>
 								</wp.Row>
 							</Link>
 
-							<Link poserStyle target="_blank" href="https://www.linkedin.com/in/enzoKazuki">
+							<Link poserStyle target="_blank" href={links.githubProfile}>
+								<wp.Row $pad="3px 9px" $gap="9px" $ai="center">
+									<s.Icon src={"/social_icons/github.svg"} alt="github icon" />
+
+									<tx.Span $lSpacing=".03rem" $size="xvi" $weight="500" $tDecoration="none">/ {linksLabels.githubProfile}</tx.Span>
+								</wp.Row>
+							</Link>
+
+							<Link poserStyle target="_blank" href={links.linkedinProfile}>
 								<wp.Row $pad="3px 9px" $gap="9px" $ai="center" $dSize={["fit-content", undefined]}>
 									<s.Icon src={"/social_icons/linkedin.svg"} alt="linkedin icon" />
 
-									<tx.Span $lSpacing=".03rem" $size="xvi" $weight="500">/ enzoKazuki</tx.Span>
+									<tx.Span $lSpacing=".03rem" $size="xvi" $weight="500">/ {linksLabels.linkedinProfile}</tx.Span>
+								</wp.Row>
+							</Link>
+
+							<Link poserStyle target="_blank" href={links.discordProfile}>
+								<wp.Row $pad="3px 9px" $gap="9px" $ai="center" $dSize={["fit-content", undefined]}>
+									<s.Icon src={"/social_icons/discord.svg"} alt="discord icon" />
+
+									<tx.Span $lSpacing=".03rem" $size="xvi" $weight="500">@{linksLabels.discordProfile}</tx.Span>
 								</wp.Row>
 							</Link>
 						</wp.Col>

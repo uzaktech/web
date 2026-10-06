@@ -106,6 +106,12 @@ export const Footer = () => {
 									</Link>
 								</wp.Li>
 								
+								{/*<wp.Li>
+									<Link href={links.discordProfile} target="_blank" poserStyle $color={defaultTheme.colors.boxBackground} $weight="350">
+										Discord
+									</Link>
+								</wp.Li>*/}
+								
 								<wp.Li>
 									<Link href={links.githubUzak} target="_blank" poserStyle $color={defaultTheme.colors.boxBackground} $weight="350">
 										Uzak's GitHub
