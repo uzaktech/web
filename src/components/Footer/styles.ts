@@ -45,5 +45,5 @@ export const AvailabilityIcon = styled.div`
 
 export const LogoWrapper = styled.div`
 	max-width: 109px;
-	filter: invert(100%) brightness(50%);
+	filter: invert(100%) brightness(53%);
 `;
