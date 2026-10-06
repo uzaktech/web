@@ -79,6 +79,19 @@ export const Li = styled.li<{$selected?: boolean}>`
 		visibility: visible;
 	}
 
+	@keyframes animationSelectedIn {
+		0% 
+		{
+			height: 0.9em;
+			transform: skewX(-9deg) translate(calc(-50% - 2px), calc(-50% - .5px));
+		}
+		100% 
+		{
+			height: 1.1em;
+			transform: skewX(-30deg) translate(calc(-50% - 5px), calc(-50% - .5px));
+		}
+	}
+
 	${({$selected}) => $selected && css`
 		& > a {
 			font-weight: 500;
@@ -94,9 +107,8 @@ export const Li = styled.li<{$selected?: boolean}>`
 			position: absolute;
 			cursor: pointer;
 			z-index: 1;
-			background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0)};
 			backdrop-filter: invert(100%);
-			transform: skewX(-30deg) translate(calc(-50% - 5px), calc(-50% - .5px));
+			animation: ease-in forwards .19s animationSelectedIn;
 		}
 	`}
 
