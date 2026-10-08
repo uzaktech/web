@@ -132,7 +132,7 @@ export const CloseBtn = styled.div`
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		height: calc(100% - 3px);
+		height: calc(100% - 4px);
 		width: 1px;
 		background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.13)};
 		background-color: ${(p) => p.theme.colors.boxShadow};
@@ -146,5 +146,16 @@ export const CloseBtn = styled.div`
 	&:before
 	{
 		transform: translate(-50%, -50%) rotate(-45deg);
+	}
+
+	/*&:hover 
+	{
+		background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.1)};
+	}*/
+
+	&:hover,
+	&:focus
+	{
+		outline: dashed 1px ${(p) => rgba(p.theme.colors.boxShadow, 0.3)};
 	}
 `;

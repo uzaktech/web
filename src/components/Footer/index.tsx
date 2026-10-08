@@ -35,21 +35,26 @@ export const Footer = () => {
 								Status
 							</s.LabelColumn>
 							
-							<bx.Box 
-								$padding="12px 14px" 
-								$shadow={false} 
-								$border={`dashed 1px ${rgba(defaultTheme.colors.boxBackground, 0.5)}`} 
-								$corner={{borderSize: "1px", opc: 0.5, pad: 1, color: defaultTheme.colors.boxBackground}}
-								$bg={defaultTheme.colors.boxShadow}
-								$margin="3px 0 0"
-								$gap="5px"
+							<AnimatedBox
+								animationView="intersection"
+								boxStyle={{
+									$padding: "12px 14px" ,
+									$shadow: false,
+									$outline: `dashed 1px ${rgba(defaultTheme.colors.boxBackground, 0.5)}`,
+									$corner: {borderSize: "1px", opc: 0.5, pad: 1, color: defaultTheme.colors.boxBackground},
+									$bg: defaultTheme.colors.boxShadow,
+									$margin: "3px 0 0",
+									$gap: "5px",
+								}}
+								options={{oneTimeLoad: true, intersectionMarginPreset: "medium"}}
+
 							>
 								<wp.Row $ai="center" $gap="7px">
 									<s.AvailabilityIcon />
 									<tx.Span $weight="300">Open to Work</tx.Span>
 								</wp.Row>
 								<tx.Span $opc={0.7} $weight="350" $size="xvi" $color={defaultTheme.colors.boxBackground} $italic>new projects are being built</tx.Span>
-							</bx.Box>
+							</AnimatedBox>
 						</wp.Col>
 						
 						{/* Navigation row */}

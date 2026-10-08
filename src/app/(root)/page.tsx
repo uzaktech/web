@@ -73,7 +73,10 @@ export default function Home() {
 					<AnimatedBox 
 						as="li" 
 						animationView="intersection" 
-						options={{oneTimeLoad: true}} 
+						options={{
+							oneTimeLoad: true,
+							intersectionMarginPreset: "medium"
+						}} 
 						groupOptions={{position: 0, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
 					>
@@ -87,7 +90,10 @@ export default function Home() {
 					<AnimatedBox 
 						as="li" 
 						animationView="intersection" 
-						options={{oneTimeLoad: true}} 
+						options={{
+							oneTimeLoad: true,
+							intersectionMarginPreset: "medium"
+						}} 
 						groupOptions={{position: 1, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
 					>
@@ -101,7 +107,10 @@ export default function Home() {
 					<AnimatedBox 
 						as="li" 
 						animationView="intersection" 
-						options={{oneTimeLoad: true}} 
+						options={{
+							oneTimeLoad: true,
+							intersectionMarginPreset: "medium"
+						}} 
 						groupOptions={{position: 2, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
 					>
@@ -128,7 +137,7 @@ export default function Home() {
 						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
-						options={{oneTimeLoad: true}}
+						options={{oneTimeLoad: true, intersectionMarginPreset: "small"}}
 						groupOptions={{position: 0, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
@@ -138,7 +147,7 @@ export default function Home() {
 						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
-						options={{oneTimeLoad: true}}
+						options={{oneTimeLoad: true, intersectionMarginPreset: "small"}}
 						groupOptions={{position: 1, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
@@ -148,7 +157,7 @@ export default function Home() {
 						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
-						options={{oneTimeLoad: true}}
+						options={{oneTimeLoad: true, intersectionMarginPreset: "small"}}
 						groupOptions={{position: 2, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
@@ -158,7 +167,7 @@ export default function Home() {
 						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
-						options={{oneTimeLoad: true}}
+						options={{oneTimeLoad: true, intersectionMarginPreset: "small"}}
 						groupOptions={{position: 3, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
@@ -168,7 +177,7 @@ export default function Home() {
 						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
-						options={{oneTimeLoad: true}}
+						options={{oneTimeLoad: true, intersectionMarginPreset: "small"}}
 						groupOptions={{position: 4, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
@@ -178,7 +187,7 @@ export default function Home() {
 						as="li"
 						animationView="intersection"
 						animationSpeed="fast"
-						options={{oneTimeLoad: true}}
+						options={{oneTimeLoad: true, intersectionMarginPreset: "small"}}
 						groupOptions={{position: 5, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>

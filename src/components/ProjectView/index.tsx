@@ -18,7 +18,10 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 				<AnimatedBox 
 					as="article"
 					animationView="intersection" 
-					options={{oneTimeLoad: true}} 
+					options={{
+						oneTimeLoad: true,
+						intersectionMarginPreset: "large"
+					}} 
 					boxStyle={{$padding: "0"}}
 					key={i}
 				>

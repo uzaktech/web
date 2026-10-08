@@ -10,6 +10,7 @@ export type AnimatedBoxProps = {
 	animationSpeed?: "default" | "fast",
 	options: {
 		intersectionOptions?: IntersectionObserverInit | null,
+		intersectionMarginPreset?: "default" | "small" | "medium" | "large",
 		oneTimeLoad?: boolean
 	},
 	groupOptions?: AnimatedBoxGroupOptions,
@@ -28,9 +29,29 @@ export type AnimatedBoxGroupOptions = {
 const RESIZE_DEBOUNCE_MS = 150;
 const RESIZE_COOLDOWN_MS = 800;
 
+const FRAME_KEYS = ["$margin", "$width", "$height", "$minWidth", "$minHeight", "$maxWidth", "$maxHeight", "$aspectRatio"] as const;
+const SHELL_KEYS = ["$bg", "$shadow", "$shadowColor", "$border", "$outline", "$corner", "$cornerP", "$overflow"] as const;
+const CONTENT_KEYS = ["$padding", "$gap", "$fDirection", "$display", "$ai", "$jc"] as const;
+
+const pickStyle = <K extends keyof b.BoxProps>(style: b.BoxProps | undefined, keys: readonly K[]) => {
+	if (!style) return {} as Pick<b.BoxProps, K>;
+
+	const next = {} as Pick<b.BoxProps, K>;
+
+	for (const key of keys) {
+		if (style[key] !== undefined) next[key] = style[key];
+	}
+
+	return next;
+};
+
 export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, children, groupOptions, resizeSignal, ...props }: AnimatedBoxProps) => {
 	const boxRef = useRef<HTMLDivElement | null>(null);
 	const contentRef = useRef<HTMLDivElement | null>(null);
+
+	const frameStyle = pickStyle(boxStyle, FRAME_KEYS);
+	const shellStyle = pickStyle(boxStyle, SHELL_KEYS);
+	const contentStyle = pickStyle(boxStyle, CONTENT_KEYS);
 
 	const [wasIntersected, setWasIntersected] = useState<boolean>(false);
 	const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
@@ -63,13 +84,21 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 	}
 
 	const intersectionFn = () => {
-		const _options = options?.intersectionOptions ?? {
-			root: null,
-			rootMargin: "-3px",
-			threshold: 0.13
+		const propOpt = options?.intersectionOptions;
+		const propMarginPreset = options?.intersectionMarginPreset;
+		const opt: IntersectionObserverInit = {
+			root: propOpt?.root ?? null,
+			rootMargin: 
+				propOpt?.rootMargin ?? 
+				(propMarginPreset == "large" ? "-53px" 
+				: propMarginPreset == "medium" ? "-17px" 
+				: propMarginPreset == "small" ? "-9px" 
+				: "-3px"),
+    		//scrollMargin: propOpt?.scrollMargin,
+			threshold: propOpt?.threshold ?? 0.13
 		};
 
-		const observer = new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting), _options);
+		const observer = new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting), opt);
 
 		const currentTarget = boxRef.current;
 
@@ -157,9 +186,13 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 	}, [boxRef])
 
 	return (
-		<s.FrameRoot {...boxStyle} ref={boxRef}>
+		<s.FrameRoot 
+			{...frameStyle} 
+			$height={opened ? "auto" : (boxRects?.h ? `${boxRects.h}px` : undefined)} 
+			ref={boxRef}
+		>
 			<s.AnimatedBox 
-				{...boxStyle}
+				{...shellStyle}
 				$open={open}
 				$close={close}
 				$delayMs={groupOptions?.delay?.ms ? (groupOptions.delay.ms * groupOptions.position) : undefined}
@@ -172,7 +205,7 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 			>
 				<s.ContentLock 
 					{...props}
-					{...boxStyle} 
+					{...contentStyle} 
 					ref={contentRef}
 					$cWidth={(boxRects?.w ? `${boxRects.w}px` : "100%")}
 					$cHeight={(boxRects?.h ? `${boxRects.h}px` : "100%")}

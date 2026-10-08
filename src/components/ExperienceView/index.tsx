@@ -29,7 +29,10 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 		<AnimatedBox 
 			as="li"
 			animationView="intersection" 
-			options={{oneTimeLoad: true}} 
+			options={{
+				oneTimeLoad: true,
+				intersectionMarginPreset: "medium"
+			}} 
 			boxStyle={{$padding: `0 0 ${expanded ? "0" : "4px"}`, $gap: "9px"}}
 		>
 			<wp.Col $pad={`13px 17px 0`}>
