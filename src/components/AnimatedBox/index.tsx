@@ -94,7 +94,7 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 				: propMarginPreset == "medium" ? "-17px" 
 				: propMarginPreset == "small" ? "-9px" 
 				: "-3px"),
-    		scrollMargin: propOpt?.scrollMargin,
+    		//scrollMargin: propOpt?.scrollMargin,
 			threshold: propOpt?.threshold ?? 0.13
 		};
 
