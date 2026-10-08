@@ -29,6 +29,7 @@ export type BoxProps = {
 	$display?: string,
 	$gap?: string,
 	$border?: string,
+	$outline?: string,
 	$ai?: string,
 	$jc?: string,
 	$bg?: string
@@ -87,7 +88,7 @@ export const Box = styled.div<BoxProps>`
 	padding: ${(p) => p.$padding ?? "9px"};
 	aspect-ratio: ${(p) => p.$aspectRatio};
 	overflow: ${(p) => p.$overflow};
-	outline: ${(p) => p.$shadow != false && `solid 1px ${p.$shadowColor ?? p.theme.colors.boxShadow}`};
+	outline: ${(p) => p.$outline ?? (p.$shadow != false && `solid 1px ${p.$shadowColor ?? p.theme.colors.boxShadow}`)};
 	border: ${(p) => p.$border};
 	margin: ${(p) => p.$margin};
 	display: ${(p) => p.$display ?? "flex"};
