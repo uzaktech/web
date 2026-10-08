@@ -28,9 +28,29 @@ export type AnimatedBoxGroupOptions = {
 const RESIZE_DEBOUNCE_MS = 150;
 const RESIZE_COOLDOWN_MS = 800;
 
+const FRAME_KEYS = ["$margin", "$width", "$height", "$minWidth", "$minHeight", "$maxWidth", "$maxHeight", "$aspectRatio"] as const;
+const SHELL_KEYS = ["$bg", "$shadow", "$shadowColor", "$border", "$corner", "$cornerP", "$overflow"] as const;
+const CONTENT_KEYS = ["$padding", "$gap", "$fDirection", "$display", "$ai", "$jc"] as const;
+
+const pickStyle = <K extends keyof b.BoxProps>(style: b.BoxProps | undefined, keys: readonly K[]) => {
+	if (!style) return {} as Pick<b.BoxProps, K>;
+
+	const next = {} as Pick<b.BoxProps, K>;
+
+	for (const key of keys) {
+		if (style[key] !== undefined) next[key] = style[key];
+	}
+
+	return next;
+};
+
 export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, children, groupOptions, resizeSignal, ...props }: AnimatedBoxProps) => {
 	const boxRef = useRef<HTMLDivElement | null>(null);
 	const contentRef = useRef<HTMLDivElement | null>(null);
+
+	const frameStyle = pickStyle(boxStyle, FRAME_KEYS);
+	const shellStyle = pickStyle(boxStyle, SHELL_KEYS);
+	const contentStyle = pickStyle(boxStyle, CONTENT_KEYS);
 
 	const [wasIntersected, setWasIntersected] = useState<boolean>(false);
 	const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
@@ -158,12 +178,12 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 
 	return (
 		<s.FrameRoot 
-			{...boxStyle} 
+			{...frameStyle} 
 			$height={opened ? "auto" : (boxRects?.h ? `${boxRects.h}px` : undefined)} 
 			ref={boxRef}
 		>
 			<s.AnimatedBox 
-				{...boxStyle}
+				{...shellStyle}
 				$open={open}
 				$close={close}
 				$delayMs={groupOptions?.delay?.ms ? (groupOptions.delay.ms * groupOptions.position) : undefined}
@@ -176,7 +196,7 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 			>
 				<s.ContentLock 
 					{...props}
-					{...boxStyle} 
+					{...contentStyle} 
 					ref={contentRef}
 					$cWidth={(boxRects?.w ? `${boxRects.w}px` : "100%")}
 					$cHeight={(boxRects?.h ? `${boxRects.h}px` : "100%")}
