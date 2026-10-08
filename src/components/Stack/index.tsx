@@ -98,7 +98,7 @@ export const Stack = ({list, justIcon, animation}: StackProps) => {
 								<AnimatedBox
 								 	as="li"
 									animationView={animation}
-									options={{oneTimeLoad: true}} 
+									options={{oneTimeLoad: true, intersectionMarginPreset: "small"}} 
 									groupOptions={{position: i, delay: {ms: .09, maxWidth: undefined}}}
 									animationSpeed="fast"
 									boxStyle={{$padding: "7px 9px", $gap: "9px", $ai: "center", $fDirection: "row", $cornerP: "none"}}

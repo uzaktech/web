@@ -10,6 +10,7 @@ export type AnimatedBoxProps = {
 	animationSpeed?: "default" | "fast",
 	options: {
 		intersectionOptions?: IntersectionObserverInit | null,
+		intersectionMarginPreset?: "default" | "small" | "medium" | "large",
 		oneTimeLoad?: boolean
 	},
 	groupOptions?: AnimatedBoxGroupOptions,
@@ -83,13 +84,21 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 	}
 
 	const intersectionFn = () => {
-		const _options = options?.intersectionOptions ?? {
-			root: null,
-			rootMargin: "-3px",
-			threshold: 0.13
+		const propOpt = options?.intersectionOptions;
+		const propMarginPreset = options?.intersectionMarginPreset;
+		const opt: IntersectionObserverInit = {
+			root: propOpt?.root ?? null,
+			rootMargin: 
+				propOpt?.rootMargin ?? 
+				(propMarginPreset == "large" ? "-53px" 
+				: propMarginPreset == "medium" ? "-17px" 
+				: propMarginPreset == "small" ? "-9px" 
+				: "-3px"),
+    		scrollMargin: propOpt?.scrollMargin,
+			threshold: propOpt?.threshold ?? 0.13
 		};
 
-		const observer = new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting), _options);
+		const observer = new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting), opt);
 
 		const currentTarget = boxRef.current;
 

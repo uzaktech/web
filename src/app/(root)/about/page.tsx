@@ -59,7 +59,10 @@ export default function Page() {
 					<AnimatedBox 
 						as="li" 
 						animationView="intersection" 
-						options={{oneTimeLoad: true}} 
+						options={{
+							oneTimeLoad: true,
+							intersectionMarginPreset: "medium"
+						}} 
 						groupOptions={{position: 0, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%"}}
 					>
@@ -73,7 +76,10 @@ export default function Page() {
 					<AnimatedBox 
 						as="li" 
 						animationView="intersection" 
-						options={{oneTimeLoad: true}} 
+						options={{
+							oneTimeLoad: true,
+							intersectionMarginPreset: "medium"
+						}} 
 						groupOptions={{position: 1, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%"}}
 					>
@@ -87,7 +93,10 @@ export default function Page() {
 					<AnimatedBox 
 						as="li" 
 						animationView="intersection" 
-						options={{oneTimeLoad: true}} 
+						options={{
+							oneTimeLoad: true,
+							intersectionMarginPreset: "medium"
+						}} 
 						groupOptions={{position: 2, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%"}}
 					>
