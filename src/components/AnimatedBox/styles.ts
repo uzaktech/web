@@ -8,7 +8,6 @@ export const FrameRoot = styled(Box)`
 	padding: 0;
 	background-color: transparent;
 	outline: none;
-	height: auto !important;
 
 	&::after,
 	&::before
