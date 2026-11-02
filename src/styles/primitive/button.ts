@@ -15,7 +15,7 @@ export const buttonStyle = (p: ButtonProps) => css`
 	display: inline-flex;
 	align-items: center;
 	padding: 10px 16px;
-	font-weight: 500;
+	font-weight: 450;
 	font-size: ${(p) => p.theme.fontSize.xv};
 	position: relative;
 	height: ${p.$cta == true ? "var(--height-btn-cta)" : "var(--height-btn)"};
@@ -84,7 +84,7 @@ export const buttonStyle = (p: ButtonProps) => css`
 	` : p.$style == "chill_black" ? css`
 		background-color: ${(p) => p.theme.colors.boxShadow};
 		color: ${(p) => p.theme.colors.boxBackground};
-		font-weight: 400;
+		font-weight: 350;
 		outline: solid 1px ${(p) => rgba(p.theme.colors.boxBackground, 0.7)};
 		outline-offset: -1px;
 		text-decoration: none;
