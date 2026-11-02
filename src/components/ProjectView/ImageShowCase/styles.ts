@@ -30,6 +30,8 @@ export const Wrapper = styled.div<{$moving?: boolean}>`
 	flex: 0 0 auto;
 	pointer-events: ${(p) => p.$moving ? "none" : "auto"};
 	outline: solid 1px ${(p) => p.theme.colors.boxShadow};
+	z-index: 3;
+	cursor: pointer;
 
 	&:hover {
 		${(p) => cornerBox(p.theme, undefined, undefined, undefined, 3)}
@@ -42,7 +44,6 @@ export const Wrapper = styled.div<{$moving?: boolean}>`
 
 export const Img = styled.img`
 	position: relative;
-	cursor: pointer;
 	height: 100%;
 	width: auto;
 	min-width: fit-content;
@@ -68,16 +69,19 @@ export const IndexBox = styled.div`
 	max-width: 100%;
 	height: 1px;
 	cursor: pointer;
-	background: linear-gradient(
-		to right, 
-		${(p) => rgba(p.theme.colors.boxShadow, 1)} 0%, 
-		${(p) => rgba(p.theme.colors.boxShadow, 1)} var(--progress, 0%), 
-		${(p) => rgba(p.theme.colors.boxShadow, 0.3)} var(--progress, 0%), 
-		${(p) => rgba(p.theme.colors.boxShadow, 0.3)} 100%
-	);
+	background-color: ${(p) => rgba(p.theme.colors.boxShadow, 0.3)};
+	transition: all 3s ease;
 
 	&:hover {
 		height: 2px;
+	}
+
+	&::before {
+		content: "";
+		height: 100%;
+		width: var(--progress, 0%);
+		background-color: ${(p) => rgba(p.theme.colors.boxShadow, 1)};
+		transition: all .17s linear;
 	}
 
 	&::after {
