@@ -8,7 +8,9 @@ import { Metadata } from "next";
 import { links, linksLabels } from "@/data";
 
 export const metadata: Metadata = {
-	title: "Contact"
+	title: "Contact",
+	description:
+		"Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk."
 };
 
 export default function Page() {

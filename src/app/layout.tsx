@@ -28,7 +28,9 @@ export const metadata: Metadata = {
 		follow: true
 	},
 	openGraph: {
-		title: "Uzak // Tech Studio",
+		title: {
+			absolute: "Uzak // Tech Studio"
+		},
 		description:
 			"An indie developer studio focused on end-to-end web solutions and platforms.",
 		type: "website",
@@ -50,6 +52,21 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+   const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Uzak",
+      "alternateName": "Uzak Tech Studio",
+      "url": "https://www.uzak.com.br",
+      "logo": "https://www.uzak.com.br/favicon.png",
+      "founder": {
+         "@type": "Person",
+         "name": "Enzo Kazuki",
+         "alternateName": "Uzak",
+			"birthDate": "2009-03-13"
+      }
+   };
+
 	return (
 		<html lang="en">
 			<head>
@@ -57,20 +74,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 				<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1.0" />
 				<link rel="icon" sizes="144x144" href="favicon.png" type="image/png" />
 				<script
-					type="application/ld+json"
-					dangerouslySetInnerHTML={{
-						__html: JSON.stringify({
-							"@context": "https://schema.org",
-							"@type": "SiteNavigationElement",
-							name: ["About", "Portfolio", "Contact Me"],
-							url: [
-								"https://www.uzak.com.br/about",
-								"https://www.uzak.com.br/portfolio",
-								"https://www.uzak.com.br/contact",
-							],
-						}),
-					}}
-					/>
+               type="application/ld+json"
+               dangerouslySetInnerHTML={{
+                  __html: JSON.stringify(organizationSchema),
+               }}
+            />
 			</head>
 			<body>
 				<Providers>

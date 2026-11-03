@@ -1,26 +1,33 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+	const baseUrl = "https://www.uzak.com.br";
+	const lastModified = new Date();
+	
 	return [
 		{
-			url: "https://www.uzak.com.br",
-			lastModified: new Date(),
+			url: `${baseUrl}`,
+			lastModified,
+			changeFrequency: 'monthly',
 			priority: 1,
 		},
 		{
-			url: "https://www.uzak.com.br/about",
-			lastModified: new Date(),
+			url: `${baseUrl}/about`,
+			lastModified,
+			changeFrequency: 'monthly',
 			priority: 0.9,
 		},
 		{
-			url: "https://www.uzak.com.br/contact",
-			lastModified: new Date(),
+			url: `${baseUrl}/portfolio`,
+			lastModified,
+			changeFrequency: 'weekly',
 			priority: 0.9,
 		},
 		{
-			url: "https://www.uzak.com.br/portfolio",
-			lastModified: new Date(),
-			priority: 0.8,
+			url: `${baseUrl}/contact`,
+			lastModified,
+			changeFrequency: 'yearly',
+			priority: 0.7,
 		},
 	];
 }

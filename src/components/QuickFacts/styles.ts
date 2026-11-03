@@ -3,7 +3,7 @@
 import styled from "styled-components";
 
 export const ExpandButton = styled.div<{$opened?: boolean}>`
-	height: 27px;
+	height: 28px;
 	aspect-ratio: 1;
 	position: relative;
 	cursor: pointer;
@@ -22,18 +22,17 @@ export const ExpandButton = styled.div<{$opened?: boolean}>`
 
 	&::after 
 	{
-		top: calc(50% + ${(p) => p.$opened ? "2px" : "0px"});
-		left: calc(50% + ${(p) => p.$opened ? "2px" : "0px"});
+		top: calc(13px + ${(p) => p.$opened ? "2px" : "0px"});
+		left: calc(13px + ${(p) => p.$opened ? "2px" : "0px"});
 		border-left: solid 1px ${(p) => p.theme.colors.boxShadow};
 		border-top: solid 1px ${(p) => p.theme.colors.boxShadow};
 	}
 
 	&::before
 	{
-		top: calc(50% + ${(p) => p.$opened ? "-2px" : "1px"});
-		left: calc(50% + ${(p) => p.$opened ? "-2px" : "1px"});
+		top: calc(0px + ${(p) => p.$opened ? "0px" : "2.5px"});
+		left: calc(0px + ${(p) => p.$opened ? "0px" : "2.5px"});
 		border-right: solid 1px ${(p) => p.theme.colors.boxShadow};
 		border-bottom: solid 1px ${(p) => p.theme.colors.boxShadow};
-		transform: translate(-100%, -100%);
 	}
 `;
