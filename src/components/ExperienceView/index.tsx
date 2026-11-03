@@ -33,7 +33,7 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 				oneTimeLoad: true,
 				intersectionMarginPreset: "medium"
 			}} 
-			boxStyle={{$padding: `0 0 ${expanded ? "0" : "4px"}`, $gap: "9px"}}
+			boxStyle={{$padding: `0 0 ${expanded ? "0px" : "4px"}`, $gap: "9px", $transition: "all .3s ease-in"}}
 		>
 			<wp.Col $pad={`13px 17px 0`}>
 				{/* Header */}
@@ -75,9 +75,9 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 				hiddenOnZero
 			>
 				{/* Information Column */}
-				<wp.Col  $pad="0 17px 13px" $gap="7px" $dSize={["100%", undefined]}>
+				<wp.Col $pad="0 17px 13px" $gap="7px" $dSize={["100%", undefined]}>
 					{e.description.map((m, i) => 
-						<tx.P $maxWidth="43rem" $opc={0.7} $margin={`${i == 0 ? "3px" : "0"} 0 ${i == e.description.length ? "3px" : "0"}`} $wSpace="pre-line" key={i}>
+						<tx.P $maxWidth="43rem" $opc={0.7} $margin={`${i == 0 ? "1px" : "0"} 0 ${i == e.description.length ? "3px" : "0"}`} $wSpace="pre-line" key={i}>
 							{m}
 						</tx.P>
 					)}

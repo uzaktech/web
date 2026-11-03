@@ -33,7 +33,8 @@ export type BoxProps = {
 	$ai?: string,
 	$jc?: string,
 	$bg?: string,
-	$zIndex?: number
+	$zIndex?: number,
+	$transition?: string
 }
 
 export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: string | undefined, size?: string | undefined, pad?: number, opc?: number) => css`
@@ -99,6 +100,7 @@ export const Box = styled.div<BoxProps>`
 	justify-content: ${(p) => p.$jc};
 	background-color: ${(p) => p.$bg ?? p.theme.colors.boxBackground};
 	z-index: ${(p) => p.$zIndex};
+	transition: ${(p) => p.$transition};
 
 	${(p) => p.$cornerP != "none" && (cornerBox(p.theme, p.$corner?.borderSize, p.$corner?.color, p.$corner?.size, p.$corner?.pad, p.$corner?.opc))}
 `;
