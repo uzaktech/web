@@ -14,6 +14,8 @@ export const QuickFacts = () => {
 	return (
 		<AnimatedBox 
 			animationView="intersection" 
+			as="aside"
+			aria-label="Quick facts"
 			options={{
 				oneTimeLoad: true,
 				intersectionMarginPreset: "medium"
@@ -38,11 +40,11 @@ export const QuickFacts = () => {
 				<wp.Col $gap="13px" $pad="13px 0 0">
 					<wp.Division $orientation={1} />
 
-					<wp.Col $gap="7px">
+					<wp.Col $gap="7px" as="dl">
 						{quickFacts.map((q, i) => (
 							<wp.Row $gap="13px" $ai="flex-end" $jc="space-between" key={i}>
-								<tx.Label $italic $weight="500" $opc={0.9}>{q.label} </tx.Label>
-								<tx.Span $size="xvi">{q.value}</tx.Span>
+								<tx.Label as="dt" $italic $weight="500" $opc={0.9}>{q.label} </tx.Label>
+								<tx.Span as="dd" $size="xvi">{q.value}</tx.Span>
 							</wp.Row>
 						))}
 					</wp.Col>

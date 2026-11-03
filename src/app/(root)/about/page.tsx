@@ -1,11 +1,13 @@
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AnimatedBox, Cta, StackSkills } from "@/components";
+import { AnimatedBox, StackSkills } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "About"
+	title: "About",
+	description:
+		"Uzak is an indie developer studio focused on end-to-end web solutions and platforms.",
 };
 
 export default function Page() {

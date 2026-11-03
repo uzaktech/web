@@ -1,4 +1,3 @@
-import * as bx from "@/styles/primitive/box";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
