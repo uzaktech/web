@@ -2,7 +2,7 @@ import * as s from "./styles";
 import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
-import { AnimatedBox, Cta, ExperienceView, ProjectView, StackSkills } from "@/components";
+import { AnimatedBox, Cta, ExperienceView, ProjectView, StackSkills, QuickFacts } from "@/components";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -16,14 +16,19 @@ export default function Page() {
 			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center" 
 				$cssStage={{n: 9, css: {alignItems: "flex-end"}}}
 			>
-				<sc.Content $maxSize={["100%", "300px"]} $minSize={["auto", "fit-content"]} $dSize={["100%", "100%"]}>
-					<tx.H1>
-						Enzo Kazuki (aka. Uzak)
-					</tx.H1>
-					<sc.Copy $maxWidth="49rem">
-						Hello! I'm Enzo Kazuki (17-years-old) a self-taught junior full-stack developer based in Paraíba - Brazil, working towards learning and making ideas turn into something real through my passion and creativity.
-					</sc.Copy>
+				<sc.Content $maxSize={["100%", "380px"]} $minSize={["auto", "fit-content"]} $dSize={["100%", "100%"]}>
+					<wp.Row $jc="space-between">
+						<tx.H1>
+							Enzo Kazuki
+						</tx.H1>
 
+					</wp.Row>
+
+					<sc.Copy $maxWidth="49rem">
+						Hello! I'm Enzo Kazuki a self-taught full-stack developer based in Paraíba - Brazil.
+						I'm constantly working towards expanding my knowledge, exploring new technologies, and turning ideas into something real through my passion for building things, creativity, and curiosity.
+					</sc.Copy>
+					
 					<wp.Row $fWrap="wrap" $gap="10px">
 						<Cta href="#projects">See projects</Cta>
 						<Cta clientRender href="/contact" btnProps={{$style: "ghost_link"}}>Contact me</Cta>
@@ -31,16 +36,20 @@ export default function Page() {
 					</wp.Row>
 				</sc.Content>
 
-				<AnimatedBox 
-					animationView="default" 
-					options={{oneTimeLoad: true}} 
-					boxStyle={{$padding: "0", $gap: "0", $width: "auto", $height: "auto", $aspectRatio: "1", $overflow: "visible"}}
-				>
-					<s.HeroImageBox>
-						<s.HeroImage src={"/desktop_setup.jpg"} alt="complementary hero image" />
-						<tx.SmallInfo>my desk setup</tx.SmallInfo>
-					</s.HeroImageBox>
-				</AnimatedBox>
+				<wp.Col $gap="33px">
+					<AnimatedBox 
+						animationView="default" 
+						options={{oneTimeLoad: true}} 
+						boxStyle={{$padding: "0", $gap: "0", $width: "auto", $height: "auto", $aspectRatio: "1", $overflow: "visible"}}
+					>
+						<s.HeroImageBox>
+							<s.HeroImage src={"/desktop_setup.jpg"} alt="complementary hero image" />
+							<tx.SmallInfo>my desk setup</tx.SmallInfo>
+						</s.HeroImageBox>
+					</AnimatedBox>
+
+					<QuickFacts />
+				</wp.Col>
 			</sc.Section>
 
 			<sc.Section>

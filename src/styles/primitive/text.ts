@@ -96,6 +96,6 @@ export const Label = styled.label<TextProps>`
 
 	font-size: ${(p) => p.theme.fontSize.xv};
 	cursor: ${(p) => p.$cursor ?? "default"};
-	color: ${(p) => p.$color ?? rgba(p.theme.colors.text, 0.9)};
+	color: ${(p) => p.$color ?? rgba(p.theme.colors.text, p.$opc ?? 0.9)};
 	font-weight: ${(p) => p.$weight ?? 450};
 `;
