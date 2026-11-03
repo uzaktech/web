@@ -29,9 +29,9 @@ export type AnimatedBoxGroupOptions = {
 const RESIZE_DEBOUNCE_MS = 150;
 const RESIZE_COOLDOWN_MS = 800;
 
-const FRAME_KEYS = ["$margin", "$width", "$height", "$minWidth", "$minHeight", "$maxWidth", "$maxHeight", "$aspectRatio"] as const;
-const SHELL_KEYS = ["$bg", "$shadow", "$shadowColor", "$border", "$outline", "$corner", "$cornerP", "$overflow"] as const;
-const CONTENT_KEYS = ["$padding", "$gap", "$fDirection", "$display", "$ai", "$jc"] as const;
+const FRAME_KEYS = ["$margin", "$width", "$height", "$minWidth", "$minHeight", "$maxWidth", "$maxHeight", "$aspectRatio", "$zIndex"] as const;
+const SHELL_KEYS = ["$bg", "$shadow", "$shadowColor", "$border", "$outline", "$corner", "$cornerP", "$overflow", "$zIndex"] as const;
+const CONTENT_KEYS = ["$padding", "$gap", "$fDirection", "$display", "$ai", "$jc", "$zIndex"] as const;
 
 const pickStyle = <K extends keyof b.BoxProps>(style: b.BoxProps | undefined, keys: readonly K[]) => {
 	if (!style) return {} as Pick<b.BoxProps, K>;

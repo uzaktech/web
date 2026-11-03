@@ -13,23 +13,27 @@ export const Footer = () => {
 	return (
 		<s.Root>
 			<s.Main>
-				<wp.Row $gap="23px 53px" $jc="space-between" $breakAt={10}>
-					<wp.Col $dSize={["100%"]} $gap="13px">
+				<wp.Row $gap="33px 53px" $jc="space-between" $breakAt={10}>
+					<wp.Col $dSize={["100%"]} $gap="17px">
 						<s.LogoWrapper>
-							<Logo />
+							<Logo draggable={false} />
 						</s.LogoWrapper>
 
-						<tx.P $weight="300" $maxWidth="33rem">
-							One-person studio building end-to-end web platforms, from the first idea to production.
-						</tx.P>
-						<tx.P $weight="300" $maxWidth="33rem">
-							Interested in working together?
+						<wp.Col $dSize={["100%"]} $gap="13px">
+							<wp.Col $dSize={["100%"]} $gap="7px">
+								<tx.P $weight="300" $maxWidth="33rem">
+									One-person studio building end-to-end web platforms, from the first idea to production.
+								</tx.P>
+								<tx.P $weight="300" $maxWidth="33rem">
+									Interested in working together?
+								</tx.P>
+							</wp.Col>
 
-						</tx.P>
-						<Cta clientRender href="/contact" btnProps={{$style: "chill_black"}}>Start a conversation</Cta>
+							<Cta clientRender href="/contact" btnProps={{$style: "chill_black"}}>Start a conversation</Cta>
+						</wp.Col>
 					</wp.Col>
 					
-					<wp.Row $gap="23px 53px" $jc="space-between" $minSize={["fit-content"]} $fWrap="wrap">
+					<wp.Row $gap="33px 53px" $jc="space-between" $minSize={["fit-content"]} $fWrap="wrap">
 						<wp.Col $gap="5px" $minSize={["fit-content"]}>
 							<s.LabelColumn>
 								Status

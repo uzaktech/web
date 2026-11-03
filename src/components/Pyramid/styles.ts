@@ -1,7 +1,16 @@
 "use client";
 
 import { rgba } from "@/styles";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+export const MovingFilter = styled.div`
+	position: fixed;
+	inset: 0 0;
+	width: 100vw;
+	height: 100dvh;
+	z-index: 130;
+	cursor: crosshair;
+`;
 
 export const Root = styled.div`
 	display: flex;
@@ -15,6 +24,8 @@ export const Root = styled.div`
 	position: relative;
 	padding: 0 0 30px;
 	aspect-ratio: 1;
+	z-index: 3;
+	touch-action: none;
 	
 	--stroke: #fff;
 	--stop: #000;
@@ -35,122 +46,107 @@ export const Root = styled.div`
 	&:hover 
 	{
 		--stroke: #000;
-		--stop: #fff !important;
 
-		.front .stop
-		{
-			stop-color: ${(p) => rgba(p.theme.colors.boxBackground, 0.57)} !important;
-				
-			&:nth-child(2)
-			{
-				stop-color: var(--stop) !important;
-			}
+		--stop: ${(p) => rgba(p.theme.colors.boxBackground, 0.77)};
+	}
+`;
+
+export const Pyramid = styled.div<{$dragging: boolean}>`
+	--drag-x: -25deg;
+	--drag-y: 0deg;
+	
+	--transform-rotate-x: var(--drag-x);
+	--transform-rotate-y: var(--drag-y);
+
+	@property --transform-rotate-x {
+	  syntax: "<angle>";
+	  inherits: true;
+	  initial-value: -25deg;
+	}
+	
+	@property --transform-rotate-y {
+	  syntax: "<angle>";
+	  inherits: true;
+	  initial-value: 0deg;
+	}
+
+	position: relative;
+	width: 150px;
+	height: 150px;
+	transform-style: preserve-3d;
+	transform-origin: 50% 50%;
+	animation: ${({ $dragging }) =>
+		$dragging ? "none" : "spinPyramidY 13.33s linear infinite, spinPyramidX 1.9s ease-out forwards"};
+
+	transform: ${({ $dragging }) =>
+		$dragging
+			? "rotateX(var(--drag-x)) rotateY(var(--drag-y))"
+			: "rotateX(var(--transform-rotate-x)) rotateY(var(--transform-rotate-y))"};
+
+	${(p) => p.$dragging && css`
+		--stroke: #000;
+		--stop: ${rgba(p.theme.colors.boxBackground, 0.77)};
+	`}
+
+	@keyframes spinPyramidY {
+		from {
+			--transform-rotate-y: var(--drag-y);
 		}
-
-		.back .stop
-		{
-			stop-color: ${(p) => rgba(p.theme.colors.boxBackground, 0.57)} !important;
-				
-			&:nth-child(2)
-			{
-				stop-color: var(--stop) !important;
-			}
-		}
-
-		.right .stop
-		{
-			stop-color: ${(p) => rgba(p.theme.colors.boxBackground, 0.57)} !important;
-				
-			&:nth-child(2)
-			{
-				stop-color: var(--stop) !important;
-			}
-		}
-
-		.left .stop
-		{
-			stop-color: ${(p) => rgba(p.theme.colors.boxBackground, 0.57)} !important;
-				
-			&:nth-child(2)
-			{
-				stop-color: var(--stop) !important;
-			}
+		to {
+			--transform-rotate-y: calc(var(--drag-y) + 360deg);
 		}
 	}
 
-	.pyramid {
-		position: relative;
-		width: 150px;
-		height: 150px;
-		transform-style: preserve-3d;
-		animation: spin 13.33s linear infinite;
-		transform-origin: 50% 0% 0px;
-
-		.face {
-			position: absolute;
-			width: 150px;
-			height: 150px;
-			transform-origin: 50% 100%;
-			
-			svg {
-				width: 100%;
-				height: 100%;
-				display: block;
-			}
+	@keyframes spinPyramidX {
+		0% {
+			--transform-rotate-x: var(--drag-x);
 		}
-
-		.pol 
-		{
-			stroke: var(--stroke);
-		}
-
-		.front {
-			transform: rotateY(0deg) translateZ(80.5px) rotateX(35deg);
-		}
-
-		.right {
-			transform: rotateY(90deg) translateZ(80.5px) rotateX(35deg);
-		}
-
-		.back {
-			transform: rotateY(180deg) translateZ(80.5px) rotateX(35deg);
-		}
-
-		.left {
-			transform: rotateY(270deg) translateZ(80.5px) rotateX(35deg);
-		}
-
-		.front,
-		.right,
-		.back,
-		.left
-		{
-			.stop 
-			{
-				stop-color: var(--stop);
-				transition: all .2s ease;
-				
-				&:nth-child(2)
-				{
-					stop-color: var(--stop);
-				}
-			}
-		}
-
-		.base 
-		{
-			position: absolute;
-			width: 150px;
-			height: 150px;
-			box-shadow: inset 0 0 0 1px var(--stroke);
-			transform: rotateX(90deg) translateZ(-67px);
-			background-color: ${(p) => p.theme.colors.boxBackground};
-		}
-
-		@keyframes spin 
-		{
-			0% {transform: rotateX(-25deg) rotateY(0deg);}
-			100% {transform: rotateX(-25deg) rotateY(360deg);}
+		100% {
+			--transform-rotate-x: -25deg;
 		}
 	}
+
+	.pol 
+	{
+		stroke: var(--stroke);
+	}
+`;
+
+export const Face = styled.div<{$side?: string}>`
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	transform-origin: 50% 100%;
+	transform: rotateY(${(p) => p.$side === "front" ? "0deg"
+			: p.$side === "right" ? "90deg"
+			: p.$side === "back" ? "180deg"
+			: p.$side === "left" ? "270deg" : "0deg"
+		}) translateZ(80.5px) rotateX(35deg);
+	
+	& > svg {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	.stop 
+	{
+		stop-color: var(--stop);
+		transition: all .2s ease;
+		
+		&:nth-child(2)
+		{
+			stop-color:var(--stop);
+		}
+	}
+`;
+
+export const Base = styled.div`
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	box-shadow: inset 0 0 0 1px var(--stroke);
+	transform: rotateX(90deg) translateZ(-67px);
+	transition: all .2s ease;
+	background-color: var(--stop);
 `;

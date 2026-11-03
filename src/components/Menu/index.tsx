@@ -14,10 +14,6 @@ export const Menu = () => {
 
 	const menuRef = useRef<HTMLDivElement | null>(null);
 
-	useEffect(() => {
-		if (menu.visibility) menu.setVisibility(false);
-	}, [pathname])
-
 	const handleKeyDown = (e: KeyboardEvent) => {
 		if (e.key !== "Tab") return;
 
@@ -38,6 +34,12 @@ export const Menu = () => {
 			first.focus();
 		}
 	}
+
+	const closeFn = () => menu.setVisibility(false);
+
+	useEffect(() => {
+		if (menu.visibility) menu.setVisibility(false);
+	}, [pathname])
 
 	useEffect(() => {
 		if (!menu.visibility) return;
@@ -83,7 +85,7 @@ export const Menu = () => {
 
 				<w.Division $orientation={1} $opc={1} $margin="0 0 13px" />
 
-				<s.CloseBtn tabIndex={0} onClick={() => menu.setVisibility(false)} />
+				<s.CloseBtn tabIndex={0} onKeyDown={(e) => e.key == "Enter" ? closeFn() : {}} onClick={closeFn} />
 			</s.Menu>
 		</s.Root>, 
 		document.body

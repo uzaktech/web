@@ -87,8 +87,8 @@ export const ImageShowCase = ({images}: {images: string[]}) => {
 
 	return ( 
 		<s.Root ref={rootRef}>
-			<s.Wrapper>
-				<s.Img src={images[currentImage]} onClick={clickImage} />
+			<s.Wrapper onClick={clickImage}>
+				<s.Img src={images[currentImage]} />
 			</s.Wrapper>
 
 			<s.IndexRow ref={indexRowRef}>
