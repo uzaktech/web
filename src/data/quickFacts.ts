@@ -22,8 +22,7 @@ export const quickFacts = [
 	{
 		label: "Age",
 		value: ageDiff
-			? `${Math.floor(ageDiff / 31557600000) + (Math.abs(Math.floor((ageDiff / 2629800000) % 12) - 11) == 0 ? 1 : 0)} years, 
-			${Math.abs(Math.floor((ageDiff / 2629800000) % 12) - 11)} month${Math.abs(Math.floor((ageDiff / 2629800000) % 12) - 11) > 1 ? "s" : ""}`
+			? `${Math.floor(ageDiff / 31557600000)} years`
 			: "undefined"
 	},
 	{
