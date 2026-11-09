@@ -2,6 +2,13 @@ import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
 import { AnimatedBox, Cta, ProjectView, Pyramid } from "@/components";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	alternates: {
+		canonical: "/"
+	}
+}
 
 export default function Home() {
   	return (

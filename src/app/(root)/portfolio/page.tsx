@@ -16,6 +16,9 @@ export const metadata: Metadata = {
       "enzo kazuki portfolio",
       "full-stack developer paraiba"
    ],
+   alternates: {
+      canonical: "/portfolio"
+   },
    openGraph: {
       title: "Enzo Kazuki",
       description:

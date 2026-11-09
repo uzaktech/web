@@ -20,9 +20,6 @@ export const metadata: Metadata = {
 		"portfolio"
 	],
 	metadataBase: new URL("https://www.uzak.com.br"),
-	alternates: {
-		canonical: "/"
-	},
 	robots: {
 		index: true,
 		follow: true

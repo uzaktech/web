@@ -8,6 +8,15 @@ export const metadata: Metadata = {
 	title: "About",
 	description:
 		"Uzak is an indie developer studio focused on end-to-end web solutions and platforms.",
+	alternates: {
+		canonical: "/about"
+	},
+	openGraph: {
+		title: "About",
+		description:
+			"Uzak is an indie developer studio focused on end-to-end web solutions and platforms.",
+		url: "https://www.uzak.com.br/about"
+	}
 };
 
 export default function Page() {

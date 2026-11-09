@@ -10,7 +10,16 @@ import { links, linksLabels } from "@/data";
 export const metadata: Metadata = {
 	title: "Contact",
 	description:
-		"Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk."
+		"Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk.",
+	alternates: {
+		canonical: "/contact"
+	},
+	openGraph: {
+		title: "Contact",
+		description:
+			"Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk.",
+		url: "https://www.uzak.com.br/contact"
+	}
 };
 
 export default function Page() {
