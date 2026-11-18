@@ -35,13 +35,8 @@ export const QuickFacts = () => {
 			}} 
 			boxStyle={{$fDirection: "column", $width: "100%", $maxWidth: "300px", $padding: "13px 17px"}}
 		>
-<<<<<<< HEAD
-			<wp.Row $gap="13px" $jc="space-between" $ai="center" $margin="-3px 0 -3px">
-				<tx.Span $size="xvii" $weight="450" $opc={1}>Quick facts</tx.Span>
-=======
 			<wp.Row $cursor={!expanded ? "pointer" : undefined} $gap="13px" $jc="space-between" $ai="center" $margin="-3px 0 -3px" onClick={() => !expanded ? setExpanded(true) : {}}>
 				<tx.Span $size="xvii" $weight="450" $opc={1}>{t("title")}</tx.Span>
->>>>>>> e73ae92 (first lang switch)
 
 				<s.ExpandButton onClick={() => setExpanded(!expanded)} $opened={expanded} />
 			</wp.Row>
