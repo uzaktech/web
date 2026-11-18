@@ -215,5 +215,8 @@
 	"locale": {
 		"current": "IT",
 		"switch": "Switch to English"
+	},
+	"validation": {
+		"required": "Questo campo è obbligatorio."
 	}
 }

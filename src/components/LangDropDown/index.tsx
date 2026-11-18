@@ -22,6 +22,7 @@ export const LangDropDown = ({ fixed, close }: { fixed: boolean, close: () => vo
 		startTransition(async () => {
 			await setUserLocale(nextLocale);
 			router.refresh();
+			close();
 		});
 	};
 	

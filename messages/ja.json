@@ -215,5 +215,8 @@
 	"locale": {
 		"current": "JA",
 		"switch": "Switch to English"
+	},
+	"validation": {
+		"required": "このフィールドは必須です。"
 	}
 }
