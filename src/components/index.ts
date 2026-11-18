@@ -14,5 +14,5 @@ export * from "./ExperienceView";
 export * from "./ShrinkWrapper";
 export * from "./Footer";
 export * from "./QuickFacts";
-export * from "./LanguageSwitch";
+export * from "./LangSwitch";
 export * from "./LangDropDown";
