@@ -1,18 +1,20 @@
-import { StackLabels } from "@/components"
+import { StackLabels } from "@/components";
 
-type ProjectType = {
-	title: string,
-	category: string,
-	description: string,
-	imagesUrl: string[],
-	links?: {label: string, url: string}[], 
-	stackLabels: (typeof StackLabels)[number][],
-	dateRange?: {start: Date, end?: Date}
-	linesCount?: number
-}
+export type ProjectType = {
+	id: "greendollar" | "dental" | "monitoring";
+	title: string;
+	category: string;
+	description: string;
+	imagesUrl: string[];
+	links?: {label: string, url: string}[];
+	stackLabels: (typeof StackLabels)[number][];
+	dateRange?: {start: Date, end?: Date};
+	linesCount?: number;
+};
 
 export const projects = (portfolio?: boolean): ProjectType[] => [
 	{
+		id: "greendollar",
 		title: "Fundraising platform",
 		category: "Web · Indie",
 		description: !portfolio 
@@ -39,6 +41,7 @@ export const projects = (portfolio?: boolean): ProjectType[] => [
 		linesCount: 29000
 	},
 	{
+		id: "dental",
 		title: "Dental SaaS",
 		category: "Web · Product",
 		description: !portfolio 
@@ -60,6 +63,7 @@ export const projects = (portfolio?: boolean): ProjectType[] => [
 		linesCount: 65000
 	},
 	{
+		id: "monitoring",
 		title: "Service monitoring SaaS",
 		category: "Web · Tool · Indie",
 		description: !portfolio 

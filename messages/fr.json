@@ -1,0 +1,219 @@
+{
+	"nav": {
+		"home": "Accueil",
+		"about": "À propos",
+		"portfolio": "Portfolio",
+		"contact": "Contact"
+	},
+	"home": {
+		"hero": {
+			"title": "Construire des rêves incomparables avec passion et créativité",
+			"description": "Uzak est un studio indépendant d'une seule personne où je conçois des plateformes web, des projets personnels et des outils, tout en assurant la maintenance de projets existants pour n'importe qui, partout dans le monde. Je gère tout moi-même, de la première idée jusqu'au code et au produit final.",
+			"selectedWork": "Projets sélectionnés",
+			"contactMe": "Me contacter"
+		},
+		"about": {
+			"label": "À propos",
+			"title": "Une seule personne, full-stack",
+			"description": "Je suis le développeur, le designer et le product owner derrière chaque projet Uzak. Aucun intermédiaire, aucun chargé de compte. C'est moi qui écris le code, déploie le produit et réponds à vos e-mails. J'ai passé ces dernières années à créer des produits SaaS, de la base de données et de l'interface jusqu'à l'infrastructure."
+		},
+		"portfolio": {
+			"label": "Portfolio",
+			"title": "Projets phares",
+			"description": "Quelques projets qui illustrent le type de logiciels que j'aime concevoir.",
+			"seeFullPortfolio": "Voir mon portfolio complet"
+		},
+		"process": {
+			"label": "Processus",
+			"title": "Ma façon de travailler",
+			"description": "Je prends en charge l'ensemble du processus, de la première idée au produit fini.",
+			"buildTitle": "Développer",
+			"buildDesc": "J'accompagne les projets du premier prototype jusqu'à la mise en production, en misant sur un code pragmatique et maintenable, facile à comprendre et à faire évoluer.",
+			"designTitle": "Concevoir",
+			"designDesc": "Je conçois l'interface autour du produit plutôt que de partir d'un modèle préconçu. Chaque écran a une raison d'être et s'intègre naturellement au reste de l'expérience.",
+			"shipTitle": "Déployer",
+			"shipDesc": "Je mène les projets jusqu'au déploiement et continue de les améliorer après leur mise en ligne. L'objectif est d'aboutir réellement, pas seulement de faire tourner un projet en local."
+		},
+		"services": {
+			"label": "Services",
+			"title": "Ce que je construis",
+			"description": "Je me concentre sur des produits web dont je peux assurer moi-même le design, le développement et l'infrastructure.",
+			"saasMvp": "MVP SaaS",
+			"webApps": "Applications web",
+			"internalTools": "Outils internes",
+			"designSystems": "Design systems",
+			"infrastructure": "Infrastructure",
+			"paymentIntegration": "Intégration de paiements"
+		}
+	},
+	"aboutPage": {
+		"hero": {
+			"title1": "Un développeur.",
+			"title2": "Aucun intermédiaire.",
+			"description": "Uzak n'est pas une agence. C'est un studio solo où je m'occupe du design, du développement et de tout ce qu'il y a entre les deux."
+		},
+		"story": {
+			"label": "Histoire",
+			"title": "Pourquoi en solo",
+			"p1": "Uzak est né d'une idée simple : je voulais un espace où construire les choses à ma façon. Plutôt que de travailler uniquement sur les produits des autres, je voulais créer les miens et les mener de l'idée initiale jusqu'au produit final.",
+			"p2": "Uzak n'a pas de signification littérale, mais pour moi ce nom représente la force et la créativité — et c'est aussi mon surnom.",
+			"p3": "Je suis particulièrement attiré par les produits SaaS, les plateformes e-commerce et les idées qui sortent un peu de l'ordinaire."
+		},
+		"stack": {
+			"label": "Stack",
+			"title": "Les outils avec lesquels je construis",
+			"description": "Les outils varient d'un projet à l'autre, mais voici ma base de référence."
+		},
+		"approach": {
+			"label": "Approche",
+			"title": "Ce qui compte pour moi",
+			"ownershipTitle": "Responsabilité",
+			"ownershipDesc": "J'assume la responsabilité de l'ensemble du projet, de la première idée à la mise en ligne finale. Il n'y a aucun transfert entre différentes personnes ou équipes.",
+			"craftTitle": "Savoir-faire",
+			"craftDesc": "J'accorde une grande importance aux détails. Je préfère prendre un peu plus de temps plutôt que de bâcler quelque chose qu'il faudra reconstruire plus tard.",
+			"honestyTitle": "Franchise",
+			"honestyDesc": "Je vous dirai toujours ce que je pense, même si la réponse n'est pas celle que vous attendiez. Si j'estime qu'une approche ne fonctionnera pas, je préfère le dire dès le départ."
+		}
+	},
+	"portfolioPage": {
+		"hero": {
+			"name": "Enzo Kazuki",
+			"description": "Bonjour ! Je suis Enzo Kazuki, développeur full-stack autodidacte basé à Paraíba, au Brésil. Je cherche constamment à approfondir mes connaissances, explorer de nouvelles technologies et concrétiser des idées grâce à ma passion pour la création, ma créativité et ma curiosité.",
+			"seeProjects": "Voir les projets",
+			"contactMe": "Me contacter",
+			"seeExperience": "Voir l'expérience",
+			"deskSetup": "mon espace de travail"
+		},
+		"about": {
+			"label": "À propos",
+			"title": "Développeur full-stack, designer et créateur",
+			"p1": "Je suis un développeur indépendant spécialisé dans les produits web nécessitant un backend, une base de données et une infrastructure solides, alliés à une UX soignée et des systèmes fiables.",
+			"p2": "J'aime maîtriser l'ensemble de la stack, du design d'interface et des choix produit jusqu'au déploiement et au suivi en production."
+		},
+		"skills": {
+			"label": "Compétences",
+			"title": "Mes technologies",
+			"description": "Je suis développeur full-stack. Je travaille sur toute la stack, avec une préférence particulière pour le back-end."
+		},
+		"projects": {
+			"label": "Projets",
+			"title": "Ce que j'ai réalisé"
+		},
+		"career": {
+			"label": "Parcours",
+			"title": "Mon expérience professionnelle"
+		}
+	},
+	"contactPage": {
+		"title": "Me contacter",
+		"description": "Vous avez un projet en tête, une idée qui mûrit ou simplement envie d'échanger ? Je serais ravi d'en savoir plus sur ce que vous préparez.",
+		"myLinks": "Mes liens",
+		"form": {
+			"title": "Laisser un message",
+			"description": "Parlez-moi un peu de votre projet, de son avancement et de ce que vous recherchez. J'y jetterai un œil et vous répondrai dès que possible.",
+			"firstName": "Prénom",
+			"firstNamePlaceholder": "ex. Jean",
+			"lastName": "Nom",
+			"lastNamePlaceholder": "ex. Dupont",
+			"email": "E-mail",
+			"emailPlaceholder": "ex. jean.dupont@exemple.fr",
+			"emailError": "Cette adresse e-mail n'est pas valide.",
+			"subject": "Objet",
+			"subjectPlaceholder": "ex. J'aimerais discuter d'un projet",
+			"message": "Message",
+			"messagePlaceholder": "votre message...",
+			"sentTitle": "ENVOYÉ !",
+			"sentDesc": "Votre message a bien été envoyé, merci d'avoir pris le temps de me contacter.",
+			"sentNotice": "Je reviendrai vers vous dès que possible.",
+			"errorTitle": "ERREUR :(",
+			"errorDesc": "Désolé, un problème est survenu. Veuillez réessayer plus tard.",
+			"backHome": "Retour à l'accueil",
+			"sendAnother": "Envoyer un autre message",
+			"tryAgain": "Réessayer",
+			"send": "Envoyer",
+			"sending": "envoi en cours..."
+		}
+	},
+	"quickFacts": {
+		"title": "En bref",
+		"role": "Rôle",
+		"roleValue": "Développeur Full-stack",
+		"focus": "Spécialité",
+		"focusValue": "Développement Web",
+		"experience": "Expérience",
+		"experienceValue": "4 ans",
+		"location": "Localisation",
+		"locationValue": "Paraíba, Brésil",
+		"age": "Âge",
+		"ageYears": "{years} ans",
+		"alias": "Pseudonyme"
+	},
+	"projectsData": {
+		"greendollar": {
+			"title": "Plateforme de financement participatif",
+			"category": "Web · Indie",
+			"descShort": "Plateforme indépendante de collecte de fonds full-stack comprenant la gestion de campagnes, les paiements sécurisés via Stripe, l'authentification et une architecture évolutive pensée de la conception au déploiement. Son interface singulière a été volontairement conçue pour se démarquer de l'esthétique lisse et standardisée des produits web actuels.",
+			"descFull": "Une plateforme full-stack de collecte de fonds intégrant Stripe Connect, des flux de paiement sécurisés, la transparence financière, la gestion de campagnes et des dons permettant d'associer des cartes personnalisées aux contributions. Sa personnalité repose sur une UI/UX délibérément atypique, pensée pour offrir un ressenti différent des conventions visuelles du web moderne."
+		},
+		"dental": {
+			"title": "SaaS dentaire",
+			"category": "Web · Produit",
+			"descShort": "SaaS full-stack conçu pour les cliniques dentaires, incluant la gestion des patients et des flux de travail, l'administration du cabinet, la facturation, la prise de rendez-vous et la génération de documents PDF sur mesure. Développé avec Next.js, .NET et PostgreSQL autour d'une architecture orientée production privilégiant la fiabilité et la maintenabilité.",
+			"descFull": "SaaS complet pour cliniques dentaires combinant un frontend Next.js, un backend .NET, une base de données PostgreSQL et un déploiement sous Docker. Le système comprend la planification des rendez-vous, la gestion des utilisateurs et des patients, l'administration clinique, la facturation, le suivi des soins et des modèles PDF personnalisables."
+		},
+		"monitoring": {
+			"title": "SaaS de supervision de services",
+			"category": "Web · Outil · Indie",
+			"descShort": "Un SaaS minimaliste de supervision de services inspiré de Grafana. Il associe la gestion de tableaux de bord à un agent léger de surveillance locale capable de collecter des métriques personnalisées auprès d'applications et de services ciblés via des requêtes définies par l'utilisateur. Réalisé comme projet expérimental pour explorer l'infrastructure de monitoring et l'architecture full-stack.",
+			"descFull": "L'un de mes premiers projets full-stack, conçu comme une expérimentation indépendante autour du monitoring applicatif. Bien qu'il n'ait jamais été déployé publiquement, il m'a permis d'explorer concrètement les tableaux de bord, la collecte de métriques sur mesure et la communication entre une plateforme web et un service local."
+		}
+	},
+	"experienceData": {
+		"present": "présent",
+		"more": "plus",
+		"less": "moins",
+		"youbloom": {
+			"title": "Développeur React",
+			"category": "youbloom · Stage",
+			"p1": "Stagiaire développeur React au sein d'une équipe technique de plus de 10 personnes chez youbloom, une plateforme d'événements live aidant artistes, salles et promoteurs à développer leur public dans la musique, l'humour et le théâtre. Je développe et livre des fonctionnalités sur la plateforme web tout en corrigeant des bugs, en étroite collaboration avec l'équipe produit et ingénierie avec React, TypeScript et Vite.",
+			"p2": "Dès mes premières semaines, j'ai corrigé deux anomalies d'interface, puis conçu une nouvelle page d'édition des actualités de campagne et ajusté les redirections associées."
+		},
+		"vexio": {
+			"title": "Développeur Full-stack",
+			"category": "Produit · SaaS",
+			"p1": "Création de bout en bout d'un produit SaaS destiné aux cliniques dentaires au sein d'un studio logiciel. J'ai pris en charge l'intégralité du volet technique, du frontend et du backend jusqu'à la base de données, au déploiement et à l'infrastructure.",
+			"p2": "J'ai développé un backend comptant plus de 150 endpoints en C# et .NET sur PostgreSQL, ainsi qu'un frontend Next.js stylisé avec SCSS. Le produit a été mis en production et la première clinique s'est inscrite moins de deux semaines après le lancement.",
+			"p3": "J'ai également résolu un incident de cryptojacking sur le VPS d'hébergement : fermeture des ports pare-feu exposés, rotation des clés SSH, redémarrage et sécurisation complète du serveur."
+		},
+		"consulting": {
+			"title": "Assistant Développement Web",
+			"category": "Mission de conseil",
+			"p1": "Intervention sur une mission de conseil visant à améliorer la structure et la stabilité d'une application web existante. J'ai principalement travaillé sur la partie Next.js et React, en corrigeant des bugs et en implémentant de petites fonctionnalités aux côtés du consultant principal. J'ai aussi analysé et résolu un problème Python ponctuel.",
+			"p2": "J'ai résolu plus de 20 bugs sur la base de code Next.js et React, ainsi qu'un problème Python lié à la bibliothèque Selenium."
+		}
+	},
+	"footer": {
+		"tagline": "Studio solo concevant des plateformes web de bout en bout, de la première idée à la mise en production.",
+		"question": "Envie de travailler ensemble ?",
+		"cta": "Démarrer une conversation",
+		"status": "Statut",
+		"openToWork": "Disponible pour missions",
+		"building": "de nouveaux projets sont en cours de création",
+		"navigate": "Navigation",
+		"elsewhere": "Ailleurs",
+		"rights": "Tous droits réservés"
+	},
+	"stack": {
+		"backend": "Back-end",
+		"frontend": "Front-end",
+		"database": "Base de données",
+		"devops": "DevOps",
+		"tools": "Outils",
+		"aiAgents": "Agents IA",
+		"other": "Autres"
+	},
+	"locale": {
+		"current": "FR",
+		"switch": "Switch to English"
+	}
+}

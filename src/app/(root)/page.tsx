@@ -2,23 +2,33 @@ import * as tx from "@/styles/primitive/text";
 import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
 import { AnimatedBox, Cta, ProjectView, Pyramid } from "@/components";
+import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export default function Home() {
-  	return (
+export const metadata: Metadata = {
+	alternates: {
+		canonical: "/"
+	}
+};
+
+export default async function Home() {
+	const t = await getTranslations("home");
+
+	return (
 		<sc.Root>
 			<sc.Section $hero $fDirection="row" $breakAt={9} $gap="73px 18px" $minSize={[undefined, "fit-content"]} $dSize={[undefined, "calc((100dvh / 3) * 2)"]} $ai="center" 
 				$cssStage={{n: 9, css: {alignItems: "flex-end"}}}
 			>
 				<sc.Content $maxSize={["100%", "300px"]} $minSize={["auto", "fit-content"]} $dSize={["100%", "100%"]}>
-					<tx.H1>Building incomparable dreams with passion and creativity</tx.H1>
+					<tx.H1>{t("hero.title")}</tx.H1>
 
 					<sc.Copy>
-						Uzak is a one-person studio where I build web platforms, personal projects, tools, and maintain existing projects for anyone, anywhere. I handle everything myself, from the first idea to the code and the final product.
+						{t("hero.description")}
 					</sc.Copy>
 
 					<wp.Row $fWrap="wrap" $gap="13px">
-						<Cta href="#work">Selected work</Cta>
-						<Cta clientRender btnProps={{$style: "ghost_link"}} href="/contact">Contact me</Cta>
+						<Cta href="#work">{t("hero.selectedWork")}</Cta>
+						<Cta clientRender btnProps={{$style: "ghost_link"}} href="/contact">{t("hero.contactMe")}</Cta>
 					</wp.Row>
 				</sc.Content>
 
@@ -32,40 +42,38 @@ export default function Home() {
 			</sc.Section>
 
 			<sc.Section>
-				<sc.Label>About</sc.Label>
+				<sc.Label>{t("about.label")}</sc.Label>
 
-				<sc.Title>One person, full-stack</sc.Title>
+				<sc.Title>{t("about.title")}</sc.Title>
 
 				<sc.Copy>
-					I'm the developer, designer, and product owner behind every Uzak project. No handoffs, no account managers. 
-					I'm the one writing the code, shipping the product, and answering your emails. 
-					I've spent the last few years building SaaS products from the database and interface to the infrastructure.
+					{t("about.description")}
 				</sc.Copy>
 			</sc.Section>
 
 			<sc.Section id="work">
-				<sc.Label>Portfolio</sc.Label>
+				<sc.Label>{t("portfolio.label")}</sc.Label>
 
-				<sc.Title>Highlighted projects</sc.Title>
+				<sc.Title>{t("portfolio.title")}</sc.Title>
 
 				<sc.Copy>
-					A few projects that show the kind of software I like to build.
+					{t("portfolio.description")}
 				</sc.Copy>
 
 				<ProjectView />
 
 				<wp.Row $jc="flex-end">
-					<Cta clientRender href="/portfolio">See my full portfolio</Cta>
+					<Cta clientRender href="/portfolio">{t("portfolio.seeFullPortfolio")}</Cta>
 				</wp.Row>
 			</sc.Section>
 
 			<sc.Section id="process">
-				<sc.Label>Process</sc.Label>
+				<sc.Label>{t("process.label")}</sc.Label>
 
-				<sc.Title>How I work</sc.Title>
+				<sc.Title>{t("process.title")}</sc.Title>
 
 				<sc.Copy>
-					I handle the whole process myself, from the first idea to the finished product.
+					{t("process.description")}
 				</sc.Copy>
 
 				<wp.Row as="ul" $gap="13px" $pad="0" $breakAt={9}>
@@ -79,10 +87,10 @@ export default function Home() {
 						groupOptions={{position: 0, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
 					>
-						<tx.P $size="xviii" $weight="450">Build</tx.P>
+						<tx.P $size="xviii" $weight="450">{t("process.buildTitle")}</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
-							I take projects from the first prototype to production, focusing on practical, maintainable code that's easy to understand and change later.
+							{t("process.buildDesc")}
 						</tx.P>
 					</AnimatedBox>
 
@@ -96,10 +104,10 @@ export default function Home() {
 						groupOptions={{position: 1, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
 					>
-						<tx.P $size="xviii" $weight="450">Design</tx.P>
+						<tx.P $size="xviii" $weight="450">{t("process.designTitle")}</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
-							I design the interface around the product instead of starting from a template. Every screen has a purpose and fits the rest of the experience.
+							{t("process.designDesc")}
 						</tx.P>
 					</AnimatedBox>
 
@@ -113,22 +121,22 @@ export default function Home() {
 						groupOptions={{position: 2, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
 					>
-						<tx.P $size="xviii" $weight="450">Ship</tx.P>
+						<tx.P $size="xviii" $weight="450">{t("process.shipTitle")}</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
-							I take projects through deployment and keep improving them after they go live. The goal is to actually finish things, not just get them working locally.
+							{t("process.shipDesc")}
 						</tx.P>
 					</AnimatedBox>
 				</wp.Row>
 			</sc.Section>
 
 			<sc.Section>
-				<sc.Label>Services</sc.Label>
+				<sc.Label>{t("services.label")}</sc.Label>
 
-				<sc.Title>What I build</sc.Title>
+				<sc.Title>{t("services.title")}</sc.Title>
 
 				<sc.Copy>
-					I focus on web products where I can handle the design, development, and infrastructure myself.
+					{t("services.description")}
 				</sc.Copy>
 
 				<wp.Row as="ul" $pad="0px" $listStyle="none" $fWrap="wrap" $gap="9px" $ai="flex-start">
@@ -140,7 +148,7 @@ export default function Home() {
 						groupOptions={{position: 0, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
-						<tx.Span $size="xv" $weight="450">SaaS MVPs</tx.Span>
+						<tx.Span $size="xv" $weight="450">{t("services.saasMvp")}</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
 						as="li"
@@ -150,7 +158,7 @@ export default function Home() {
 						groupOptions={{position: 1, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
-						<tx.Span $size="xv" $weight="450">Web apps</tx.Span>
+						<tx.Span $size="xv" $weight="450">{t("services.webApps")}</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
 						as="li"
@@ -160,7 +168,7 @@ export default function Home() {
 						groupOptions={{position: 2, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
-						<tx.Span $size="xv" $weight="450">Internal tools</tx.Span>
+						<tx.Span $size="xv" $weight="450">{t("services.internalTools")}</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
 						as="li"
@@ -170,7 +178,7 @@ export default function Home() {
 						groupOptions={{position: 3, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
-						<tx.Span $size="xv" $weight="450">Design systems</tx.Span>
+						<tx.Span $size="xv" $weight="450">{t("services.designSystems")}</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
 						as="li"
@@ -180,7 +188,7 @@ export default function Home() {
 						groupOptions={{position: 4, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
-						<tx.Span $size="xv" $weight="450">Infrastructure</tx.Span>
+						<tx.Span $size="xv" $weight="450">{t("services.infrastructure")}</tx.Span>
 					</AnimatedBox>
 					<AnimatedBox 
 						as="li"
@@ -190,10 +198,10 @@ export default function Home() {
 						groupOptions={{position: 5, delay: { ms: .09 }}}
 						boxStyle={{$cornerP: "none", $padding: "8px 9px", $fDirection: "row", $ai: "center", $gap: "9px"}}
 					>
-						<tx.Span $size="xv" $weight="450">Payment integration</tx.Span>
+						<tx.Span $size="xv" $weight="450">{t("services.paymentIntegration")}</tx.Span>
 					</AnimatedBox>
 				</wp.Row>
 			</sc.Section>
 		</sc.Root>
-  	);
+	);
 }

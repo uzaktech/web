@@ -1,16 +1,18 @@
-import { StackLabels } from "@/components"
+import { StackLabels } from "@/components";
 
 export type ExperiencesType = {
-	title: string,
-	category: string,
-	description: string[],
-	links?: {label: string, url: string}[], 
-	dateRange?: {start: Date, end?: Date}
-	stackLabels: (typeof StackLabels)[number][],
-}
+	id: "youbloom" | "vexio" | "consulting";
+	title: string;
+	category: string;
+	description: string[];
+	links?: {label: string, url: string}[];
+	dateRange?: {start: Date, end?: Date};
+	stackLabels: (typeof StackLabels)[number][];
+};
 
 export const experiences: ExperiencesType[] = [
 	{
+		id: "youbloom",
 		title: "React Developer",
 		category: "youbloom · Internship",
 		description: [
@@ -22,6 +24,7 @@ export const experiences: ExperiencesType[] = [
 		dateRange: {start: new Date(2026, 8, 1)}
 	},
 	{
+		id: "vexio",
 		title: "Full-stack Developer",
 		category: "Product · SaaS",
 		description: [
@@ -34,6 +37,7 @@ export const experiences: ExperiencesType[] = [
 		dateRange: {start: new Date(2025, 5, 1), end: new Date(2026, 2, 1)}
 	},
 	{
+		id: "consulting",
 		title: "Web Development Assistant",
 		category: "Consulting project",
 		description: [
@@ -43,4 +47,4 @@ export const experiences: ExperiencesType[] = [
 		stackLabels: ["next_js", "ts", "react_js", "docker", "nodejs", "python"],
 		dateRange: {start: new Date(2024, 1, 1), end: new Date(2024, 7, 1)}
 	}
-]
+];

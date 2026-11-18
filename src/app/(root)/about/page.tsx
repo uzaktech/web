@@ -3,59 +3,78 @@ import * as sc from "@/styles/primitive/section";
 import * as wp from "@/styles/primitive/wrapper";
 import { AnimatedBox, StackSkills } from "@/components";
 import { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-	title: "About",
-	description:
-		"Uzak is an indie developer studio focused on end-to-end web solutions and platforms.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+	const locale = await getLocale();
+	const tNav = await getTranslations("nav");
+	const isPt = locale === "pt";
 
-export default function Page() {
+	return {
+		title: tNav("about"),
+		description: isPt
+			? "Uzak é um estúdio individual focado em plataformas e soluções web ponta a ponta."
+			: "Uzak is an indie developer studio focused on end-to-end web solutions and platforms.",
+		alternates: {
+			canonical: "/about"
+		},
+		openGraph: {
+			title: tNav("about"),
+			description: isPt
+				? "Uzak é um estúdio individual focado em plataformas e soluções web ponta a ponta."
+				: "Uzak is an indie developer studio focused on end-to-end web solutions and platforms.",
+			url: "https://www.uzak.com.br/about"
+		}
+	};
+}
+
+export default async function Page() {
+	const t = await getTranslations("aboutPage");
+
 	return (
 		<sc.Root>
 			<sc.Section $hero>
 				<tx.H1>
-					One developer. <br />
-					No middlemen.
+					{t("hero.title1")} <br />
+					{t("hero.title2")}
 				</tx.H1>
 
 				<sc.Copy>
-					Uzak isn't a team. It's a one-person studio where I handle the design, development, and everything in between.
+					{t("hero.description")}
 				</sc.Copy>
 			</sc.Section>
 
 			<sc.Section>
-				<sc.Label>Story</sc.Label>
-				<sc.Title>Why solo</sc.Title>
+				<sc.Label>{t("story.label")}</sc.Label>
+				<sc.Title>{t("story.title")}</sc.Title>
 
 				<wp.Col $gap="9px">
 					<sc.Copy>
-						Uzak started from a simple idea: I wanted a place where I could build things my own way. Instead of working on someone else's products all the time, I wanted to create my own and see them through from idea to finished product.
+						{t("story.p1")}
 					</sc.Copy>
 					<sc.Copy>
-						Uzak doesn&apos;t have a literal meaning, but to me it represents strength and creativity,
-						but also it's my nickname. 
+						{t("story.p2")}
 					</sc.Copy>
 					<sc.Copy>
-						I&apos;m drawn most to SaaS products, e-commerce platforms, and ideas that are a little different from the usual.
+						{t("story.p3")}
 					</sc.Copy>
 				</wp.Col>
 			</sc.Section>
 
 			<sc.Section>
-				<sc.Label>Stack</sc.Label>
-				<sc.Title>Tools I build with</sc.Title>
+				<sc.Label>{t("stack.label")}</sc.Label>
+				<sc.Title>{t("stack.title")}</sc.Title>
 
 				<sc.Copy>
-					The tools change project to project, but this is home base.
+					{t("stack.description")}
 				</sc.Copy>
 
 				<StackSkills />
 			</sc.Section>
 
 			<sc.Section>
-				<sc.Label>Approach</sc.Label>
-				<sc.Title>What I care about</sc.Title>
+				<sc.Label>{t("approach.label")}</sc.Label>
+				<sc.Title>{t("approach.title")}</sc.Title>
 
 				<wp.Row as="ul" $gap="13px" $pad="0" $breakAt={9}>
 					<AnimatedBox 
@@ -68,10 +87,10 @@ export default function Page() {
 						groupOptions={{position: 0, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%"}}
 					>
-						<tx.P $size="xviii" $weight="450">Ownership</tx.P>
+						<tx.P $size="xviii" $weight="450">{t("approach.ownershipTitle")}</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
-							I take responsibility for the whole project, from the first idea to the final release. There's no handoff between different people or teams. 
+							{t("approach.ownershipDesc")}
 						</tx.P>
 					</AnimatedBox>
 
@@ -85,10 +104,10 @@ export default function Page() {
 						groupOptions={{position: 1, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%"}}
 					>
-						<tx.P $size="xviii" $weight="450">Craft</tx.P>
+						<tx.P $size="xviii" $weight="450">{t("approach.craftTitle")}</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
-							I care about getting the details right. I'd rather take a little longer than rush something that needs to be rebuilt later.
+							{t("approach.craftDesc")}
 						</tx.P>
 					</AnimatedBox>
 
@@ -102,10 +121,10 @@ export default function Page() {
 						groupOptions={{position: 2, delay: {ms: .23, maxWidth: 9}}}
 						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%"}}
 					>
-						<tx.P $size="xviii" $weight="450">Honesty</tx.P>
+						<tx.P $size="xviii" $weight="450">{t("approach.honestyTitle")}</tx.P>
 
 						<tx.P $maxWidth="39rem" $opc={0.7}>
-							I'll tell you what I think, even when the answer isn't what you expected. If I think something won't work, I'd rather say so early.
+							{t("approach.honestyDesc")}
 						</tx.P>
 					</AnimatedBox>
 				</wp.Row>

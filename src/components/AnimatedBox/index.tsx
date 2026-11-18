@@ -13,6 +13,7 @@ export type AnimatedBoxProps = {
 		intersectionMarginPreset?: "default" | "small" | "medium" | "large",
 		oneTimeLoad?: boolean
 	},
+	openingOrientation?: "both" | "x" | "y",
 	groupOptions?: AnimatedBoxGroupOptions,
 	resizeSignal?: unknown,
 	children: ReactNode
@@ -45,7 +46,7 @@ const pickStyle = <K extends keyof b.BoxProps>(style: b.BoxProps | undefined, ke
 	return next;
 };
 
-export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, children, groupOptions, resizeSignal, ...props }: AnimatedBoxProps) => {
+export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, children, groupOptions, resizeSignal, openingOrientation, ...props }: AnimatedBoxProps) => {
 	const boxRef = useRef<HTMLDivElement | null>(null);
 	const contentRef = useRef<HTMLDivElement | null>(null);
 
@@ -200,6 +201,8 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 				$boxHeight={boxStyle?.$height}
 				$boxWidth={boxStyle?.$width}
 				$animationSpeed={animationSpeed}
+				$starterH={openingOrientation == "x" ? (boxStyle?.$height ?? "100%") : undefined}
+				$starterW={openingOrientation == "y" ? (boxStyle?.$width ?? "100%") : undefined}
 				onAnimationStart={onAnimation}
 				onAnimationEnd={onAnimation}
 			>
