@@ -9,8 +9,10 @@ import { MouseEvent, SubmitEvent, useState } from "react";
 import { emailRegexp, emailTestRegexp, nameRegexp } from "@/utils";
 import { FormProvider } from "@/context";
 import { sendEmail } from "@/actions/sendEmail";
+import { useTranslations } from "next-intl";
 
 export const ContactMessageForm = () => {
+	const t = useTranslations("contactPage.form");
 	const [submitFallback, setSubmitFallback] = useState<boolean | null>(null);
 	const [messageStatus, setMessageStatus] = useState<"to_send" | "sent" | "error">("to_send");
 
@@ -42,7 +44,7 @@ export const ContactMessageForm = () => {
 		
 		if (success) setMessageStatus("sent");
 		else return setMessageStatus("error");
-	}
+	};
 
 	const clearForm = (e: MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
@@ -51,40 +53,40 @@ export const ContactMessageForm = () => {
 
 		form?.reset();
 		setMessageStatus("to_send");
-	}
+	};
 	
 	return (
 		<bx.Box $width="100%" $padding="13px 15px" $gap="13px">
-			<tx.P $size="xviii" $weight="450">Leave a message</tx.P>
+			<tx.P $size="xviii" $weight="450">{t("title")}</tx.P>
 
 			<wp.Col $pad="3px 9px" $gap="13px">
-				<tx.P $opc={0.79}>Tell me a little about it, where you are with it, and what you're looking for. I'll take a look and get back to you as soon as I can.</tx.P>
+				<tx.P $opc={0.79}>{t("description")}</tx.P>
 			</wp.Col>
 
 			<FormProvider onSubmit={submitMessage}>
 				<wp.Col $pad="0 9px 12px" $gap="13px">
 					<wp.Row $gap="13px" $dSize={["100%"]} $breakAt={4}>
-						<Input label="First Name" name="first_name" regex={nameRegexp} scaleToRoot $width="100%" placeholder="e.g. John" />
+						<Input label={t("firstName")} name="first_name" regex={nameRegexp} scaleToRoot $width="100%" placeholder={t("firstNamePlaceholder")} />
 
-						<Input label="Last Name" name="last_name" regex={nameRegexp} scaleToRoot $width="100%" placeholder="e.g. Doe" />
+						<Input label={t("lastName")} name="last_name" regex={nameRegexp} scaleToRoot $width="100%" placeholder={t("lastNamePlaceholder")} />
 					</wp.Row>
 
 					<Input 
-						label="Email" 
+						label={t("email")} 
 						name="email" 
-						placeholder="e.g. john.doe@example.com" 
+						placeholder={t("emailPlaceholder")} 
 						required 
 						regex={emailRegexp}
-						regexTest={[{regex: emailTestRegexp, error: "This email isn't valid."}]} 
+						regexTest={[{regex: emailTestRegexp, error: t("emailError")}]} 
 						scaleToRoot $width="100%" 
 					/>
 
-					<Input label="Subject" name="subject" scaleToRoot $width="100%" placeholder="e.g. I'd like to chat" />
+					<Input label={t("subject")} name="subject" scaleToRoot $width="100%" placeholder={t("subjectPlaceholder")} />
 
 					<Textarea 
-						label="Message" 
+						label={t("message")} 
 						name="message" 
-						placeholder="your message..." 
+						placeholder={t("messagePlaceholder")} 
 						required
 						scaleToRoot $width="100%" $maxHeight="9lh" $resize="vertical" 
 					/>
@@ -97,21 +99,21 @@ export const ContactMessageForm = () => {
 							{messageStatus == "sent" && 
 								<>
 									<tx.P $weight="600" $colorPreset="text" $size="xvi" $opc={0.9}>
-										SENT!
+										{t("sentTitle")}
 									</tx.P>
 									<tx.P $weight="400" $opc={0.79}>
-										Your message was sent successfully, I appreciate your attention on getting in contact. 
-										<tx.Span $weight="500"> I'll return to you as soon as possible.</tx.Span>
+										{t("sentDesc")}{" "}
+										<tx.Span $weight="500">{t("sentNotice")}</tx.Span>
 									</tx.P>
 								</>
 							}
 							{messageStatus == "error" && 
 								<>
 									<tx.P $weight="600" $colorPreset="text" $size="xvi" $opc={0.9}>
-										ERROR :(
+										{t("errorTitle")}
 									</tx.P>
 									<tx.P $colorPreset="redError" $weight="500">
-										Sorry look like we have a problem here, please try again later.
+										{t("errorDesc")}
 									</tx.P>
 								</>
 							}
@@ -123,21 +125,21 @@ export const ContactMessageForm = () => {
 				<wp.Row $fWrap="wrap" $gap="9px" $jc={messageStatus != "to_send" ? "space-between" : "flex-end"}>
 					{messageStatus != "to_send" && 
 						<ButtonLink clientRender type="button" href="/" btnProps={{$style: "ghost_link"}}>
-							Back home
+							{t("backHome")}
 						</ButtonLink>
 					}
 
 					{messageStatus != "to_send" ?
 						<Button type="button" onClick={clearForm}>
-							{messageStatus == "sent" ? "Send another message" : "Try again"}
+							{messageStatus == "sent" ? t("sendAnother") : t("tryAgain")}
 						</Button>
 					:
 						<Button $fullMaxWidth="79px" type="submit" {...(submitFallback != null ? {disabled: submitFallback} : {})}>
-							{submitFallback ? "sending..." : "Send"}
+							{submitFallback ? t("sending") : t("send")}
 						</Button>
 					}
 				</wp.Row>
 			</FormProvider>
 		</bx.Box>
-	)
-}
+	);
+};

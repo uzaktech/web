@@ -4,18 +4,23 @@ import * as s from "./styles";
 import { usePathname } from "next/navigation";
 import { Link } from "@/components/Link";
 import { Logo } from "../Logo";
+import { LangSwitch } from "../LangSwitch";
 import { useLayoutEffect, useRef, useState } from "react";
 import { useMenu } from "@/context";
+import { useTranslations } from "next-intl";
+import { LangDropDown } from "../LangDropDown";
 
 export const Header = () => {
 	const pathname = usePathname();
 	const menu = useMenu();
+	const t = useTranslations("nav");
 
 	const [scrollingUp, setScrollingUp] = useState(true);
+	const [showLangDropDown, setShowLangDropDown] = useState(false);
 
 	const headerRef = useRef<HTMLDivElement | null>(null);
 
-   useLayoutEffect(() => {
+	useLayoutEffect(() => {
 		const parent: HTMLDivElement | null = headerRef.current?.closest("[data-scroll-root]") as HTMLDivElement
 			?? headerRef.current?.parentElement?.parentElement as HTMLDivElement;
 
@@ -46,32 +51,42 @@ export const Header = () => {
 			parent.addEventListener("scroll", handleScroll, { passive: true });
 			return () => parent.removeEventListener("scroll", handleScroll);
 		}
-   }, [headerRef]);
+	}, [headerRef]);
 
 	return (
-		<s.Root ref={headerRef} $up={scrollingUp}>
-			<s.RootLogo>
-				<Logo />
-			</s.RootLogo>
-			
-			<s.MenuToggle onClick={() => menu.setVisibility(true)} />
-			
-			<s.Nav>
-				<s.Ul>
-					<s.Li $selected={pathname == "/"}>
-						<Link clientRender href="/">Home</Link>
-					</s.Li>
-					<s.Li $selected={pathname == "/about"}>
-						<Link clientRender href="/about">About</Link>
-					</s.Li>
-					<s.Li $selected={pathname == "/portfolio"}>
-						<Link clientRender href="/portfolio">Portfolio</Link>
-					</s.Li>
-					<s.Li $selected={pathname == "/contact"}>
-						<Link clientRender href="/contact">Contact</Link>
-					</s.Li>
-				</s.Ul>
-			</s.Nav>
-		</s.Root>
-	)
-}
+		<>
+			<s.Root ref={headerRef} $up={scrollingUp}>
+				<s.RootLogo>
+					<Logo />
+				</s.RootLogo>
+				
+				<s.HeaderActions>
+					<s.Nav>
+						<s.Ul>
+							<s.Li $selected={pathname == "/"}>
+								<Link clientRender href="/">{t("home")}</Link>
+							</s.Li>
+							<s.Li $selected={pathname == "/about"}>
+								<Link clientRender href="/about">{t("about")}</Link>
+							</s.Li>
+							<s.Li $selected={pathname == "/portfolio"}>
+								<Link clientRender href="/portfolio">{t("portfolio")}</Link>
+							</s.Li>
+							<s.Li $selected={pathname == "/contact"}>
+								<Link clientRender href="/contact">{t("contact")}</Link>
+							</s.Li>
+						</s.Ul>
+					</s.Nav>
+					
+					<s.MenuToggle onClick={() => menu.setVisibility(true)} />
+
+					<s.Division />
+
+					<LangSwitch showLangDropDown={showLangDropDown} setShowLangDropDown={setShowLangDropDown} />
+				</s.HeaderActions>
+			</s.Root>
+
+			{showLangDropDown && <LangDropDown fixed={scrollingUp} close={() => setShowLangDropDown(false)} />}
+		</>
+	);
+};

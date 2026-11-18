@@ -6,38 +6,48 @@ import * as wp from "@/styles/primitive/wrapper";
 import { ContactMessageForm, Link } from "@/components";
 import { Metadata } from "next";
 import { links, linksLabels } from "@/data";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-	title: "Contact",
-	description:
-		"Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk.",
-	alternates: {
-		canonical: "/contact"
-	},
-	openGraph: {
-		title: "Contact",
-		description:
-			"Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk.",
-		url: "https://www.uzak.com.br/contact"
-	}
-};
+export async function generateMetadata(): Promise<Metadata> {
+	const locale = await getLocale();
+	const tNav = await getTranslations("nav");
+	const isPt = locale === "pt";
 
-export default function Page() {
+	return {
+		title: tNav("contact"),
+		description: isPt
+			? "Entre em contato com a Uzak Tech Studio. Tem um projeto, ideia de plataforma web ou demanda personalizada em mente? Vamos conversar."
+			: "Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk.",
+		alternates: {
+			canonical: "/contact"
+		},
+		openGraph: {
+			title: tNav("contact"),
+			description: isPt
+				? "Entre em contato com a Uzak Tech Studio. Tem um projeto, ideia de plataforma web ou demanda personalizada em mente? Vamos conversar."
+				: "Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk.",
+			url: "https://www.uzak.com.br/contact"
+		}
+	};
+}
+
+export default async function Page() {
+	const t = await getTranslations("contactPage");
+
 	return (
 		<sc.Root>
 			<sc.Section $fDirection="row" $breakAt={9} $hero>
 				<sc.Content $gap="18px">
 					<wp.Col $gap="5px">
-						<tx.H1>Contact me</tx.H1>
+						<tx.H1>{t("title")}</tx.H1>
 					</wp.Col>
 
 					<sc.Copy>
-						Have a project in mind, an idea you've been thinking about, or just want to talk?
-						I'd be happy to hear what you're working on.
+						{t("description")}
 					</sc.Copy>
 
 					<bx.Box $padding="9px 13px" $gap="9px" $maxWidth="min(fit-content, 100%)" $width="fit-content">
-						<tx.P $size="xviii" $weight="450">My links</tx.P>
+						<tx.P $size="xviii" $weight="450">{t("myLinks")}</tx.P>
 
 						<wp.Col $gap="3px">
 							<Link poserStyle target="_blank" href={links.email}>
@@ -78,5 +88,5 @@ export default function Page() {
 				<ContactMessageForm />
 			</sc.Section>
 		</sc.Root>
-	)
+	);
 }

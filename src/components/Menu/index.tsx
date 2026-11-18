@@ -2,15 +2,17 @@
 
 import * as s from "./styles";
 import * as w from "@/styles/primitive/wrapper";
-import { useMenu } from "@/context"
+import { useMenu } from "@/context";
 import { createPortal } from "react-dom";
 import { Link } from "../Link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { KeyboardEvent, useEffect, useRef } from "react";
 
 export const Menu = () => {
 	const pathname = usePathname();
 	const menu = useMenu();
+	const t = useTranslations("nav");
 
 	const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -33,13 +35,13 @@ export const Menu = () => {
 			e.preventDefault();
 			first.focus();
 		}
-	}
+	};
 
 	const closeFn = () => menu.setVisibility(false);
 
 	useEffect(() => {
 		if (menu.visibility) menu.setVisibility(false);
-	}, [pathname])
+	}, [pathname]);
 
 	useEffect(() => {
 		if (!menu.visibility) return;
@@ -54,12 +56,12 @@ export const Menu = () => {
 				e.preventDefault();
 				(focusable[0] as HTMLElement).focus();
 			}
-		}
+		};
 
 		window.addEventListener("focusin", focusListener);
 
 		return () => window.removeEventListener("focusin", focusListener);
-	}, [menu.visibility])
+	}, [menu.visibility]);
 
 	return menu.visibility == true && createPortal(
 		<s.Root ref={menuRef} onKeyDown={handleKeyDown} role="dialog" aria-modal="true">
@@ -69,16 +71,16 @@ export const Menu = () => {
 				<s.Nav>
 					<s.Ul>
 						<s.Li $selected={pathname == "/"}>
-							<Link clientRender href="/">Home</Link>
+							<Link clientRender href="/">{t("home")}</Link>
 						</s.Li>
 						<s.Li $selected={pathname == "/about"}>
-							<Link clientRender href="/about">About</Link>
+							<Link clientRender href="/about">{t("about")}</Link>
 						</s.Li>
 						<s.Li $selected={pathname == "/portfolio"}>
-							<Link clientRender href="/portfolio">Portfolio</Link>
+							<Link clientRender href="/portfolio">{t("portfolio")}</Link>
 						</s.Li>
 						<s.Li $selected={pathname == "/contact"}>
-							<Link clientRender href="/contact">Contact</Link>
+							<Link clientRender href="/contact">{t("contact")}</Link>
 						</s.Li>
 					</s.Ul>
 				</s.Nav>
@@ -89,5 +91,5 @@ export const Menu = () => {
 			</s.Menu>
 		</s.Root>, 
 		document.body
-	)
-}
+	);
+};

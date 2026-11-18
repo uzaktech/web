@@ -6,16 +6,29 @@ import * as wp from "@/styles/primitive/wrapper";
 import { useState } from "react";
 import { AnimatedBox } from "../AnimatedBox";
 import { ShrinkWrapper } from "../ShrinkWrapper";
-import { quickFacts } from "@/data";
+import { useTranslations } from "next-intl";
 
 export const QuickFacts = () => {
 	const [expanded, setExpanded] = useState<boolean>(false);
+	const t = useTranslations("quickFacts");
+
+	const ageDiff = process.env.NEXT_PUBLIC_BIRTH_DATE ? Math.abs(new Date(process.env.NEXT_PUBLIC_BIRTH_DATE).getTime() - new Date().getTime()) : null;
+	const ageString = ageDiff ? t("ageYears", { years: Math.floor(ageDiff / 31557600000) }) : "undefined";
+
+	const facts = [
+		{ label: t("role"), value: t("roleValue") },
+		{ label: t("focus"), value: t("focusValue") },
+		{ label: t("experience"), value: t("experienceValue") },
+		{ label: t("location"), value: t("locationValue") },
+		{ label: t("age"), value: ageString },
+		{ label: t("alias"), value: "Uzak" }
+	];
 	
 	return (
 		<AnimatedBox 
 			animationView="intersection" 
 			as="aside"
-			aria-label="Quick facts"
+			aria-label={t("title")}
 			options={{
 				oneTimeLoad: true,
 				intersectionMarginPreset: "medium"
@@ -23,7 +36,7 @@ export const QuickFacts = () => {
 			boxStyle={{$fDirection: "column", $width: "100%", $maxWidth: "300px", $padding: "13px 17px"}}
 		>
 			<wp.Row $cursor={!expanded ? "pointer" : undefined} $gap="13px" $jc="space-between" $ai="center" $margin="-3px 0 -3px" onClick={() => !expanded ? setExpanded(true) : {}}>
-				<tx.Span $size="xvii" $weight="450" $opc={1}>Quick facts</tx.Span>
+				<tx.Span $size="xvii" $weight="450" $opc={1}>{t("title")}</tx.Span>
 
 				<s.ExpandButton onClick={() => setExpanded(!expanded)} $opened={expanded} />
 			</wp.Row>
@@ -41,7 +54,7 @@ export const QuickFacts = () => {
 					<wp.Division $orientation={1} />
 
 					<wp.Col $gap="7px" as="dl">
-						{quickFacts.map((q, i) => (
+						{facts.map((q, i) => (
 							<wp.Row $gap="13px" $ai="flex-end" $jc="space-between" key={i}>
 								<tx.Label as="dt" $italic $weight="500" $opc={0.9}>{q.label} </tx.Label>
 								<tx.Span as="dd" $size="xvi">{q.value}</tx.Span>
@@ -51,5 +64,5 @@ export const QuickFacts = () => {
 				</wp.Col>
 			</ShrinkWrapper>
 		</AnimatedBox>		
-	)
-}
+	);
+};
