@@ -2,6 +2,17 @@
 
 import styled from "styled-components";
 
+export const Root = styled.div`
+	display: flex;
+	flex-direction: column;
+	padding: 13px 17px;
+	overflow: hidden;
+	
+	@media (max-width: 500px) {
+		max-width: 250px;
+	}
+`;
+
 export const ExpandButton = styled.div<{$opened?: boolean}>`
 	height: 24px;
 	aspect-ratio: 1;

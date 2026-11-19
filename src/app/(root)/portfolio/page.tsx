@@ -104,7 +104,7 @@ export default async function Page() {
 						<AnimatedBox 
 							animationView="default" 
 							options={{oneTimeLoad: true}} 
-							boxStyle={{$padding: "0", $gap: "0", $width: "auto", $height: "auto", $aspectRatio: "1", $overflow: "visible"}}
+							boxStyle={{$padding: "0", $gap: "0", $width: "fit-content", $height: "fit-content", $aspectRatio: "1", $overflow: "visible"}}
 						>
 							<s.HeroImageBox>
 								<s.HeroImage src={"/desktop_setup.jpg"} alt="complementary hero image" />

@@ -44,8 +44,8 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWid
 			height: fit-content;
 			min-height: fit-content;
 			max-width: 100%;
-			width: 100%;
-			min-width: 100%;
+			width: auto;
+			min-width: auto;
 		}
 	}
 
