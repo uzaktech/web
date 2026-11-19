@@ -85,7 +85,7 @@ export const Header = () => {
 				</s.HeaderActions>
 			</s.Root>
 
-			{showLangDropDown && <LangDropDown fixed={scrollingUp} close={() => setShowLangDropDown(false)} />}
+			{showLangDropDown && <LangDropDown fixed={scrollingUp} close={() => setShowLangDropDown(false)} headerRef={headerRef.current!} />}
 		</>
 	);
 };

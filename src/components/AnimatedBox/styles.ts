@@ -41,8 +41,8 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWid
 		100% {
 			overflow: visible;
 			opacity: 1;
-			height: 100%;
-			min-height: 100%;
+			height: fit-content;
+			min-height: fit-content;
 			max-width: 100%;
 			width: 100%;
 			min-width: 100%;

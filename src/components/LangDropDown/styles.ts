@@ -3,10 +3,13 @@
 import styled from "styled-components";
 import { Span } from "@/styles/primitive";
 
-export const Root = styled.div<{$fixed?: boolean}>`
+export const Root = styled.div<{$fixed?: boolean, $headerWidth?: number}>`
 	position: ${(p) => p.$fixed ? "fixed" : "absolute"};
 	top: calc(var(--height-header) + (13px * (${(p) => p.$fixed ? "2" : "1"})));
-	right: calc(50% - (var(--max-width) / 2) + (${(p) => p.$fixed ? "8px" : "3px"}));
+	right: max(
+		calc(50% - (var(--max-width) / 2) + (${(p) => p.$fixed ? "6px" : "1px"})), 
+		${(p) => p.$fixed ? `calc(13px + (100% - (${p.$headerWidth}px + 26px)))` : "13px"}
+	);
 	z-index: 333;
 `;
 

@@ -46,7 +46,7 @@ export const RootLogo = styled.div`
 export const HeaderActions = styled.div`
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: 17px;
 	margin: 0 0 0 auto;
 	height: 100%;
 	padding: 0 7px 0 0;
@@ -58,7 +58,7 @@ export const Nav = styled.nav`
 	position: relative;
 	padding: 0;
 	
-	@media (max-width: 600px) {
+	@media (max-width: 670px) {
 		display: none;
 	}
 `;
@@ -77,11 +77,11 @@ export const MenuToggle = styled.div`
 	gap: 5px;
 	background-image: url("/menu.svg");
 	background-position: center center;
-	background-size: 79% 100%;
+	background-size: 60% 70%;
 	background-repeat: no-repeat;
 	transform: translate(-3px, 0);
 
-	@media (max-width: 600px) {
+	@media (max-width: 670px) {
 		display: flex;
 	}
 `;
@@ -134,7 +134,7 @@ export const Ul = styled.ul`
 		box-shadow: inset 0 0 0 1px #0002, inset 0 20px 15px -15px #fff5;
 	}
 	
-	@media (max-width: 600px) {
+	@media (max-width: 670px) {
 		margin: 0;
 		padding: 0 10px 0 7px;
 	}
@@ -225,7 +225,7 @@ export const Note = styled.span`
 	font-weight: 400;
 	font-style: italic;
 
-	@media (max-width: 600px) {
+	@media (max-width: 670px) {
 		display: none !important;
 	}
 `;
@@ -234,6 +234,6 @@ export const Division = styled.div`
 	position: relative;
 	height: 70%;
 	transform: skewX(-30deg);
-	margin: 0 7px;
+	margin: 0 5px 0 7px;
 	border-right: solid 1px ${(p) => p.theme.colors.boxShadow};
 `;
