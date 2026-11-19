@@ -70,7 +70,7 @@ export const H1 = styled.h1<TextProps>`
 	font-size: ${({theme, $size}) => $size != null ? theme.fontSize[$size] : theme.fontSize.xxiii};
 	width: fit-content;
 	color: ${({theme, $color, $opc}) => $color || rgba(theme.colors.text, $opc || 1)};
-	font-weight: ${({$weight}) => $weight || 550};
+	font-weight: ${({$weight}) => $weight || 530};
 	margin: ${({$margin}) => $margin ?? "0"};
 	line-height: ${({$lineHeight}) => $lineHeight};
 	letter-spacing: ${({$lSpacing}) => $lSpacing};

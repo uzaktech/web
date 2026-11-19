@@ -61,7 +61,7 @@
 		},
 		"stack": {
 			"label": "Stack",
-			"title": "Ferramentas com que construo",
+			"title": "Ferramentas com que trabalho",
 			"description": "As ferramentas mudam de projeto para projeto, mas esta é a base principal."
 		},
 		"approach": {
@@ -82,7 +82,7 @@
 			"seeProjects": "Ver projetos",
 			"contactMe": "Fale comigo",
 			"seeExperience": "Ver experiência",
-			"deskSetup": "meu setup de trabalho"
+			"deskSetup": "meu setup"
 		},
 		"about": {
 			"label": "Sobre",
@@ -93,15 +93,15 @@
 		"skills": {
 			"label": "Habilidades",
 			"title": "Com o que trabalho",
-			"description": "Sou um desenvolvedor full-stack. Trabalho em toda a stack, mas costumo gostar mais do back-end."
+			"description": "Sou um desenvolvedor full-stack. Trabalho com toda a stack, mas tenho maior afinidade com o back-end."
 		},
 		"projects": {
 			"label": "Projetos",
-			"title": "O que construí"
+			"title": "O que desenvolvi"
 		},
 		"career": {
 			"label": "Carreira",
-			"title": "Minha experiência profissional"
+			"title": "Minha experiência"
 		}
 	},
 	"contactPage": {
@@ -110,7 +110,7 @@
 		"myLinks": "Meus links",
 		"form": {
 			"title": "Deixe uma mensagem",
-			"description": "Conte-me um pouco sobre o projeto, o estágio atual e o que você procura. Darei uma olhada e responderei assim que possível.",
+			"description": "Me fale um pouco sobre o projeto, o estágio atual e o que você procura. Darei uma olhada e responderei assim que possível.",
 			"firstName": "Nome",
 			"firstNamePlaceholder": "ex: João",
 			"lastName": "Sobrenome",
@@ -135,7 +135,7 @@
 		}
 	},
 	"quickFacts": {
-		"title": "Fatos rápidos",
+		"title": "Em resumo",
 		"role": "Função",
 		"roleValue": "Desenvolvedor Full-stack",
 		"focus": "Foco",
@@ -193,12 +193,12 @@
 		}
 	},
 	"footer": {
-		"tagline": "Estúdio individual construindo plataformas web ponta a ponta, da primeira ideia à produção.",
+		"tagline": "Estúdio independente construindo plataformas web ponta a ponta, da primeira ideia à produção.",
 		"question": "Interessado em trabalhar juntos?",
-		"cta": "Iniciar uma conversa",
+		"cta": "Vamos conversar",
 		"status": "Status",
-		"openToWork": "Disponível para Projetos",
-		"building": "novos projetos estão sendo construídos",
+		"openToWork": "Disponível",
+		"building": "novos projetos em desenvolvimento",
 		"navigate": "Navegação",
 		"elsewhere": "Outros links",
 		"rights": "Todos os Direitos Reservados"
@@ -224,7 +224,7 @@
 		"description": "Uzak é um estúdio individual focado em plataformas e soluções web ponta a ponta.",
 		"aboutDescription": "Uzak é um estúdio individual focado em plataformas e soluções web ponta a ponta.",
 		"contactDescription": "Entre em contato com a Uzak Tech Studio. Tem um projeto, ideia de plataforma web ou demanda personalizada em mente? Vamos conversar.",
-		"portfolioTitle": "Enzo Kazuki // Portfólio",
-		"portfolioDescription": "Olá! Sou Enzo Kazuki (Uzak), desenvolvedor full-stack autodidata na Paraíba - Brasil. Conheça minha trajetória, habilidades e projetos."
+		"portfolioTitle": "Enzo Kazuki",
+		"portfolioDescription": "Enzo Kazuki (Uzak) é um desenvolvedor full-stack da Paraíba, Brasil. Conheça sua trajetória, habilidades e projetos."
 	}
 }

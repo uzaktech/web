@@ -52,7 +52,7 @@ export const Label = styled(Span).attrs({$size: "xvi", $opc: 0.4, $lSpacing: "0.
 	text-transform: uppercase !important;
 `;
 
-export const Title = styled(Span).attrs({as: "h2", $size: "xxii", $weight: "550", $lineHeight: 1.2})``;
+export const Title = styled(Span).attrs({as: "h2", $size: "xxii", $weight: "530", $lineHeight: 1.2})``;
 
 export const Copy = styled(P).attrs({$opc: 0.79})`
 	max-width: ${(p) => p.$maxWidth ?? "39rem"};
