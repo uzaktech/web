@@ -5,35 +5,37 @@ import * as wp from "@/styles/primitive/wrapper";
 import { AnimatedBox, Cta, ExperienceView, ProjectView, StackSkills, QuickFacts } from "@/components";
 import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
+import { createAlternates, Locale, ogLocales } from "@/i18n/config";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const locale = await getLocale();
+	const tMeta = await getTranslations("meta");
 	const tNav = await getTranslations("nav");
-	const isPt = locale === "pt";
+	const ogLocale = ogLocales[locale as Locale] ?? "en_US";
 
 	return {
 		title: tNav("portfolio"),
-		description: isPt
-			? "Olá! Sou Enzo Kazuki (Uzak), desenvolvedor full-stack autodidata na Paraíba - Brasil. Conheça minha trajetória, habilidades e projetos."
-			: "Hello! I'm Enzo Kazuki (aka. Uzak), a self-taught full-stack developer based in Paraíba - Brazil. Check out my background, skills, and personal projects.",
+		description: tMeta("portfolioDescription"),
 		keywords: [
 			"enzo kazuki",
 			"kazuki",
 			"uzak",
 			"enzo kazuki portfolio",
-			"full-stack developer paraiba",
-			"desenvolvedor paraiba"
+			"full-stack developer",
+			"desenvolvedor full-stack"
 		],
-		alternates: {
-			canonical: "/portfolio"
-		},
+		alternates: createAlternates("/portfolio"),
 		openGraph: {
-			title: isPt ? "Enzo Kazuki - Portfólio" : "Enzo Kazuki",
-			description: isPt
-				? "Portfólio de Enzo Kazuki (Uzak), desenvolvedor full-stack independente na Paraíba, Brasil."
-				: "Portfolio of Enzo Kazuki (aka. Uzak), an independent full-stack developer based in Paraíba, Brazil.",
+			title: tMeta("portfolioTitle"),
+			description: tMeta("portfolioDescription"),
 			url: "https://www.uzak.com.br/portfolio",
-			type: "profile"
+			type: "profile",
+			locale: ogLocale
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: tMeta("portfolioTitle"),
+			description: tMeta("portfolioDescription")
 		}
 	};
 }

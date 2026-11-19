@@ -44,3 +44,26 @@ export function parseAcceptLanguage(headerValue?: string | null): Locale {
 
 	return resolveLocaleCode(parsed[0]?.lang);
 }
+
+export const ogLocales: Record<Locale, string> = {
+	en: "en_US",
+	pt: "pt_BR",
+	es: "es_ES",
+	it: "it_IT",
+	fr: "fr_FR",
+	de: "de_DE",
+	ja: "ja_JP"
+};
+
+export function createAlternates(path: string = "/") {
+	const languages: Record<string, string> = {};
+	for (const loc of locales) {
+		languages[loc] = path;
+	}
+	languages["x-default"] = path;
+
+	return {
+		canonical: path,
+		languages
+	};
+}

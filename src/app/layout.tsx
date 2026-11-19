@@ -2,20 +2,19 @@ import "@/styles/global.css";
 import { Providers } from "@/providers";
 import { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
+import { createAlternates, Locale, ogLocales } from "@/i18n/config";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const locale = await getLocale();
-	const isPt = locale === "pt";
+	const t = await getTranslations("meta");
 
 	return {
 		title: {
-			default: isPt ? "Uzak // Estúdio de Tecnologia" : "Uzak // Tech Studio",
+			default: t("title"),
 			template: "Uzak // %s"
 		},
-		description: isPt
-			? "Uzak é um estúdio individual focado em plataformas e soluções web ponta a ponta."
-			: "Uzak is an indie developer studio focused on end-to-end web solutions and platforms.",
+		description: t("description"),
 		keywords: [
 			"tech studio",
 			"uzak",
@@ -29,31 +28,34 @@ export async function generateMetadata(): Promise<Metadata> {
 			"estúdio de desenvolvimento"
 		],
 		metadataBase: new URL("https://www.uzak.com.br"),
-		alternates: {
-			canonical: "/"
-		},
+		alternates: createAlternates("/"),
 		robots: {
 			index: true,
 			follow: true
 		},
 		openGraph: {
 			title: {
-				absolute: isPt ? "Uzak // Estúdio de Tecnologia" : "Uzak // Tech Studio"
+				absolute: t("title")
 			},
-			description: isPt
-				? "Um estúdio individual focado em plataformas e soluções web ponta a ponta."
-				: "An indie developer studio focused on end-to-end web solutions and platforms.",
+			description: t("description"),
 			type: "website",
 			url: "https://www.uzak.com.br",
-			locale: isPt ? "pt_BR" : "en_US",
-			siteName: "Uzak"
+			locale: ogLocales[locale as Locale] ?? "en_US",
+			siteName: "Uzak",
+			images: [
+				{
+					url: "/logo.png",
+					width: 1200,
+					height: 630,
+					alt: "Uzak // Tech Studio"
+				}
+			]
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: isPt ? "Uzak // Estúdio de Tecnologia" : "Uzak // Tech Studio",
-			description: isPt
-				? "Um estúdio individual focado em plataformas e soluções web ponta a ponta."
-				: "An indie developer studio focused on end-to-end web solutions and platforms."
+			title: t("title"),
+			description: t("description"),
+			images: ["/logo.png"]
 		},
 		icons: {
 			icon: "/favicon.png",
