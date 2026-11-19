@@ -4,26 +4,28 @@ import * as wp from "@/styles/primitive/wrapper";
 import { AnimatedBox, StackSkills } from "@/components";
 import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
+import { createAlternates, Locale, ogLocales } from "@/i18n/config";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const locale = await getLocale();
+	const tMeta = await getTranslations("meta");
 	const tNav = await getTranslations("nav");
-	const isPt = locale === "pt";
+	const ogLocale = ogLocales[locale as Locale] ?? "en_US";
 
 	return {
 		title: tNav("about"),
-		description: isPt
-			? "Uzak é um estúdio individual focado em plataformas e soluções web ponta a ponta."
-			: "Uzak is an indie developer studio focused on end-to-end web solutions and platforms.",
-		alternates: {
-			canonical: "/about"
-		},
+		description: tMeta("aboutDescription"),
+		alternates: createAlternates("/about"),
 		openGraph: {
 			title: tNav("about"),
-			description: isPt
-				? "Uzak é um estúdio individual focado em plataformas e soluções web ponta a ponta."
-				: "Uzak is an indie developer studio focused on end-to-end web solutions and platforms.",
-			url: "https://www.uzak.com.br/about"
+			description: tMeta("aboutDescription"),
+			url: "https://www.uzak.com.br/about",
+			locale: ogLocale
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: tNav("about"),
+			description: tMeta("aboutDescription")
 		}
 	};
 }

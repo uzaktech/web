@@ -2,7 +2,8 @@
 
 import * as b from "@/styles/primitive/box";
 import * as s from "./styles";
-import { AnimationEvent, ComponentPropsWithoutRef, ElementType, ReactNode, useEffect, useRef, useState } from "react";
+import { AnimationEvent, ComponentPropsWithoutRef, CSSProperties, ElementType, ReactNode, useEffect, useRef, useState } from "react";
+import { useWindowResize } from "@/hooks";
 
 export type AnimatedBoxProps = {
 	boxStyle?: b.BoxProps,
@@ -28,10 +29,9 @@ export type AnimatedBoxGroupOptions = {
 }
 
 const RESIZE_DEBOUNCE_MS = 150;
-const RESIZE_COOLDOWN_MS = 800;
 
 const FRAME_KEYS = ["$margin", "$width", "$height", "$minWidth", "$minHeight", "$maxWidth", "$maxHeight", "$aspectRatio", "$zIndex", "$transition"] as const;
-const SHELL_KEYS = ["$bg", "$shadow", "$shadowColor", "$border", "$outline", "$corner", "$cornerP", "$overflow", "$zIndex", "$transition"] as const;
+const SHELL_KEYS = ["$bg", "$shadow", "$shadowColor", "$border", "$outline", "$corner", "$cornerP", "$overflow", "$zIndex", "$transition", "$transparentBgEffect"] as const;
 const CONTENT_KEYS = ["$padding", "$gap", "$fDirection", "$display", "$ai", "$jc", "$zIndex", "$transition"] as const;
 
 const pickStyle = <K extends keyof b.BoxProps>(style: b.BoxProps | undefined, keys: readonly K[]) => {
@@ -58,11 +58,6 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 	const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
 	const [boxRects, setBoxRects] = useState<{w: number, h: number} | null>(null);
 	const [opened, setOpened] = useState<boolean>(false);
-
-	const isFirstResize = useRef(true);
-	const resizeDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-	const resizeCooldownRef = useRef(false);
-	const lastWidthRef = useRef<number | null>(null);
 
 	const open = boxRects != null ? (animationView == "intersection" ? (options?.oneTimeLoad ? wasIntersected : isIntersecting) : true) : false;
 	const close = (boxRects != null || options?.oneTimeLoad) ? (animationView == "intersection" ? false : !isIntersecting) : false;
@@ -123,68 +118,39 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 	useEffect(() => setWasIntersected(isIntersecting ? true : wasIntersected), [isIntersecting])
 
 	useEffect(() => {
-		const box = boxRef.current;
+		if (!boxRef.current) return;
+		let cancelled = false;
 
-		if (box != null) {
-			let rt: (() => void) | undefined = () => {};
-
-			let cancelled = false;
-
-			const waitForStableLayout = () => {
-				document.fonts.ready.then(() => {
+		document.fonts.ready.then(() => {
+			if (cancelled) return;
+			requestAnimationFrame(() => {
+				requestAnimationFrame(() => {
 					if (cancelled) return;
-
-					requestAnimationFrame(() => {
-						requestAnimationFrame(() => {
-							if (cancelled) return;
-
-							rt = reload();
-						});
-					});
+					reload();
 				});
-			};
-
-			const resizeObserver = new ResizeObserver(([entry]) => {
-				const currentWidth = entry.contentRect.width;
-
-				if (isFirstResize.current) {
-					isFirstResize.current = false;
-
-					waitForStableLayout();
-
-					return lastWidthRef.current = currentWidth;;
-				}
-
-				if (Math.abs(lastWidthRef.current! - currentWidth) < 1) return;
-
-				lastWidthRef.current = currentWidth;
-
-				if (resizeCooldownRef.current) return;
-
-				if (resizeDebounceRef.current) clearTimeout(resizeDebounceRef.current);
-
-				resizeDebounceRef.current = setTimeout(() => {
-					resizeCooldownRef.current = true;
-
-					waitForStableLayout();
-
-					setTimeout(() => {
-						resizeCooldownRef.current = false;
-					}, RESIZE_COOLDOWN_MS);
-				}, RESIZE_DEBOUNCE_MS);
 			});
+		});
 
-			resizeObserver.observe(document.documentElement);
+		return () => {
+			cancelled = true;
+		};
+	}, []);
 
-			return () => {
-				resizeObserver.unobserve(document.documentElement);
-
-				if (resizeDebounceRef.current) clearTimeout(resizeDebounceRef.current);
-
-				return rt?.();
-			}
+	useWindowResize(() => {
+		if (animationView === "default") {
+			if (!boxRef.current) return;
+			setBoxRects({
+				w: boxRef.current.getBoundingClientRect().width,
+				h: boxRef.current.getBoundingClientRect().height
+			});
+		} else {
+			reload();
 		}
-	}, [boxRef])
+	}, RESIZE_DEBOUNCE_MS);
+
+	const starterH = openingOrientation == "x" ? (boxStyle?.$height ?? "100%") : undefined;
+	const starterW = openingOrientation == "y" ? (boxStyle?.$width ?? "100%") : undefined;
+	const defaultCornerSize = shellStyle?.$corner?.size ?? "var(--corner-default-size)";
 
 	return (
 		<s.FrameRoot 
@@ -201,8 +167,12 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 				$boxHeight={boxStyle?.$height}
 				$boxWidth={boxStyle?.$width}
 				$animationSpeed={animationSpeed}
-				$starterH={openingOrientation == "x" ? (boxStyle?.$height ?? "100%") : undefined}
-				$starterW={openingOrientation == "y" ? (boxStyle?.$width ?? "100%") : undefined}
+				style={{
+					"--starter-h": starterH ?? defaultCornerSize,
+					"--starter-w": starterW ?? defaultCornerSize,
+					"--starter-opc": (starterH || starterW) ? 1 : 0,
+					"--starter-locker-opc": (starterH || starterW) ? 1 : 0.3,
+				} as CSSProperties}
 				onAnimationStart={onAnimation}
 				onAnimationEnd={onAnimation}
 			>

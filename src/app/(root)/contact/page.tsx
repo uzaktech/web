@@ -7,26 +7,28 @@ import { ContactMessageForm, Link } from "@/components";
 import { Metadata } from "next";
 import { links, linksLabels } from "@/data";
 import { getLocale, getTranslations } from "next-intl/server";
+import { createAlternates, Locale, ogLocales } from "@/i18n/config";
 
 export async function generateMetadata(): Promise<Metadata> {
 	const locale = await getLocale();
+	const tMeta = await getTranslations("meta");
 	const tNav = await getTranslations("nav");
-	const isPt = locale === "pt";
+	const ogLocale = ogLocales[locale as Locale] ?? "en_US";
 
 	return {
 		title: tNav("contact"),
-		description: isPt
-			? "Entre em contato com a Uzak Tech Studio. Tem um projeto, ideia de plataforma web ou demanda personalizada em mente? Vamos conversar."
-			: "Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk.",
-		alternates: {
-			canonical: "/contact"
-		},
+		description: tMeta("contactDescription"),
+		alternates: createAlternates("/contact"),
 		openGraph: {
 			title: tNav("contact"),
-			description: isPt
-				? "Entre em contato com a Uzak Tech Studio. Tem um projeto, ideia de plataforma web ou demanda personalizada em mente? Vamos conversar."
-				: "Get in touch with Uzak Tech Studio. Have a project, web platform idea, or custom build in mind? Let's talk.",
-			url: "https://www.uzak.com.br/contact"
+			description: tMeta("contactDescription"),
+			url: "https://www.uzak.com.br/contact",
+			locale: ogLocale
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: tNav("contact"),
+			description: tMeta("contactDescription")
 		}
 	};
 }

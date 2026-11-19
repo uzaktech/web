@@ -4,11 +4,10 @@ import * as wp from "@/styles/primitive/wrapper";
 import { AnimatedBox, Cta, ProjectView, Pyramid } from "@/components";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { createAlternates } from "@/i18n/config";
 
 export const metadata: Metadata = {
-	alternates: {
-		canonical: "/"
-	}
+	alternates: createAlternates("/")
 };
 
 export default async function Home() {

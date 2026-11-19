@@ -4,11 +4,10 @@ import * as s from "./styles";
 import { usePathname } from "next/navigation";
 import { Link } from "@/components/Link";
 import { Logo } from "../Logo";
-import { LangSwitch } from "../LangSwitch";
 import { useLayoutEffect, useRef, useState } from "react";
 import { useMenu } from "@/context";
 import { useTranslations } from "next-intl";
-import { LangDropDown } from "../LangDropDown";
+import { LangDropDown, LangSwitch } from "../";
 
 export const Header = () => {
 	const pathname = usePathname();
@@ -86,7 +85,7 @@ export const Header = () => {
 				</s.HeaderActions>
 			</s.Root>
 
-			{showLangDropDown && <LangDropDown fixed={scrollingUp} close={() => setShowLangDropDown(false)} />}
+			{showLangDropDown && <LangDropDown fixed={scrollingUp} close={() => setShowLangDropDown(false)} headerRef={headerRef.current!} />}
 		</>
 	);
 };

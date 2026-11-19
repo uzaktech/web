@@ -215,5 +215,16 @@
 	"locale": {
 		"current": "FR",
 		"switch": "Switch to English"
+	},
+	"validation": {
+		"required": "Ce champ est obligatoire."
+	},
+	"meta": {
+		"title": "Uzak // Studio Technologique",
+		"description": "Uzak est un studio de développement indépendant spécialisé dans les plateformes et solutions web de bout en bout.",
+		"aboutDescription": "Uzak est un studio d'une seule personne où je gère moi-même le design, le code et l'infrastructure.",
+		"contactDescription": "Contactez Uzak Tech Studio. Vous avez un projet ou une idée de plateforme web ? Discutons-en.",
+		"portfolioTitle": "Enzo Kazuki // Portfolio",
+		"portfolioDescription": "Bonjour ! Je suis Enzo Kazuki (alias Uzak), développeur full-stack autodidacte basé à Paraíba, au Brésil. Découvrez mes projets et compétences."
 	}
 }

@@ -32,10 +32,10 @@ export const LangSwitch = ({ showLangDropDown, setShowLangDropDown}: {showLangDr
 		const detected = resolveLocaleCode(primaryBrowserLang);
 
 		if (detected !== locale) {
-			async () => {
+			(async () => {
 				await syncBrowserLocale(detected);
 				router.refresh();
-			}
+			})();
 		}
 	}, [locale, router]);
 

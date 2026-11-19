@@ -34,7 +34,8 @@ export type BoxProps = {
 	$jc?: string,
 	$bg?: string,
 	$zIndex?: number,
-	$transition?: string
+	$transition?: string,
+	$transparentBgEffect?: boolean
 }
 
 export const cornerBox = (theme: DefaultTheme, borderSize?: string, color?: string | undefined, size?: string | undefined, pad?: number, opc?: number) => css`
@@ -101,6 +102,12 @@ export const Box = styled.div<BoxProps>`
 	background-color: ${(p) => p.$bg ?? p.theme.colors.boxBackground};
 	z-index: ${(p) => p.$zIndex};
 	transition: ${(p) => p.$transition};
+
+	${(p) => p.$transparentBgEffect && css`
+		backdrop-filter: blur(9px);
+		-webkit-backdrop-filter: blur(9px);
+		background-color: #ffffffe3;
+	`}
 
 	${(p) => p.$cornerP != "none" && (cornerBox(p.theme, p.$corner?.borderSize, p.$corner?.color, p.$corner?.size, p.$corner?.pad, p.$corner?.opc))}
 `;
