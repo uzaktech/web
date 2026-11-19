@@ -8,9 +8,15 @@ export const Root = styled.div<{$fixed?: boolean, $headerWidth?: number}>`
 	top: calc(var(--height-header) + (13px * (${(p) => p.$fixed ? "2" : "1"})));
 	right: max(
 		calc(50% - (var(--max-width) / 2) + (${(p) => p.$fixed ? "6px" : "1px"})), 
-		${(p) => p.$fixed ? `calc(13px + (100% - (${p.$headerWidth}px + 26px)))` : "13px"}
+		13px
 	);
 	z-index: 333;
+
+	@media (max-width: calc(1300px + 25px)) {
+		right: max(
+			calc(50% - (var(--max-width) / 2) + (${(p) => p.$fixed ? "6px" : "1px"})), 
+			${(p) => p.$fixed ? `calc(13px + (100% - (${p.$headerWidth}px + 28px)))` : "13px"}) !important;
+	}
 `;
 
 export const ListWrapper = styled.div`
