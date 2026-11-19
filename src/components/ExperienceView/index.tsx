@@ -9,6 +9,7 @@ import { Fragment } from "react/jsx-runtime";
 import { Stack } from "../Stack";
 import { useState } from "react";
 import { ShrinkWrapper } from "../ShrinkWrapper";
+import { useLocale, useTranslations } from "next-intl";
 
 export const ExperienceView = () => {
 	return (
@@ -17,13 +18,26 @@ export const ExperienceView = () => {
 				<ExperienceBox e={e} key={i} />
 			))}
 		</wp.UlCol>
-	)
-}
+	);
+};
 
 const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 	const [expanded, setExpanded] = useState<boolean>(false);
+	const t = useTranslations("experienceData");
+	const locale = useLocale();
 
 	const expand = () => setExpanded(!expanded);
+
+	const title = e.id ? t(`${e.id}.title`) : e.title;
+	const category = e.id ? t(`${e.id}.category`) : e.category;
+	const description = e.id 
+		? [t(`${e.id}.p1`), t(`${e.id}.p2`), ...(e.id === "vexio" ? [t("vexio.p3")] : [])] 
+		: e.description;
+
+	const dateLocale = locale === "pt" ? "pt-BR" : "en-US";
+	const presentText = t("present");
+	const moreText = t("more");
+	const lessText = t("less");
 
 	return (
 		<AnimatedBox 
@@ -40,25 +54,24 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 				<wp.Col $gap="3px 13px">
 					<wp.Row $fWrap="wrap" $jc="space-between" $ai="center" $gap="0 9px">
 						<wp.Row $gap="7px" $ai="center">
-							<tx.P $size="xviii" $weight="450">{e.title}</tx.P>
+							<tx.P $size="xviii" $weight="450">{title}</tx.P>
 
 							<tx.Span $size="xv" $margin="3px 0 0" $uSelect="none" $weight="500" $opc={0.5}>/</tx.Span>
 
 							<tx.Span $wSpace="nowrap">
-								<Link poserStyle onClick={expand} $size="xvi" $opc={0.4}>{expanded == true ? "less" : "more"}</Link>
+								<Link poserStyle onClick={expand} $size="xvi" $opc={0.4}>{expanded == true ? lessText : moreText}</Link>
 							</tx.Span>
 						</wp.Row>
 						
-						
-						<tx.P $size="xv" $opc={0.5} $weight="500">{e.category}</tx.P>
+						<tx.P $size="xv" $opc={0.5} $weight="500">{category}</tx.P>
 					</wp.Row>
 
 					<wp.Row $gap="3px" $fWrap="wrap" $jc="space-between">
 						{e.dateRange && 
 							<tx.Span $italic $opc={0.4} $weight="450" $size="xvii">
-								{`${e.dateRange.start.toLocaleString('default', { month: 'short' })} ${e.dateRange.start.getFullYear()}`}
+								{`${e.dateRange.start.toLocaleString(dateLocale, { month: 'short' })} ${e.dateRange.start.getFullYear()}`}
 								{" - "}	
-								{!e.dateRange.end ? "present" : `${e.dateRange.end.toLocaleString('default', { month: 'short' })} ${e.dateRange.end.getFullYear()}`}
+								{!e.dateRange.end ? presentText : `${e.dateRange.end.toLocaleString(dateLocale, { month: 'short' })} ${e.dateRange.end.getFullYear()}`}
 							</tx.Span>
 						}
 					</wp.Row>
@@ -76,8 +89,8 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 			>
 				{/* Information Column */}
 				<wp.Col $pad="0 17px 13px" $gap="7px" $dSize={["100%", undefined]}>
-					{e.description.map((m, i) => 
-						<tx.P $maxWidth="43rem" $opc={0.7} $margin={`${i == 0 ? "1px" : "0"} 0 ${i == e.description.length ? "3px" : "0"}`} $wSpace="pre-line" key={i}>
+					{description.map((m, i) => 
+						<tx.P $maxWidth="43rem" $opc={0.7} $margin={`${i == 0 ? "1px" : "0"} 0 ${i == description.length ? "3px" : "0"}`} $wSpace="pre-line" key={i}>
 							{m}
 						</tx.P>
 					)}
@@ -107,5 +120,5 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 				</wp.Row>
 			</ShrinkWrapper>
 		</AnimatedBox>	
-	)
-}
+	);
+};

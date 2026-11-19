@@ -1,0 +1,222 @@
+{
+	"nav": {
+		"home": "Home",
+		"about": "About",
+		"portfolio": "Portfolio",
+		"contact": "Contact"
+	},
+	"home": {
+		"hero": {
+			"title": "Building incomparable dreams with passion and creativity",
+			"description": "Uzak is a one-person studio where I build web platforms, personal projects, tools, and maintain existing projects for anyone, anywhere. I handle everything myself, from the first idea to the code and the final product.",
+			"selectedWork": "Selected work",
+			"contactMe": "Contact me"
+		},
+		"about": {
+			"label": "About",
+			"title": "One person, full-stack",
+			"description": "I'm the developer, designer, and product owner behind every Uzak project. No handoffs, no account managers. I'm the one writing the code, shipping the product, and answering your emails. I've spent the last few years building SaaS products from the database and interface to the infrastructure."
+		},
+		"portfolio": {
+			"label": "Portfolio",
+			"title": "Highlighted projects",
+			"description": "A few projects that show the kind of software I like to build.",
+			"seeFullPortfolio": "See my full portfolio"
+		},
+		"process": {
+			"label": "Process",
+			"title": "How I work",
+			"description": "I handle the whole process myself, from the first idea to the finished product.",
+			"buildTitle": "Build",
+			"buildDesc": "I take projects from the first prototype to production, focusing on practical, maintainable code that's easy to understand and change later.",
+			"designTitle": "Design",
+			"designDesc": "I design the interface around the product instead of starting from a template. Every screen has a purpose and fits the rest of the experience.",
+			"shipTitle": "Ship",
+			"shipDesc": "I take projects through deployment and keep improving them after they go live. The goal is to actually finish things, not just get them working locally."
+		},
+		"services": {
+			"label": "Services",
+			"title": "What I build",
+			"description": "I focus on web products where I can handle the design, development, and infrastructure myself.",
+			"saasMvp": "SaaS MVPs",
+			"webApps": "Web apps",
+			"internalTools": "Internal tools",
+			"designSystems": "Design systems",
+			"infrastructure": "Infrastructure",
+			"paymentIntegration": "Payment integration"
+		}
+	},
+	"aboutPage": {
+		"hero": {
+			"title1": "One developer.",
+			"title2": "No middlemen.",
+			"description": "Uzak isn't a team. It's a one-person studio where I handle the design, development, and everything in between."
+		},
+		"story": {
+			"label": "Story",
+			"title": "Why solo",
+			"p1": "Uzak started from a simple idea: I wanted a place where I could build things my own way. Instead of working on someone else's products all the time, I wanted to create my own and see them through from idea to finished product.",
+			"p2": "Uzak doesn't have a literal meaning, but to me it represents strength and creativity, but also it's my nickname.",
+			"p3": "I'm drawn most to SaaS products, e-commerce platforms, and ideas that are a little different from the usual."
+		},
+		"stack": {
+			"label": "Stack",
+			"title": "Tools I build with",
+			"description": "The tools change project to project, but this is home base."
+		},
+		"approach": {
+			"label": "Approach",
+			"title": "What I care about",
+			"ownershipTitle": "Ownership",
+			"ownershipDesc": "I take responsibility for the whole project, from the first idea to the final release. There's no handoff between different people or teams.",
+			"craftTitle": "Craft",
+			"craftDesc": "I care about getting the details right. I'd rather take a little longer than rush something that needs to be rebuilt later.",
+			"honestyTitle": "Honesty",
+			"honestyDesc": "I'll tell you what I think, even when the answer isn't what you expected. If I think something won't work, I'd rather say so early."
+		}
+	},
+	"portfolioPage": {
+		"hero": {
+			"name": "Enzo Kazuki",
+			"description": "Hello! I'm Enzo Kazuki a self-taught full-stack developer based in Paraíba - Brazil. I'm constantly working towards expanding my knowledge, exploring new technologies, and turning ideas into something real through my passion for building things, creativity, and curiosity.",
+			"seeProjects": "See projects",
+			"contactMe": "Contact me",
+			"seeExperience": "See experience",
+			"deskSetup": "my desk setup"
+		},
+		"about": {
+			"label": "About",
+			"title": "Full-stack developer, designer, and builder",
+			"p1": "I'm an independent developer focused on web products that need a solid backend, database, and infrastructure, along with thoughtful UX and reliable systems.",
+			"p2": "I like having ownership across the stack, from interface design and product decisions to deployment and everything that comes after."
+		},
+		"skills": {
+			"label": "Skills",
+			"title": "What I work with",
+			"description": "I'm a full-stack developer. I work across the stack, but I tend to enjoy the back-end more."
+		},
+		"projects": {
+			"label": "Projects",
+			"title": "What I've built"
+		},
+		"career": {
+			"label": "Career",
+			"title": "My professional experience"
+		}
+	},
+	"contactPage": {
+		"title": "Contact me",
+		"description": "Have a project in mind, an idea you've been thinking about, or just want to talk? I'd be happy to hear what you're working on.",
+		"myLinks": "My links",
+		"form": {
+			"title": "Leave a message",
+			"description": "Tell me a little about it, where you are with it, and what you're looking for. I'll take a look and get back to you as soon as I can.",
+			"firstName": "First Name",
+			"firstNamePlaceholder": "e.g. John",
+			"lastName": "Last Name",
+			"lastNamePlaceholder": "e.g. Doe",
+			"email": "Email",
+			"emailPlaceholder": "e.g. john.doe@example.com",
+			"emailError": "This email isn't valid.",
+			"subject": "Subject",
+			"subjectPlaceholder": "e.g. I'd like to chat",
+			"message": "Message",
+			"messagePlaceholder": "your message...",
+			"sentTitle": "SENT!",
+			"sentDesc": "Your message was sent successfully, I appreciate your attention on getting in contact.",
+			"sentNotice": "I'll return to you as soon as possible.",
+			"errorTitle": "ERROR :(",
+			"errorDesc": "Sorry look like we have a problem here, please try again later.",
+			"backHome": "Back home",
+			"sendAnother": "Send another message",
+			"tryAgain": "Try again",
+			"send": "Send",
+			"sending": "sending..."
+		}
+	},
+	"quickFacts": {
+		"title": "Quick facts",
+		"role": "Role",
+		"roleValue": "Full-stack Developer",
+		"focus": "Focus",
+		"focusValue": "Web Development",
+		"experience": "Experience",
+		"experienceValue": "4 years",
+		"location": "Location",
+		"locationValue": "Paraíba, Brazil",
+		"age": "Age",
+		"ageYears": "{years} years",
+		"alias": "Alias"
+	},
+	"projectsData": {
+		"greendollar": {
+			"title": "Fundraising platform",
+			"category": "Web · Indie",
+			"descShort": "Independent full-stack fundraising platform with campaign management, secure Stripe payments, authentication, and a scalable architecture designed from concept to deployment. Its distinctive UI/UX was intentionally designed to move away from the polished, standardized look common in modern web products.",
+			"descFull": "A full-stack fundraising platform integrating Stripe Connect, secure payment workflows, accountability, campaign management, and donations with support for attaching custom Cards to contributions. Its personality comes from a deliberately unconventional UI/UX, designed to give the product a different feeling from the visual conventions common across the modern web."
+		},
+		"dental": {
+			"title": "Dental SaaS",
+			"category": "Web · Product",
+			"descShort": "Full-stack SaaS built for dental clinics, with patient and workflow management, clinic administration, billing, scheduling, and custom PDF document generation. Built with Next.js, .NET, and PostgreSQL around a production-focused architecture designed for reliability and maintainability.",
+			"descFull": "End-to-end SaaS for dental clinics, combining a Next.js frontend, .NET backend, PostgreSQL database, and Docker-based deployment. The system includes scheduling, user and patient management, clinic administration, billing, clinical workflows, and customizable PDF templates for documents."
+		},
+		"monitoring": {
+			"title": "Service monitoring SaaS",
+			"category": "Web · Tool · Indie",
+			"descShort": "A minimalist service monitoring SaaS inspired by Grafana. It combines dashboard management with a lightweight local monitoring service capable of collecting custom metrics from specified applications and services through user-defined queries. Built as an experimental project to explore monitoring infrastructure and full-stack architecture.",
+			"descFull": "One of my first full-stack projects, built as an independent experiment in application monitoring. It was never deployed publicly, but served as a practical exploration of dashboards, custom metric collection, and communication between a web platform and a local monitoring service."
+		}
+	},
+	"experienceData": {
+		"present": "present",
+		"more": "more",
+		"less": "less",
+		"youbloom": {
+			"title": "React Developer",
+			"category": "youbloom · Internship",
+			"p1": "React Developer intern on a 10+ person tech team at youbloom, a live events platform helping artists, venues, and promoters grow audiences for music, comedy, and theatre. I build and ship features across the web platform while fixing bugs, working closely with the product and engineering team using React, TypeScript, and Vite.",
+			"p2": "In my first weeks I fixed two UI glitches, then built a new page for editing Campaign Updates and adjusted the related redirections."
+		},
+		"vexio": {
+			"title": "Full-stack Developer",
+			"category": "Product · SaaS",
+			"p1": "Built an end-to-end SaaS product for dental clinics as one of the products of a software studio. I handled the entire technical side, from the frontend and backend to the database, deployment, and infrastructure.",
+			"p2": "I built a backend with 150+ endpoints in C# and .NET on PostgreSQL, plus a Next.js frontend styled with SCSS. The product launched in production, and the first clinic signed up less than 2 weeks after deployment.",
+			"p3": "I also handled a cryptojacking incident on the hosting VPS: I closed exposed firewall ports, rotated the SSH keys, and rebooted and secured the server."
+		},
+		"consulting": {
+			"title": "Web Development Assistant",
+			"category": "Consulting project",
+			"p1": "Supported a consulting project focused on improving the structure and stability of an existing web application. I worked mainly on the Next.js and React side, fixing bugs and implementing small features alongside the main consultant. I also investigated and fixed a Python issue when needed.",
+			"p2": "I resolved 20+ bugs across the Next.js and React codebase, including a Python issue involving the Selenium library."
+		}
+	},
+	"footer": {
+		"tagline": "One-person studio building end-to-end web platforms, from the first idea to production.",
+		"question": "Interested in working together?",
+		"cta": "Start a conversation",
+		"status": "Status",
+		"openToWork": "Open to Work",
+		"building": "new projects are being built",
+		"navigate": "Navigate",
+		"elsewhere": "Elsewhere",
+		"rights": "All Rights Reserved"
+	},
+	"stack": {
+		"backend": "Back-end",
+		"frontend": "Front-end",
+		"database": "Database",
+		"devops": "DevOps",
+		"tools": "Tools",
+		"aiAgents": "AI Agents",
+		"other": "Other"
+	},
+	"locale": {
+		"current": "EN",
+		"switch": "Mudar para Português"
+	},
+	"validation": {
+		"required": "This field is required."
+	}
+}

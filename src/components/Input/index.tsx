@@ -4,6 +4,7 @@ import * as s from "./styles";
 import * as t from "@/styles/primitive/text";
 import { useForm } from "@/context";
 import { checkEmptiness } from "@/utils";
+import { useTranslations } from "next-intl";
 import { ChangeEvent, ComponentPropsWithoutRef, MouseEvent, RefObject, useCallback, useEffect, useRef, useState } from "react";
 
 type MainProps = {
@@ -38,11 +39,12 @@ export type TextareaProps = {
 // ---
 const useValidation = ({ required, regexTest }: { required?: boolean; regexTest?: {regex: RegExp; error: string}[] }) => {
 	const [error, setError] = useState<0 | 1 | 2>(0);
-	const [errorMsg, setErrorMsg] = useState<string | null>(null);
+	const [errorIndex, setErrorIndex] = useState<number | null>(null);
  
 	const validate = useCallback(
 		(value: string, justRemove?: boolean) => {
 			let _error: 0 | 1 | 2 = error;
+			let _errorIndex: number | null = errorIndex;
  
 			if (required && checkEmptiness(value) && !justRemove) _error = 1;
 			else if (required && _error === 1 && !checkEmptiness(value)) _error = 0;
@@ -52,22 +54,25 @@ const useValidation = ({ required, regexTest }: { required?: boolean; regexTest?
 					const test = regexTest[i];
  
 					if (!test.regex.test(value) && _error === 0 && !justRemove) {
-						setErrorMsg(test.error);
+						_errorIndex = i;
 						_error = 2;
 						break;
-					} else if (test.regex.test(value) && test.error === errorMsg && _error === 2) {
-						setErrorMsg(null);
+					} else if (test.regex.test(value) && _errorIndex === i && _error === 2) {
+						_errorIndex = null;
 						_error = 0;
 					}
 				}
 			}
  
 			setError(_error);
+			setErrorIndex(_errorIndex);
  
 			return _error === 0;
 		},
-		[error, errorMsg, required, regexTest]
+		[error, errorIndex, required, regexTest]
 	);
+
+	const errorMsg = errorIndex !== null ? (regexTest?.[errorIndex]?.error ?? null) : null;
  
 	return { error, errorMsg, validate };
 }
@@ -156,6 +161,7 @@ const FieldContainer = ({id, label, required, hasError, errorMessage, onBoxClick
 // --- Input ---
 export const Input = ({ label, placeholder, name, type, onChange, setValue, regex, maxLength, scaleToRoot, required, regexTest, ...props }: InputProps) => {
 	const ref = useRef<HTMLInputElement | null>(null);
+	const t = useTranslations("validation");
 
 	const [inputType, setInputType] = useState<string>(type ?? "text");
 	
@@ -182,7 +188,7 @@ export const Input = ({ label, placeholder, name, type, onChange, setValue, rege
 			label={label} 
 			required={required}
 			hasError={error !== 0} 
-			errorMessage={error === 1 ? "This field is required." : errorMsg}
+			errorMessage={error === 1 ? t("required") : errorMsg}
 			onBoxClick={focus}
 			scaleToRoot={scaleToRoot}
 			$width={props.$width} 
@@ -216,6 +222,7 @@ export const Input = ({ label, placeholder, name, type, onChange, setValue, rege
 // --- Textarea ---
 export const Textarea = ({ label, placeholder, name, onChange, setValue, regex, maxLength, regexTest, $adaptHeight, scaleToRoot, required, ...props }: TextareaProps) => {
 	const ref = useRef<HTMLTextAreaElement | null>(null);
+	const t = useTranslations("validation");
 
 	const { error, errorMsg, validate } = useValidation({ required, regexTest });
 	const { focused, focus, onBlur, onFocus } = useFocus(ref);	
@@ -239,7 +246,7 @@ export const Textarea = ({ label, placeholder, name, onChange, setValue, regex, 
 			label={label} 
 			required={required}
 			hasError={error !== 0} 
-			errorMessage={error === 1 ? "This field is required." : errorMsg}
+			errorMessage={error === 1 ? t("required") : errorMsg}
 			onBoxClick={focus}
 			scaleToRoot={scaleToRoot}
 			$width={props.$width} 

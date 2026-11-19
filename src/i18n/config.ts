@@ -1,0 +1,46 @@
+export const locales = ["en", "pt", "es", "it", "fr", "de", "ja"] as const;
+
+export type Locale = (typeof locales)[number];
+
+export const defaultLocale: Locale = "en";
+
+export const USER_LOCALE_COOKIE = "UZAK_LOCALE";
+export const BROWSER_LOCALE_COOKIE = "UZAK_BROWSER_LOCALE";
+
+export function isValidLocale(value?: string | null): value is Locale {
+	return !!value && locales.includes(value as Locale);
+}
+
+export function resolveLocaleCode(raw?: string | null): Locale {
+	if (!raw) return defaultLocale;
+
+	const base = raw.trim().toLowerCase().split(/[-_]/)[0];
+	const mapped = base === "jp" ? "ja" : base;
+
+	return isValidLocale(mapped) ? mapped : defaultLocale;
+}
+
+export function parseAcceptLanguage(headerValue?: string | null): Locale {
+	if (!headerValue) return defaultLocale;
+
+	const parsed = headerValue
+		.split(",")
+		.map((part, index) => {
+			const [langPart, ...params] = part.trim().split(";");
+			let q = 1;
+
+			for (const param of params) {
+				const [k, v] = param.trim().split("=");
+				if (k === "q" && v) {
+					const parsedQ = Number.parseFloat(v);
+					if (!Number.isNaN(parsedQ)) q = parsedQ;
+				}
+			}
+
+			return { lang: langPart?.trim() ?? "", q, index };
+		})
+		.filter((item) => item.lang && item.lang !== "*" && item.q > 0)
+		.sort((a, b) => b.q - a.q || a.index - b.index);
+
+	return resolveLocaleCode(parsed[0]?.lang);
+}

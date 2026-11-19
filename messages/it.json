@@ -1,0 +1,222 @@
+{
+	"nav": {
+		"home": "Home",
+		"about": "Chi sono",
+		"portfolio": "Portfolio",
+		"contact": "Contatti"
+	},
+	"home": {
+		"hero": {
+			"title": "Costruisco sogni incomparabili con passione e creatività",
+			"description": "Uzak è uno studio individuale in cui realizzo piattaforme web, progetti personali e strumenti, oltre a mantenere progetti esistenti per chiunque, ovunque. Mi occupo di tutto in prima persona, dalla prima idea al codice fino al prodotto finale.",
+			"selectedWork": "Lavori selezionati",
+			"contactMe": "Contattami"
+		},
+		"about": {
+			"label": "Chi sono",
+			"title": "Una persona, full-stack",
+			"description": "Sono lo sviluppatore, il designer e il product owner dietro ogni progetto Uzak. Nessun passaggio di consegne, nessun account manager. Sono io a scrivere il codice, rilasciare il prodotto e rispondere alle tue email. Negli ultimi anni ho costruito prodotti SaaS dal database e dall'interfaccia fino all'infrastruttura."
+		},
+		"portfolio": {
+			"label": "Portfolio",
+			"title": "Progetti in evidenza",
+			"description": "Alcuni progetti che mostrano il tipo di software che amo costruire.",
+			"seeFullPortfolio": "Vedi il portfolio completo"
+		},
+		"process": {
+			"label": "Processo",
+			"title": "Come lavoro",
+			"description": "Seguo l'intero processo in autonomia, dalla prima idea al prodotto finito.",
+			"buildTitle": "Sviluppo",
+			"buildDesc": "Porto i progetti dal primo prototipo alla produzione, concentrandomi su codice pratico e manutenibile, facile da comprendere e modificare nel tempo.",
+			"designTitle": "Design",
+			"designDesc": "Progetto l'interfaccia attorno al prodotto invece di partire da un template. Ogni schermata ha uno scopo preciso e si integra con il resto dell'esperienza.",
+			"shipTitle": "Rilascio",
+			"shipDesc": "Seguo i progetti fino al deploy e continuo a migliorarli dopo la messa online. L'obiettivo è portare davvero a termine le cose, non solo farle funzionare in locale."
+		},
+		"services": {
+			"label": "Servizi",
+			"title": "Cosa costruisco",
+			"description": "Mi concentro su prodotti web in cui posso gestire direttamente design, sviluppo e infrastruttura.",
+			"saasMvp": "MVP SaaS",
+			"webApps": "Applicazioni web",
+			"internalTools": "Strumenti interni",
+			"designSystems": "Design system",
+			"infrastructure": "Infrastruttura",
+			"paymentIntegration": "Integrazione pagamenti"
+		}
+	},
+	"aboutPage": {
+		"hero": {
+			"title1": "Uno sviluppatore.",
+			"title2": "Nessun intermediario.",
+			"description": "Uzak non è un team. È uno studio individuale in cui mi occupo di design, sviluppo e di tutto ciò che sta nel mezzo."
+		},
+		"story": {
+			"label": "Storia",
+			"title": "Perché da solo",
+			"p1": "Uzak è nato da un'idea semplice: volevo uno spazio in cui poter costruire le cose a modo mio. Invece di lavorare sempre sui prodotti di qualcun altro, volevo creare i miei e seguirli dall'idea fino al prodotto finito.",
+			"p2": "Uzak non ha un significato letterale, ma per me rappresenta forza e creatività, oltre a essere il mio soprannome.",
+			"p3": "Mi attraggono soprattutto i prodotti SaaS, le piattaforme e-commerce e le idee un po' fuori dall'ordinario."
+		},
+		"stack": {
+			"label": "Stack",
+			"title": "Gli strumenti con cui lavoro",
+			"description": "Gli strumenti cambiano da progetto a progetto, ma questa è la mia base di partenza."
+		},
+		"approach": {
+			"label": "Approccio",
+			"title": "Ciò a cui tengo",
+			"ownershipTitle": "Responsabilità",
+			"ownershipDesc": "Mi assumo la responsabilità dell'intero progetto, dalla prima idea al rilascio finale. Non ci sono passaggi di consegne tra persone o team diversi.",
+			"craftTitle": "Cura",
+			"craftDesc": "Tengo molto alla cura dei dettagli. Preferisco impiegare un po' più di tempo piuttosto che affrettare qualcosa che andrà rifatto in seguito.",
+			"honestyTitle": "Onestà",
+			"honestyDesc": "Ti dirò sempre quello che penso, anche quando la risposta non è quella che ti aspettavi. Se credo che qualcosa non funzionerà, preferisco dirlo subito."
+		}
+	},
+	"portfolioPage": {
+		"hero": {
+			"name": "Enzo Kazuki",
+			"description": "Ciao! Sono Enzo Kazuki, uno sviluppatore full-stack autodidatta con base a Paraíba - Brasile. Lavoro costantemente per ampliare le mie conoscenze, esplorare nuove tecnologie e trasformare le idee in realtà attraverso la passione per la creazione, la creatività e la curiosità.",
+			"seeProjects": "Vedi progetti",
+			"contactMe": "Contattami",
+			"seeExperience": "Vedi esperienza",
+			"deskSetup": "la mia postazione"
+		},
+		"about": {
+			"label": "Chi sono",
+			"title": "Sviluppatore full-stack, designer e builder",
+			"p1": "Sono uno sviluppatore indipendente focalizzato su prodotti web che richiedono backend, database e infrastruttura solidi, uniti a una UX curata e sistemi affidabili.",
+			"p2": "Mi piace avere il pieno controllo dell'intero stack, dal design dell'interfaccia e dalle decisioni di prodotto fino al deploy e a tutto ciò che segue."
+		},
+		"skills": {
+			"label": "Competenze",
+			"title": "Con cosa lavoro",
+			"description": "Sono uno sviluppatore full-stack. Lavoro su tutto lo stack, ma tendo a preferire il back-end."
+		},
+		"projects": {
+			"label": "Progetti",
+			"title": "Cosa ho costruito"
+		},
+		"career": {
+			"label": "Carriera",
+			"title": "La mia esperienza professionale"
+		}
+	},
+	"contactPage": {
+		"title": "Contattami",
+		"description": "Hai un progetto in mente, un'idea su cui stai riflettendo o vuoi semplicemente fare due chiacchiere? Sarò felice di scoprire a cosa stai lavorando.",
+		"myLinks": "I miei link",
+		"form": {
+			"title": "Lascia un messaggio",
+			"description": "Raccontami qualcosa sul progetto, a che punto sei e cosa stai cercando. Ci darò un'occhiata e ti risponderò il prima possibile.",
+			"firstName": "Nome",
+			"firstNamePlaceholder": "es. Marco",
+			"lastName": "Cognome",
+			"lastNamePlaceholder": "es. Rossi",
+			"email": "Email",
+			"emailPlaceholder": "es. marco.rossi@esempio.it",
+			"emailError": "Questo indirizzo email non è valido.",
+			"subject": "Oggetto",
+			"subjectPlaceholder": "es. Vorrei fare due chiacchiere",
+			"message": "Messaggio",
+			"messagePlaceholder": "il tuo messaggio...",
+			"sentTitle": "INVIATO!",
+			"sentDesc": "Il tuo messaggio è stato inviato con successo, ti ringrazio per avermi contattato.",
+			"sentNotice": "Ti risponderò il prima possibile.",
+			"errorTitle": "ERRORE :(",
+			"errorDesc": "Spiacente, sembra esserci stato un problema. Riprova più tardi.",
+			"backHome": "Torna alla home",
+			"sendAnother": "Invia un altro messaggio",
+			"tryAgain": "Riprova",
+			"send": "Invia",
+			"sending": "invio in corso..."
+		}
+	},
+	"quickFacts": {
+		"title": "In breve",
+		"role": "Ruolo",
+		"roleValue": "Sviluppatore Full-stack",
+		"focus": "Focus",
+		"focusValue": "Sviluppo Web",
+		"experience": "Esperienza",
+		"experienceValue": "4 anni",
+		"location": "Posizione",
+		"locationValue": "Paraíba, Brasile",
+		"age": "Età",
+		"ageYears": "{years} anni",
+		"alias": "Alias"
+	},
+	"projectsData": {
+		"greendollar": {
+			"title": "Piattaforma di raccolta fondi",
+			"category": "Web · Indie",
+			"descShort": "Piattaforma indipendente di crowdfunding full-stack con gestione delle campagne, pagamenti sicuri tramite Stripe, autenticazione e un'architettura scalabile progettata dal concept al deploy. La sua UI/UX distintiva è stata pensata intenzionalmente per allontanarsi dall'estetica standardizzata tipica dei prodotti web moderni.",
+			"descFull": "Piattaforma full-stack di raccolta fondi che integra Stripe Connect, flussi di pagamento sicuri, rendicontazione, gestione delle campagne e donazioni con supporto per allegare schede personalizzate ai contributi. La sua personalità nasce da una UI/UX volutamente non convenzionale, pensata per offrire una sensazione diversa dalle convenzioni visive del web moderno."
+		},
+		"dental": {
+			"title": "SaaS odontoiatrico",
+			"category": "Web · Prodotto",
+			"descShort": "SaaS full-stack realizzato per studi dentistici, con gestione dei pazienti e dei flussi di lavoro, amministrazione dello studio, fatturazione, agenda e generazione di documenti PDF personalizzati. Costruito con Next.js, .NET e PostgreSQL attorno a un'architettura orientata alla produzione, pensata per affidabilità e manutenibilità.",
+			"descFull": "SaaS end-to-end per cliniche odontoiatriche che combina frontend Next.js, backend .NET, database PostgreSQL e deploy basato su Docker. Il sistema include agenda, gestione utenti e pazienti, amministrazione della clinica, fatturazione, flussi clinici e modelli PDF personalizzabili per i documenti."
+		},
+		"monitoring": {
+			"title": "SaaS di monitoraggio servizi",
+			"category": "Web · Strumento · Indie",
+			"descShort": "Un SaaS minimalista per il monitoraggio dei servizi ispirato a Grafana. Combina la gestione delle dashboard con un servizio leggero di monitoraggio locale in grado di raccogliere metriche personalizzate da applicazioni e servizi specifici tramite query definite dall'utente. Realizzato come progetto sperimentale per esplorare infrastrutture di monitoraggio e architetture full-stack.",
+			"descFull": "Uno dei miei primi progetti full-stack, realizzato come esperimento indipendente nel monitoraggio delle applicazioni. Non è mai stato rilasciato pubblicamente, ma è servito come esplorazione pratica di dashboard, raccolta di metriche personalizzate e comunicazione tra una piattaforma web e un servizio di monitoraggio locale."
+		}
+	},
+	"experienceData": {
+		"present": "presente",
+		"more": "altro",
+		"less": "meno",
+		"youbloom": {
+			"title": "Sviluppatore React",
+			"category": "youbloom · Stage",
+			"p1": "Stagista sviluppatore React in un team tecnico di oltre 10 persone presso youbloom, una piattaforma di eventi dal vivo che aiuta artisti, locali e promoter a far crescere il pubblico per musica, comicità e teatro. Sviluppo e rilascio funzionalità sulla piattaforma web risolvendo bug, lavorando a stretto contatto con il team di prodotto e ingegneria usando React, TypeScript e Vite.",
+			"p2": "Nelle prime settimane ho risolto due glitch dell'interfaccia, per poi realizzare una nuova pagina per la modifica degli aggiornamenti delle campagne e sistemare i relativi reindirizzamenti."
+		},
+		"vexio": {
+			"title": "Sviluppatore Full-stack",
+			"category": "Prodotto · SaaS",
+			"p1": "Ho realizzato un prodotto SaaS end-to-end per cliniche odontoiatriche come uno dei prodotti di uno studio software. Ho gestito l'intero lato tecnico, dal frontend e backend fino al database, al deploy e all'infrastruttura.",
+			"p2": "Ho sviluppato un backend con oltre 150 endpoint in C# e .NET su PostgreSQL, oltre a un frontend Next.js stilizzato con SCSS. Il prodotto è andato in produzione e la prima clinica si è iscritta meno di 2 settimane dopo il rilascio.",
+			"p3": "Ho inoltre gestito un incidente di cryptojacking sul VPS di hosting: ho chiuso le porte esposte del firewall, ruotato le chiavi SSH e riavviato e messo in sicurezza il server."
+		},
+		"consulting": {
+			"title": "Assistente Sviluppo Web",
+			"category": "Progetto di consulenza",
+			"p1": "Ho supportato un progetto di consulenza focalizzato sul miglioramento della struttura e della stabilità di un'applicazione web esistente. Ho lavorato principalmente sul lato Next.js e React, correggendo bug e implementando piccole funzionalità insieme al consulente principale. Quando necessario, ho anche analizzato e risolto un problema in Python.",
+			"p2": "Ho risolto oltre 20 bug nel codice Next.js e React, incluso un problema in Python relativo alla libreria Selenium."
+		}
+	},
+	"footer": {
+		"tagline": "Studio individuale che realizza piattaforme web end-to-end, dalla prima idea alla produzione.",
+		"question": "Ti interessa lavorare insieme?",
+		"cta": "Inizia una conversazione",
+		"status": "Stato",
+		"openToWork": "Disponibile per progetti",
+		"building": "nuovi progetti sono in costruzione",
+		"navigate": "Naviga",
+		"elsewhere": "Altrove",
+		"rights": "Tutti i diritti riservati"
+	},
+	"stack": {
+		"backend": "Back-end",
+		"frontend": "Front-end",
+		"database": "Database",
+		"devops": "DevOps",
+		"tools": "Strumenti",
+		"aiAgents": "Agenti IA",
+		"other": "Altro"
+	},
+	"locale": {
+		"current": "IT",
+		"switch": "Switch to English"
+	},
+	"validation": {
+		"required": "Questo campo è obbligatorio."
+	}
+}

@@ -4,7 +4,7 @@ import { TextProps } from "@/styles/primitive";
 import * as s from "./styles";
 import { ButtonProps } from "@/styles/primitive/button";
 import { useRouter } from "next/navigation";
-import { ComponentPropsWithoutRef, MouseEvent, ReactNode, useEffect } from "react";
+import { ComponentPropsWithoutRef, MouseEvent, ReactNode } from "react";
 
 export type LinkProps = {
 	clientRender?: boolean,
@@ -31,7 +31,7 @@ export const Link = ({ clientRender, children, blockDown, poserStyle, notStyle, 
 
 			return navr.push(props.href);
 		}
-	}
+	};
 
 	const downHandle = (e: MouseEvent) => blockDown ? e.preventDefault() : {};
 	
@@ -43,13 +43,13 @@ export const Link = ({ clientRender, children, blockDown, poserStyle, notStyle, 
 		<s.Link onMouseDown={downHandle} onClick={clickHandle} $notStyle={notStyle} $poserStyle={poserStyle} {...props}>
 			{children}
 		</s.Link>
-	)
-}
+	);
+};
 
 export const Cta = (props: LinkProps) => {
-	return <Link {...props} cta="raw_cta">{props.children}</Link>
-}
+	return <Link {...props} cta="raw_cta">{props.children}</Link>;
+};
 
 export const ButtonLink = (props: LinkProps) => {
-	return <Link {...props} cta="button">{props.children}</Link>
-}
+	return <Link {...props} cta="button">{props.children}</Link>;
+};

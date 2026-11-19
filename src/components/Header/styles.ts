@@ -43,13 +43,22 @@ export const RootLogo = styled.div`
 	flex-direction: row;
 `;
 
+export const HeaderActions = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 0 0 0 auto;
+	height: 100%;
+	padding: 0 7px 0 0;
+`;
+
 export const Nav = styled.nav`
 	height: 100%;
-	margin: 0 5px 0 auto;
+	margin: 0;
 	position: relative;
 	padding: 0;
 	
-	@media (max-width: 450px) {
+	@media (max-width: 600px) {
 		display: none;
 	}
 `;
@@ -59,7 +68,7 @@ export const MenuToggle = styled.div`
 	aspect-ratio: 1;
 	overflow: hidden;
 	display: none;
-	margin: 0 0 0 auto;
+	margin: 0;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -72,7 +81,7 @@ export const MenuToggle = styled.div`
 	background-repeat: no-repeat;
 	transform: translate(-3px, 0);
 
-	@media (max-width: 450px) {
+	@media (max-width: 600px) {
 		display: flex;
 	}
 `;
@@ -125,7 +134,7 @@ export const Ul = styled.ul`
 		box-shadow: inset 0 0 0 1px #0002, inset 0 20px 15px -15px #fff5;
 	}
 	
-	@media (max-width: 450px) {
+	@media (max-width: 600px) {
 		margin: 0;
 		padding: 0 10px 0 7px;
 	}
@@ -219,4 +228,12 @@ export const Note = styled.span`
 	@media (max-width: 600px) {
 		display: none !important;
 	}
+`;
+
+export const Division = styled.div`
+	position: relative;
+	height: 70%;
+	transform: skewX(-30deg);
+	margin: 0 7px;
+	border-right: solid 1px ${(p) => p.theme.colors.boxShadow};
 `;
