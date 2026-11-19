@@ -3,16 +3,19 @@
 import * as s from "./styles";
 import { AnimatedBox } from "../AnimatedBox";
 import { langsList } from "@/data";
-import { useEffect, useRef, useTransition } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import { Locale, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { setUserLocale } from "@/i18n/locale";
+import { useWindowResize } from "@/hooks";
 
-export const LangDropDown = ({ fixed, close }: { fixed: boolean, close: () => void }) => {
+export const LangDropDown = ({ fixed, close, headerRef }: { fixed: boolean, close: () => void, headerRef: HTMLDivElement }) => {
 	const locale = useLocale();
 	const router = useRouter();
 
 	const [isPending, startTransition] = useTransition();
+
+	const [headerWidth, setHeaderWidth] = useState<number>(0);
 
 	const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -25,13 +28,19 @@ export const LangDropDown = ({ fixed, close }: { fixed: boolean, close: () => vo
 			close();
 		});
 	};
+
+	const updateHeaderWidth = () => setHeaderWidth(headerRef.getBoundingClientRect().width);
 	
 	useEffect(() => {
 		if (rootRef.current) rootRef.current.focus();
 	}, [rootRef])
 
+	useWindowResize(updateHeaderWidth, 30);
+
+	useEffect(updateHeaderWidth, [headerRef]);
+
 	return (
-		<s.Root $fixed={fixed} ref={rootRef} tabIndex={1} onBlur={close}>
+		<s.Root $fixed={fixed} ref={rootRef} tabIndex={1} onBlur={close} $headerWidth={headerWidth}>
 			<AnimatedBox
 				animationView="default" 
 				options={{
