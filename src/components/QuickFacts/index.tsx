@@ -33,36 +33,38 @@ export const QuickFacts = () => {
 				oneTimeLoad: true,
 				intersectionMarginPreset: "medium"
 			}} 
-			boxStyle={{$fDirection: "column", $width: "100%", $maxWidth: "300px", $padding: "13px 17px"}}
+			boxStyle={{$fDirection: "column", $width: "100%", $maxWidth: "300px", $padding: "0"}}
 		>
-			<wp.Row $cursor={!expanded ? "pointer" : undefined} $gap="13px" $jc="space-between" $ai="center" $margin="-3px 0 -3px" onClick={() => !expanded ? setExpanded(true) : {}}>
-				<tx.Span $size="xvii" $weight="450" $opc={1}>{t("title")}</tx.Span>
+			<s.Root>
+				<wp.Row $cursor={!expanded ? "pointer" : undefined} $gap="13px" $jc="space-between" $ai="center" $margin="-3px 0 -3px" onClick={() => !expanded ? setExpanded(true) : {}}>
+					<tx.Span $size="xvii" $weight="450" $opc={1}>{t("title")}</tx.Span>
 
-				<s.ExpandButton onClick={() => setExpanded(!expanded)} $opened={expanded} />
-			</wp.Row>
-			
-			<ShrinkWrapper 
-				opened={expanded == true}
-				$dSize={["100%", undefined]}
-				$minSize={["100%", undefined]}
-				$maxSize={["100%", undefined]}
-				starterW="100%"
-				starterOpc={0}
-				hiddenOnZero
-			>
-				<wp.Col $gap="13px" $pad="13px 0 0">
-					<wp.Division $orientation={1} />
+					<s.ExpandButton onClick={() => setExpanded(!expanded)} $opened={expanded} />
+				</wp.Row>
+				
+				<ShrinkWrapper 
+					opened={expanded == true}
+					$dSize={["100%", undefined]}
+					$minSize={["100%", undefined]}
+					$maxSize={["100%", undefined]}
+					starterW="100%"
+					starterOpc={0}
+					hiddenOnZero
+				>
+					<wp.Col $gap="13px" $pad="13px 0 0">
+						<wp.Division $orientation={1} />
 
-					<wp.Col $gap="7px" as="dl">
-						{facts.map((q, i) => (
-							<wp.Row $gap="13px" $ai="flex-end" $jc="space-between" key={i}>
-								<tx.Label as="dt" $italic $weight="500" $opc={0.9}>{q.label} </tx.Label>
-								<tx.Span as="dd" $size="xvi">{q.value}</tx.Span>
-							</wp.Row>
-						))}
+						<wp.Col $gap="7px" as="dl">
+							{facts.map((q, i) => (
+								<wp.Row $gap="13px" $ai="flex-start" $jc="space-between" key={i}>
+									<tx.Label as="dt" $italic $weight="500" $opc={0.9} $margin="3px 0 0">{q.label} </tx.Label>
+									<tx.Span as="dd" $size="xvi" $wSpace="auto">{q.value}</tx.Span>
+								</wp.Row>
+							))}
+						</wp.Col>
 					</wp.Col>
-				</wp.Col>
-			</ShrinkWrapper>
+				</ShrinkWrapper>
+			</s.Root>
 		</AnimatedBox>		
 	);
 };
