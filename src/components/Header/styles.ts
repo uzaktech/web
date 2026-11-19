@@ -79,7 +79,6 @@ export const MenuToggle = styled.div`
 	background-position: center center;
 	background-size: 60% 70%;
 	background-repeat: no-repeat;
-	transform: translate(-3px, 0);
 
 	@media (max-width: 670px) {
 		display: flex;
@@ -236,4 +235,9 @@ export const Division = styled.div`
 	transform: skewX(-30deg);
 	margin: 0 5px 0 7px;
 	border-right: solid 1px ${(p) => p.theme.colors.boxShadow};
+	margin: 0 3px 0 5px;
+	
+	@media (max-width: 470px) {
+		margin: 0 1px 0 3px;
+	}
 `;

@@ -1,10 +1,9 @@
 "use client";
 
 import styled from "styled-components";
-import { rgba } from "@/styles";
 import { Span } from "@/styles/primitive";
 
-export const Root = styled.div`
+export const Root = styled.div<{$open?: boolean}>`
 	display: inline-flex;
 	align-items: center;
 	padding: 2px;
@@ -15,6 +14,9 @@ export const Root = styled.div`
 	position: relative;
 	cursor: pointer;
 	overflow: visible;
+	transition: gap .3s ease;
+	gap: ${(p) => p.$open ? "5px" : "0px"};
+	margin: 0 3px 0 0;
 `;
 
 export const IconFlag = styled.div<{$img?: string}>`

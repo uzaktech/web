@@ -49,6 +49,7 @@ export const LangSwitch = ({ showLangDropDown, setShowLangDropDown}: {showLangDr
 			onMouseDown={(e) => e.preventDefault()} 
 			onMouseEnter={() => setIsHover(true)} 
 			onMouseLeave={() => setIsHover(false)}
+			$open={showLangDropDown || isHover}
 		>
 			<s.IconFlag $img={activeItem.urlIcon} />
 			<ShrinkWrapper 
