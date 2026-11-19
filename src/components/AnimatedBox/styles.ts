@@ -16,18 +16,18 @@ export const FrameRoot = styled(Box)`
 	}
 `;
 
-export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWidth?: string, $boxHeight?: string, $starterW?: string, $starterH?: string, $delayMs?: number, $delayMaxWidth?: number, $animationSpeed?: "default" | "fast"}>`
+export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWidth?: string, $boxHeight?: string, $delayMs?: number, $delayMaxWidth?: number, $animationSpeed?: "default" | "fast"}>`
 	padding: 0;
 
 	@keyframes openingAnimatedBox {
 		0% {
 			overflow: hidden;
-			opacity: ${(p) => (p.$starterH || p.$starterW) ? 1 : 0};
-			height: ${(p) => p.$starterH ?? (p.$corner?.size ?? "var(--corner-default-size)")};
-			min-height: ${(p) => p.$starterH ?? (p.$corner?.size ?? "var(--corner-default-size)")};
-			max-width: ${(p) => p.$starterW ?? (p.$corner?.size ?? "var(--corner-default-size)")};
-			width: ${(p) => p.$starterW ?? (p.$corner?.size ?? "var(--corner-default-size)")};
-			min-width: ${(p) => p.$starterW ?? (p.$corner?.size ?? "var(--corner-default-size)")};
+			opacity: var(--starter-opc, 0);
+			height: var(--starter-h, var(--corner-default-size));
+			min-height: var(--starter-h, var(--corner-default-size));
+			max-width: var(--starter-w, var(--corner-default-size));
+			width: var(--starter-w, var(--corner-default-size));
+			min-width: var(--starter-w, var(--corner-default-size));
 		}
 		99% { 
 			overflow: hidden;
@@ -51,7 +51,7 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWid
 
 	@keyframes openingLocker {
 		0%, 30% {
-			opacity: ${(p) => (p.$starterH || p.$starterW) ? 1 : 0.3};
+			opacity: var(--starter-locker-opc, 0.3);
 		}
 		100% {
 			opacity: 1;
@@ -61,7 +61,7 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWid
 	${(p) => p.$open == true
 		? css`
 			overflow: hidden;
-			opacity: ${(p.$starterH || p.$starterW) ? 1 : 0};
+			opacity: var(--starter-opc, 0);
 
 			animation: ${p.$animationSpeed == "fast" ? ".23s" : ".47s"} ease-out forwards openingAnimatedBox ${p.$delayMs ?? 0}s;
 
