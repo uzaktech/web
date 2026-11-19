@@ -37,12 +37,12 @@ export const Root = styled(Wrapper)<{$hiddenOnZero?: boolean, $phase?: "closed" 
 			overflow: visible;
 			visibility: visible;
 			opacity: 1;
-			max-height: var(--target-h, 100%);
-			height: var(--target-h, 100%);
-			min-height: var(--target-h, 100%);
-			max-width: var(--target-w, 100%);
-			width: var(--target-w, 100%);
-			min-width: var(--target-w, 100%);
+			max-height: 100%;
+			height: 100%;
+			min-height: auto;
+			max-width: 100%;
+			width: 100%;
+			min-width: auto;
 		}
 	}
 
@@ -58,7 +58,7 @@ export const Root = styled(Wrapper)<{$hiddenOnZero?: boolean, $phase?: "closed" 
 			width: var(--from-w, var(--target-w, 100%));
 			min-width: var(--from-w, var(--target-w, 100%));
       }
-      100% {
+      99% {
          overflow: hidden;
 			visibility: hidden;
          opacity: var(--starter-opc, 0);
@@ -68,6 +68,17 @@ export const Root = styled(Wrapper)<{$hiddenOnZero?: boolean, $phase?: "closed" 
          max-width: var(--starter-w, 0px);
          width: var(--starter-w, 0px);
          min-width: var(--starter-w, 0px);
+      }
+      100% {
+         overflow: hidden;
+			visibility: hidden;
+         opacity: 0;
+         max-height: 0px;
+         height: 0px;
+         min-height: 0px;
+         max-width: 0px;
+         width: 0px;
+         min-width: 0px;
       }
    }
 
