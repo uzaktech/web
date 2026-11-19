@@ -41,7 +41,8 @@ export const LangDropDown = ({ fixed, close }: { fixed: boolean, close: () => vo
 				boxStyle={{
 					$padding: "0", 
 					$maxWidth: "150px", 
-					$zIndex: 333
+					$zIndex: 333,
+					$transparentBgEffect: true
 				}}
 				openingOrientation="y"
 			>

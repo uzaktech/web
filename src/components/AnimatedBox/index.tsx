@@ -31,7 +31,7 @@ export type AnimatedBoxGroupOptions = {
 const RESIZE_DEBOUNCE_MS = 150;
 
 const FRAME_KEYS = ["$margin", "$width", "$height", "$minWidth", "$minHeight", "$maxWidth", "$maxHeight", "$aspectRatio", "$zIndex", "$transition"] as const;
-const SHELL_KEYS = ["$bg", "$shadow", "$shadowColor", "$border", "$outline", "$corner", "$cornerP", "$overflow", "$zIndex", "$transition"] as const;
+const SHELL_KEYS = ["$bg", "$shadow", "$shadowColor", "$border", "$outline", "$corner", "$cornerP", "$overflow", "$zIndex", "$transition", "$transparentBgEffect"] as const;
 const CONTENT_KEYS = ["$padding", "$gap", "$fDirection", "$display", "$ai", "$jc", "$zIndex", "$transition"] as const;
 
 const pickStyle = <K extends keyof b.BoxProps>(style: b.BoxProps | undefined, keys: readonly K[]) => {
