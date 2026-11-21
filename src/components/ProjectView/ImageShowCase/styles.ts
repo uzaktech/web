@@ -27,10 +27,10 @@ export const Root = styled.div<{$moving?: boolean}>`
 export const Wrapper = styled.div<{$moving?: boolean}>`
 	position: relative;
 	height: 100%;
-	max-width: fit-content;
+	max-width: 100%;
 	min-width: fit-content;
 	width: fit-content;
-	overflow: visible;
+	overflow: hidden;
 	flex: 0 0 auto;
 	pointer-events: ${(p) => p.$moving ? "none" : "auto"};
 	outline: solid 1px ${(p) => p.theme.colors.boxShadow};
@@ -51,7 +51,6 @@ export const Img = styled.img`
 	display: block;
 	height: 100%;
 	width: auto;
-	min-width: fit-content;
 	max-width: 100%;
 	object-fit: contain;
 	-webkit-user-drag: none;
