@@ -18,6 +18,10 @@ export const Root = styled.div<{$moving?: boolean}>`
 	width: fit-content;
 	scrollbar-color: ${({theme}) => rgba(theme.colors.boxShadow, 0.23)} transparent;
 	cursor: ${(p) => p.$moving ? "crosshair" : "default"};
+
+	@media (max-width: 350px) {
+		height: 130px;
+	}
 `;
 
 export const Wrapper = styled.div<{$moving?: boolean}>`
@@ -44,10 +48,12 @@ export const Wrapper = styled.div<{$moving?: boolean}>`
 
 export const Img = styled.img`
 	position: relative;
+	display: block;
 	height: 100%;
 	width: auto;
 	min-width: fit-content;
 	max-width: 100%;
+	object-fit: contain;
 	-webkit-user-drag: none;
 	z-index: 0;
 	filter: saturate(0%);

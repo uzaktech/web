@@ -92,7 +92,7 @@ export default async function RootLayout({
 		<html lang={locale}>
 			<head>
 				<meta charSet="UTF-8" />
-				<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1.0" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<link rel="icon" sizes="144x144" href="/favicon.png" type="image/png" />
 				<script
 					type="application/ld+json"
