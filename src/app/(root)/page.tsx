@@ -84,7 +84,7 @@ export default async function Home() {
 							intersectionMarginPreset: "medium"
 						}} 
 						groupOptions={{position: 0, delay: {ms: .23, maxWidth: 9}}}
-						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%", $minHeight: "100%"}}
 					>
 						<tx.P $size="xviii" $weight="450">{t("process.buildTitle")}</tx.P>
 
@@ -101,7 +101,7 @@ export default async function Home() {
 							intersectionMarginPreset: "medium"
 						}} 
 						groupOptions={{position: 1, delay: {ms: .23, maxWidth: 9}}}
-						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%", $minHeight: "100%"}}
 					>
 						<tx.P $size="xviii" $weight="450">{t("process.designTitle")}</tx.P>
 
@@ -118,7 +118,7 @@ export default async function Home() {
 							intersectionMarginPreset: "medium"
 						}} 
 						groupOptions={{position: 2, delay: {ms: .23, maxWidth: 9}}}
-						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px"}}
+						boxStyle={{$padding: "13px 17px", $gap: "7px", $width: "100%", $minWidth:"130px", $height: "100%", $minHeight: "100%"}}
 					>
 						<tx.P $size="xviii" $weight="450">{t("process.shipTitle")}</tx.P>
 
