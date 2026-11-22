@@ -28,10 +28,10 @@ export const Root = styled(Wrapper)<{$hiddenOnZero?: boolean, $phase?: "closed" 
 			opacity: 1;
 			max-height: var(--target-h, 100%);
 			height: var(--target-h, 100%);
-			min-height: var(--target-h, 100%);
+			min-height: var(--target-h, auto);
 			max-width: var(--target-w, 100%);
 			width: var(--target-w, 100%);
-			min-width: var(--target-w, 100%);
+			min-width: var(--target-w, auto);
 		}
 		100% {
 			overflow: visible;

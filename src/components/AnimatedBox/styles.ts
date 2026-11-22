@@ -41,11 +41,11 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWid
 		100% {
 			overflow: visible;
 			opacity: 1;
-			height: fit-content;
-			min-height: fit-content;
+			height: 100%;
+			min-height: 100%;
 			max-width: 100%;
-			width: auto;
-			min-width: auto;
+			width: 100%;
+			min-width: 100%;
 		}
 	}
 
@@ -89,8 +89,8 @@ export const AnimatedBox = styled(Box)<{$open: boolean, $close: boolean, $boxWid
 export const ContentLock = styled(Box).attrs({$cornerP: "none"})<{$cWidth?: string, $cHeight?: string, $opened?: boolean}>`
 	background-color: transparent;
 	outline: none;
-   width: ${(p) => p.$opened ? (p.$width ?? "auto") : p.$cWidth};
-   height: ${(p) => p.$opened ? (p.$height ?? "auto") : p.$cHeight};
-   min-width: ${(p) => p.$opened ? (p.$width ?? "auto") : p.$cWidth};
-   min-height: ${(p) => p.$opened ? (p.$height ?? "auto") : p.$cHeight};
+   width: ${(p) => p.$opened ? "100%" : p.$cWidth};
+   height: ${(p) => p.$opened ? "100%" : p.$cHeight};
+   min-width: ${(p) => p.$opened ? "auto" : p.$cWidth};
+   min-height: ${(p) => p.$opened ? "auto" : p.$cHeight};
 `;

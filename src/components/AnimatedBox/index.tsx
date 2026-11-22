@@ -155,7 +155,7 @@ export const AnimatedBox = ({ boxStyle, animationView, options, animationSpeed, 
 	return (
 		<s.FrameRoot 
 			{...frameStyle} 
-			$height={opened ? "auto" : (boxRects?.h ? `${boxRects.h}px` : undefined)} 
+			$height={opened ? undefined : (boxRects?.h ? `${boxRects.h}px` : undefined)} 
 			ref={boxRef}
 		>
 			<s.AnimatedBox 
