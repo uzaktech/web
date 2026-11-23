@@ -1,0 +1,231 @@
+{
+	"nav": {
+		"home": "首页",
+		"about": "关于",
+		"portfolio": "作品集",
+		"contact": "联系"
+	},
+	"home": {
+		"hero": {
+			"title": "以热情与创造力，打造独一无二的梦想",
+			"description": "Uzak 是一家独立个人工作室，致力于为世界各地的客户构建 Web 平台、独立项目、实用工具并维护现有项目。从最初的构思、代码编写到最终产品交付，均由我一人独立完成。",
+			"selectedWork": "精选作品",
+			"contactMe": "联系我"
+		},
+		"about": {
+			"label": "关于",
+			"title": "一人，全栈",
+			"description": "我是 Uzak 每个项目背后的开发者、设计师兼产品负责人。没有层层交接，没有客户经理。写代码、发布产品、回复邮件的都是我。过去几年里，我专注于从数据库、界面设计到底层架构的全流程 SaaS 产品构建。"
+		},
+		"portfolio": {
+			"label": "作品集",
+			"title": "精选项目",
+			"description": "展示我所热爱构建的几款代表性软件项目。",
+			"seeFullPortfolio": "查看完整作品集"
+		},
+		"process": {
+			"label": "流程",
+			"title": "工作方式",
+			"description": "从最初的灵感到最终成型的产品，整个流程由我独立推进。",
+			"buildTitle": "构建",
+			"buildDesc": "我将项目从最初的原型推进至生产环境，专注于易于理解、便于后期维护与迭代的实用代码。",
+			"designTitle": "设计",
+			"designDesc": "我围绕产品本身定制设计界面，拒绝套用模板。每个页面都具有明确的目的，并与整体体验浑然一体。",
+			"shipTitle": "发布",
+			"shipDesc": "我全程把控项目部署并在上线后持续迭代改进。目标是真正交付落地，而不仅仅是停留在本地运行。"
+		},
+		"services": {
+			"label": "服务",
+			"title": "我的专长",
+			"description": "我专注于能够独立把控设计、开发和基础设施建设的 Web 产品。",
+			"saasMvp": "SaaS MVP 最小可行产品",
+			"webApps": "Web 应用程序",
+			"internalTools": "内部工具",
+			"designSystems": "设计系统",
+			"infrastructure": "基础设施",
+			"paymentIntegration": "支付集成"
+		}
+	},
+	"aboutPage": {
+		"hero": {
+			"title1": "独立开发。",
+			"title2": "绝无中介。",
+			"description": "Uzak 不是一支庞大的团队，而是一家由我独立负责设计、开发及各环节交付的个人工作室。"
+		},
+		"story": {
+			"label": "故事",
+			"title": "为何选择独立开发",
+			"p1": "Uzak 源于一个简单的想法：我想要一个能按自己的方式打造产品的空间。与其总是在为别人的产品工作，我更渴望创造属于自己的作品，并亲自见证它们从灵感到成型的全过程。",
+			"p2": "Uzak 并没有字面含义，但对我而言，它代表着力量与创造力，同时也是我的昵称。",
+			"p3": "我最感兴趣的是 SaaS 产品、电子商务平台，以及那些有别于常规的独特创意。"
+		},
+		"stack": {
+			"label": "技术栈",
+			"title": "常用的开发工具",
+			"description": "不同项目所选工具可能有所调整，但这些构成了我的核心技术基石。"
+		},
+		"approach": {
+			"label": "理念",
+			"title": "我的坚持",
+			"ownershipTitle": "全局担当",
+			"ownershipDesc": "从最初的设想到最终发布，我对整个项目负全责。没有人员或团队之间的推诿与交接损耗。",
+			"craftTitle": "精益求精",
+			"craftDesc": "我注重打磨每一个细节。与其为了赶工而草率交付后续需要推倒重来的半成品，我宁愿多花一点时间把事情做好。",
+			"honestyTitle": "真诚坦率",
+			"honestyDesc": "我会坦诚相告我的看法，哪怕结论不尽如人意。如果我认为某项方案行不通，我更倾向于尽早明确指出。"
+		}
+	},
+	"portfolioPage": {
+		"hero": {
+			"name": "Enzo Kazuki",
+			"description": "你好！我是 Enzo Kazuki，一名来自巴西帕拉伊巴州的自学成才的全栈开发者。怀着对创造的热情、好奇心与创造力，我不断拓展知识边界，探索新兴技术，将想法变为触手可及的现实。",
+			"seeProjects": "查看项目",
+			"contactMe": "联系我",
+			"seeExperience": "查看经历",
+			"deskSetup": "我的桌面配置"
+		},
+		"about": {
+			"label": "关于",
+			"title": "全栈开发者、设计师兼创造者",
+			"p1": "我是一名独立开发者，专注于打造兼备稳健后端、数据库和基础设施，以及细腻用户体验与高可靠性系统的 Web 产品。",
+			"p2": "我喜欢全程掌控整个技术栈，涵盖界面设计、产品决策、部署上线以及后续的所有运维维护。"
+		},
+		"skills": {
+			"label": "技能",
+			"title": "技术专长",
+			"description": "作为一名全栈开发者，我熟悉各层技术，但更倾向于享受后端开发的挑战与乐趣。"
+		},
+		"projects": {
+			"label": "项目",
+			"title": "作品展示"
+		},
+		"career": {
+			"label": "职业历程",
+			"title": "我的专业工作经历"
+		}
+	},
+	"contactPage": {
+		"title": "联系我",
+		"description": "无论你有正在规划的项目、酝酿中的灵感，还是单纯想聊聊，我都非常乐意倾听你的想法。",
+		"myLinks": "社交与个人主页",
+		"form": {
+			"title": "给我留言",
+			"description": "请简要介绍你的项目背景、当前进展以及具体需求。我会尽快查阅并予以回复。",
+			"firstName": "名字",
+			"firstNamePlaceholder": "例如：三",
+			"lastName": "姓氏",
+			"lastNamePlaceholder": "例如：张",
+			"email": "电子邮箱",
+			"emailPlaceholder": "例如：zhangsan@example.com",
+			"emailError": "请输入有效的电子邮箱地址。",
+			"subject": "主题",
+			"subjectPlaceholder": "例如：希望能进一步交流",
+			"message": "留言内容",
+			"messagePlaceholder": "请输入你的留言...",
+			"sentTitle": "发送成功！",
+			"sentDesc": "你的留言已成功送达，非常感谢你的来信与关注。",
+			"sentNotice": "我会尽快给你答复。",
+			"errorTitle": "出错了 :(",
+			"errorDesc": "抱歉，似乎遇到了一些问题，请稍后重试。",
+			"backHome": "返回首页",
+			"sendAnother": "发送另一条留言",
+			"tryAgain": "重试",
+			"send": "发送",
+			"sending": "正在发送..."
+		}
+	},
+	"quickFacts": {
+		"title": "概览信息",
+		"role": "职位",
+		"roleValue": "全栈开发者",
+		"focus": "专注领域",
+		"focusValue": "Web 开发",
+		"location": "所在地",
+		"locationValue": "巴西，帕拉伊巴州",
+		"age": "年龄",
+		"ageYears": "{years} 岁",
+		"alias": "别名"
+	},
+	"projectsData": {
+		"captures": "项目截图 {current}/{total}",
+		"lines": "{count}+ 行代码",
+		"present": "至今",
+		"greendollar": {
+			"title": "众筹募捐平台",
+			"category": "Web · 独立项目",
+			"descShort": "独立开发的全栈众筹平台，具备筹款活动管理、Stripe 安全支付、身份认证以及从构思到部署一体化的可扩展架构。其独特的 UI/UX 刻意打破了现代 Web 产品千篇一律的标准化视觉规范。",
+			"descFull": "集成了 Stripe Connect、安全支付流、资金透明管理、活动管理与支持随附自定义卡片捐款的全栈募捐平台。其鲜明个性源自精心构思的非传统 UI/UX，旨在赋予产品不同于现代 Web 常见设计范式的独特质感。"
+		},
+		"dental": {
+			"title": "牙科诊所管理 SaaS",
+			"category": "Web · 产品",
+			"descShort": "为牙科诊所量身打造的全栈 SaaS，提供患者及工作流管理、诊所行政、账单、预约排期与自定义 PDF 文档生成功能。采用 Next.js、.NET 和 PostgreSQL 构建，拥有面向生产的高可用及高可维护性架构。",
+			"descFull": "面向牙科诊所的端到端 SaaS 解决方案，结合了 Next.js 前端、.NET 后端、PostgreSQL 数据库和基于 Docker 的部署体系。系统涵盖排期预约、用户及患者管理、诊所行政、计费结算、临床工作流与可高度定制的 PDF 模板导出。"
+		},
+		"monitoring": {
+			"title": "服务监控 SaaS",
+			"category": "Web · 工具 · 独立项目",
+			"descShort": "受 Grafana 启发而设计的极简服务监控 SaaS。它将仪表板管理与轻量级本地监控服务相结合，能够通过用户自定义查询收集指定应用与服务的自定义指标。作为探索监控基础设施与全栈架构的实验性项目构建。",
+			"descFull": "我的早期全栈探索项目之一，作为应用监控领域的独立实验。虽然未曾公开部署，但为仪表板开发、自定义指标采集以及 Web 平台与本地监控服务之间的通信机制提供了宝贵的实战经验。"
+		}
+	},
+	"experienceData": {
+		"present": "至今",
+		"more": "展开",
+		"less": "收起",
+		"youbloom": {
+			"title": "React 开发者",
+			"category": "youbloom · 实习",
+			"p1": "在 youbloom（一家协助音乐人、场地与主办方拓展音乐、喜剧及戏剧观众的现场活动平台）由 10 余人组成的技术团队中担任 React 开发实习生。在与产品及工程团队紧密协作下，使用 React、TypeScript 和 Vite 开发交付 Web 平台新特性并修复系统缺陷。",
+			"p2": "入职初期修复了两个界面显示异常，随后独立构建了活动动态（Campaign Updates）编辑页面并调整了相关重定向逻辑。"
+		},
+		"vexio": {
+			"title": "全栈开发者",
+			"category": "产品 · SaaS",
+			"p1": "作为软件工作室产品线之一，独立开发了一款面向牙科诊所的端到端 SaaS 产品。全面负责技术实现，涵盖前端、后端、数据库、部署与基础设施构建。",
+			"p2": "基于 C#、.NET 和 PostgreSQL 搭建了包含 150 多个接口的后端，并使用 SCSS 与 Next.js 开发了前端界面。产品成功上线生产环境，上线不到两周即签约首家合作诊所。",
+			"p3": "在 VPS 主机遭遇恶意挖矿攻击事件中快速响应：封堵暴露的防火墙端口、轮换 SSH 密钥，并重启加固了服务器安全配置。"
+		},
+		"consulting": {
+			"title": "Web 开发助理",
+			"category": "咨询项目",
+			"p1": "参与旨在提升现有 Web 应用程序架构与稳定性的咨询项目。主要负责 Next.js 和 React 端开发，与首席顾问配合修复缺陷并交付功能模块。必要时还排查并解决了 Python 相关技术问题。",
+			"p2": "在 Next.js 与 React 代码库中修复了 20 多个问题，其中包括涉及 Selenium 库的 Python 异常排查与修复。"
+		}
+	},
+	"footer": {
+		"tagline": "独立个人工作室，构建从灵感到上线的端到端 Web 平台。",
+		"question": "想一起合作吗？",
+		"cta": "开启交流",
+		"status": "状态",
+		"openToWork": "可承接新项目",
+		"building": "新项目正在构建中",
+		"navigate": "导航",
+		"elsewhere": "更多平台",
+		"rights": "保留所有权利"
+	},
+	"stack": {
+		"backend": "后端",
+		"frontend": "前端",
+		"database": "数据库",
+		"devops": "运维部署",
+		"tools": "开发工具",
+		"aiAgents": "AI 智能体",
+		"other": "其他"
+	},
+	"locale": {
+		"current": "ZH",
+		"switch": "Switch to English"
+	},
+	"validation": {
+		"required": "此字段为必填项。"
+	},
+	"meta": {
+		"title": "Uzak // 独立技术工作室",
+		"description": "Uzak 是一家专注于端到端 Web 解决方案与平台开发的独立开发者工作室。",
+		"aboutDescription": "Uzak 不是团队，而是一家由我独立负责设计、开发与全流程交付的个人工作室。",
+		"contactDescription": "联系 Uzak 技术工作室。无论你有项目构想、Web 平台需求还是定制开发想法，欢迎与我联系。",
+		"portfolioTitle": "Enzo Kazuki",
+		"portfolioDescription": "你好！我是 Enzo Kazuki（亦称 Uzak），一名来自巴西帕拉伊巴州的自学成才的全栈开发者。欢迎浏览我的个人经历、技术栈与独立项目。"
+	}
+}
