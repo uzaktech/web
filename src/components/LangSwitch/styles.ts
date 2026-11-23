@@ -16,7 +16,7 @@ export const Root = styled.div<{$open?: boolean}>`
 	overflow: visible;
 	transition: gap .3s ease;
 	gap: ${(p) => p.$open ? "5px" : "0px"};
-	margin: 0 3px 0 0;
+	margin-inline-end: 3px;
 `;
 
 export const IconFlag = styled.div<{$img?: string}>`

@@ -89,7 +89,7 @@ export default async function RootLayout({
 	};
 
 	return (
-		<html lang={locale}>
+		<html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
 			<head>
 				<meta charSet="UTF-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />

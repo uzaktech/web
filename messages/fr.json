@@ -140,8 +140,6 @@
 		"roleValue": "Développeur Full-stack",
 		"focus": "Spécialité",
 		"focusValue": "Développement Web",
-		"experience": "Expérience",
-		"experienceValue": "4 ans",
 		"location": "Localisation",
 		"locationValue": "Paraíba, Brésil",
 		"age": "Âge",
@@ -149,6 +147,9 @@
 		"alias": "Pseudonyme"
 	},
 	"projectsData": {
+		"captures": "Captures du Projet {current}/{total}",
+		"lines": "{count}+ lignes",
+		"present": "présent",
 		"greendollar": {
 			"title": "Plateforme de financement participatif",
 			"category": "Web · Indie",

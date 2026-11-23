@@ -33,13 +33,22 @@ const InputStyle = (p: {status?: 1 | 2}) => css`
 	border: none;
 	outline: none;
 	border-radius: 0;
-	padding: 0 17px 0 15px;
+	padding-block: 0;
+	padding-inline-start: 17px;
+	padding-inline-end: 15px;
+	text-align: start;
 	font-size: ${(p) => p.theme.fontSize.xvi};
 	background-color: transparent;
 	min-height: var(--height-btn-inp);
 	color: ${(p) => p.theme.colors.text};
 	font-weight: 450;
 	max-height: 100%;
+
+	--focus-x: 2px;
+
+	[dir="rtl"] & {
+		--focus-x: -2px;
+	}
 	
 	&::placeholder
 	{
@@ -52,7 +61,7 @@ const InputStyle = (p: {status?: 1 | 2}) => css`
 	&:focus 
 	{
 		box-shadow: 
-			inset 2px 0 0 0 ${(pp) => pp.theme.colors[p.status == 1 ? "redError" : "boxShadow"]}, 
+			inset var(--focus-x) 0 0 0 ${(pp) => pp.theme.colors[p.status == 1 ? "redError" : "boxShadow"]}, 
 			inset 0 0 0 1000px ${(pp) => pp.theme.colors.boxBackground} !important;
 	}
 `;

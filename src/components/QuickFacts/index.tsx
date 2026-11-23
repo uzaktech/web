@@ -6,19 +6,23 @@ import * as wp from "@/styles/primitive/wrapper";
 import { useState } from "react";
 import { AnimatedBox } from "../AnimatedBox";
 import { ShrinkWrapper } from "../ShrinkWrapper";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { dateLocales, Locale } from "@/i18n/config";
 
 export const QuickFacts = () => {
-	const [expanded, setExpanded] = useState<boolean>(false);
 	const t = useTranslations("quickFacts");
+	const locale = useLocale();
+	
+	const [expanded, setExpanded] = useState<boolean>(false);
+
+	const dateLocale = dateLocales[locale as Locale] ?? "en-US";
 
 	const ageDiff = process.env.NEXT_PUBLIC_BIRTH_DATE ? Math.abs(new Date(process.env.NEXT_PUBLIC_BIRTH_DATE).getTime() - new Date().getTime()) : null;
-	const ageString = ageDiff ? t("ageYears", { years: Math.floor(ageDiff / 31557600000) }) : "undefined";
+	const ageString = ageDiff ? t("ageYears", { years: new Intl.NumberFormat(dateLocale).format(Math.floor(ageDiff / 31557600000)) }) : "undefined";
 
 	const facts = [
 		{ label: t("role"), value: t("roleValue") },
 		{ label: t("focus"), value: t("focusValue") },
-		{ label: t("experience"), value: t("experienceValue") },
 		{ label: t("location"), value: t("locationValue") },
 		{ label: t("age"), value: ageString },
 		{ label: t("alias"), value: "Uzak" }

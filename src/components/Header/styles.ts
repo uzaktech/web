@@ -47,9 +47,9 @@ export const HeaderActions = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 17px;
-	margin: 0 0 0 auto;
+	margin-inline-start: auto;
 	height: 100%;
-	padding: 0 7px 0 0;
+	padding-inline-end: 7px;
 `;
 
 export const Nav = styled.nav`
@@ -89,7 +89,6 @@ export const Ul = styled.ul`
 	--ul-h: calc((100% / 2) + 6px);
 	list-style-type: none;
 	padding: 0;
-	margin: 0;
 	display: block;
 	text-align: center;
 	display: flex;
@@ -99,9 +98,10 @@ export const Ul = styled.ul`
 	position: relative;
 	flex-direction: row;
 	align-items: center;
-	margin: 0 0 0 13px;
 	height: 100%;
 	width: fit-content;
+	margin: 0px;
+	margin-inline-start: 13px;
 
 	&::after,
 	&::before {
@@ -233,11 +233,12 @@ export const Division = styled.div`
 	position: relative;
 	height: 70%;
 	transform: skewX(-30deg);
-	margin: 0 5px 0 7px;
 	border-right: solid 1px ${(p) => p.theme.colors.boxShadow};
-	margin: 0 3px 0 5px;
+	margin-inline-start: 5px;
+	margin-inline-end: 3px;
 	
 	@media (max-width: 470px) {
-		margin: 0 1px 0 3px;
+		margin-inline-start: 3px;
+		margin-inline-end: 1px;
 	}
 `;

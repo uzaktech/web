@@ -10,6 +10,7 @@ import { Stack } from "../Stack";
 import { useState } from "react";
 import { ShrinkWrapper } from "../ShrinkWrapper";
 import { useLocale, useTranslations } from "next-intl";
+import { dateLocales, Locale } from "@/i18n/config";
 
 export const ExperienceView = () => {
 	return (
@@ -34,7 +35,7 @@ const ExperienceBox = ({e}: {e: ExperiencesType}) => {
 		? [t(`${e.id}.p1`), t(`${e.id}.p2`), ...(e.id === "vexio" ? [t("vexio.p3")] : [])] 
 		: e.description;
 
-	const dateLocale = locale === "pt" ? "pt-BR" : "en-US";
+	const dateLocale = dateLocales[locale as Locale] ?? "en-US";
 	const presentText = t("present");
 	const moreText = t("more");
 	const lessText = t("less");

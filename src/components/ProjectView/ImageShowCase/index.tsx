@@ -1,8 +1,11 @@
 import * as s from "./styles";
 import { ExpandedImageView, ExpandedImageViewObject } from "@/components";
 import { MouseEvent, useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export const ImageShowCase = ({images}: {images: string[]}) => {
+	const t = useTranslations("projectsData");
+	
 	const [imagesExpand, setImageExpand] = useState<ExpandedImageViewObject[]>([]);
 	const [showImageView, setShowImageView] = useState<boolean>(false);
 	const [durationExpo] = useState<number>(5300);
@@ -16,7 +19,7 @@ export const ImageShowCase = ({images}: {images: string[]}) => {
 	const clickImage = () => {
 		const list: ExpandedImageViewObject[] = images.map((a, i) => {
 			return {
-				label: `Project Captures ${i + 1}/${images.length}`,
+				label: t("captures", { current: i + 1, total: images.length }),
 				src: a
 			} as ExpandedImageViewObject
 		});

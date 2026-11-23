@@ -70,16 +70,26 @@ export const Arrow = styled.div<{$side: "left" | "right", $disable: boolean}>`
 		content: "";
 		position: relative;
 		box-shadow: 1.5px 1.5px 0 0 ${(p) => p.theme.colors.boxBackground};
-
-		${(p) => p.$side == "left" ? css`
-			transform: rotate(135deg);
-		` : css`
-			transform: rotate(-45deg);
-		`};
-
 		height: calc(100% - 5px);
 		width: auto;
 		aspect-ratio: 1;
+
+		--forward-rotation: rotate(-45deg);
+		--backward-rotation: rotate(135deg);
+
+		${(p) => p.$side == "left" ? css`
+			transform: var(--backward-rotation);
+			
+			[dir="rtl"] & {
+				transform: var(--forward-rotation);
+			}
+		` : css`
+			transform: var(--forward-rotation);
+		
+			[dir="rtl"] & {
+				transform: var(--backward-rotation);
+			}
+		`};
 	}
 `;
 

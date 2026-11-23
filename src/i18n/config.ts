@@ -1,4 +1,4 @@
-export const locales = ["en", "pt", "es", "it", "fr", "de", "ja"] as const;
+export const locales = ["en", "pt", "es", "it", "fr", "de", "ja", "ar"] as const;
 
 export type Locale = (typeof locales)[number];
 
@@ -52,7 +52,19 @@ export const ogLocales: Record<Locale, string> = {
 	it: "it_IT",
 	fr: "fr_FR",
 	de: "de_DE",
-	ja: "ja_JP"
+	ja: "ja_JP",
+	ar: "ar_AR"
+};
+
+export const dateLocales: Record<Locale, string> = {
+	en: "en-US",
+	pt: "pt-BR",
+	es: "es-ES",
+	it: "it-IT",
+	fr: "fr-FR",
+	de: "de-DE",
+	ja: "ja-JP",
+	ar: "ar-SA"
 };
 
 export function createAlternates(path: string = "/") {

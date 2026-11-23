@@ -9,12 +9,24 @@ import { ImageShowCase } from "./ImageShowCase";
 import { Fragment } from "react/jsx-runtime";
 import { projects } from "@/data";
 import { useLocale, useTranslations } from "next-intl";
+import { dateLocales, Locale } from "@/i18n/config";
 
 export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 	const list = projects(portfolio);
 	const t = useTranslations("projectsData");
 	const tFooter = useTranslations("footer");
 	const locale = useLocale();
+
+	const dateLocale = dateLocales[locale as Locale] ?? "en-US";
+	const presentText = t("present");
+
+	const formatLineCount = (count: number) => {
+		return new Intl.NumberFormat(dateLocale, {
+			notation: "compact",
+			compactDisplay: "short",
+			maximumFractionDigits: 1,
+		}).format(count);
+	};
 
 	return (
 		<wp.Col $gap="13px">
@@ -24,10 +36,6 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 				const description = p.id 
 					? (portfolio ? t(`${p.id}.descFull`) : t(`${p.id}.descShort`))
 					: p.description;
-
-				const dateLocale = locale === "pt" ? "pt-BR" : "en-US";
-				const presentText = locale === "pt" ? "presente" : "present";
-				const linesText = locale === "pt" ? "linhas" : "lines";
 
 				return (
 					<AnimatedBox 
@@ -86,19 +94,14 @@ export const ProjectView = ({portfolio}: {portfolio?: boolean}) => {
 						<wp.Division $orientation={1} $opc={1} />
 
 						{/* Footer Card */}
-						<wp.Row $jc="space-between" $pad="8px 17px" $gap="9px" $ai="center">
+						<wp.Row $jc="space-between" $pad="8px 17px" $gap="13px" $ai="center">
 							<Stack justIcon list={p.stackLabels.map(a => {return {label: a, icon: portfolio == true}})}/>
 
-							{p.linesCount && <tx.Span $wSpace="nowrap" $weight="500" $opc={0.5} $size="xv">
-								{(p.linesCount >= 1e9 
-										? `${(p.linesCount / 1e9).toFixed(1)}B` 
-										: p.linesCount >= 1e6 
-											? `${(p.linesCount / 1e6).toFixed(1)}M` 
-											: p.linesCount >= 1e3 
-												? `${(p.linesCount / 1e3).toFixed(1)}K` 
-												: p.linesCount
-								)}+ {linesText}
-							</tx.Span>}
+							{p.linesCount && (
+								<tx.Span $wSpace="nowrap" $weight="500" $opc={0.5} $size="xv">
+									{t("lines", { count: formatLineCount(p.linesCount) })}
+								</tx.Span>
+							)}
 						</wp.Row>
 					</AnimatedBox>
 				);

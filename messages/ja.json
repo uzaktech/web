@@ -140,8 +140,6 @@
 		"roleValue": "フルスタック開発者",
 		"focus": "専門分野",
 		"focusValue": "Web開発",
-		"experience": "経験年数",
-		"experienceValue": "4年",
 		"location": "拠点",
 		"locationValue": "ブラジル・パライバ州",
 		"age": "年齢",
@@ -149,6 +147,9 @@
 		"alias": "別名"
 	},
 	"projectsData": {
+		"captures": "プロジェクトキャプチャ {current}/{total}",
+		"lines": "{count}+ 行",
+		"present": "現在",
 		"greendollar": {
 			"title": "資金調達プラットフォーム",
 			"category": "Web · 個人開発",

@@ -140,8 +140,6 @@
 		"roleValue": "Full-stack Developer",
 		"focus": "Focus",
 		"focusValue": "Web Development",
-		"experience": "Experience",
-		"experienceValue": "4 years",
 		"location": "Location",
 		"locationValue": "Paraíba, Brazil",
 		"age": "Age",
@@ -149,6 +147,9 @@
 		"alias": "Alias"
 	},
 	"projectsData": {
+		"captures": "Project Captures {current}/{total}",
+		"lines": "{count}+ lines",
+		"present": "present",
 		"greendollar": {
 			"title": "Fundraising platform",
 			"category": "Web · Indie",
