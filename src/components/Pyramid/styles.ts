@@ -53,21 +53,18 @@ export const Root = styled.div`
 
 export const Pyramid = styled.div<{$dragging: boolean}>`
 	--drag-x: -25deg;
-	--drag-y: 0deg;
+	--drag-y: 130deg;
 	
-	--transform-rotate-x: var(--drag-x);
-	--transform-rotate-y: var(--drag-y);
-
 	@property --transform-rotate-x {
-	  syntax: "<angle>";
-	  inherits: true;
-	  initial-value: -25deg;
+		syntax: "<angle>";
+		inherits: true;
+		initial-value: -25deg;
 	}
-	
+
 	@property --transform-rotate-y {
-	  syntax: "<angle>";
-	  inherits: true;
-	  initial-value: 0deg;
+		syntax: "<angle>";
+		inherits: true;
+		initial-value: 130deg;
 	}
 
 	position: relative;
