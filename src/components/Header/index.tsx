@@ -40,7 +40,7 @@ export const Header = () => {
 
 				const movedFromAnchor = anchorY - currentScrollY;
 
-				if (currentScrollY <= pad) setScrollingUp(false);
+				if (currentScrollY <= 0) setScrollingUp(false);
 				else if (goingUp && movedFromAnchor > pad) setScrollingUp(true);
 				else if (!goingUp && -movedFromAnchor > pad) setScrollingUp(false);
 
@@ -77,7 +77,7 @@ export const Header = () => {
 						</s.Ul>
 					</s.Nav>
 					
-					<s.MenuToggle onClick={() => menu.setVisibility(true)} />
+					<s.MenuToggle onClick={() => menu.setVisibility(true)} aria-label="Open menu" />
 
 					<s.Division />
 

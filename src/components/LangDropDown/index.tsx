@@ -57,7 +57,7 @@ export const LangDropDown = ({ fixed, close, headerRef }: { fixed: boolean, clos
 			>
 				<s.ListWrapper>
 					{langsList.map((l, i) => (
-						<s.Box role="group" aria-label="Language selector" key={i} onClick={() => handleSwitch(l.lang)}>
+						<s.Box role="group" aria-label={`Switch language to ${l.englishName}`} key={i} onClick={() => handleSwitch(l.lang)}>
 							<s.IconFlag $img={l.urlIcon} />
 
 							<s.Label>{l.label}</s.Label>
