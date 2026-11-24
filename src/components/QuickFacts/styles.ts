@@ -35,15 +35,13 @@ export const ExpandButton = styled.div<{$opened?: boolean}>`
 	{
 		top: calc(13px + ${(p) => p.$opened ? "1px" : "-1px"});
 		left: calc(13px + ${(p) => p.$opened ? "1px" : "-1px"});
-		border-left: solid 1px ${(p) => p.theme.colors.boxShadow};
-		border-top: solid 1px ${(p) => p.theme.colors.boxShadow};
+		box-shadow: -1px -1px 0 0 ${(p) => p.theme.colors.boxShadow};
 	}
 
 	&::before
 	{
 		top: calc(0px + ${(p) => p.$opened ? "0px" : "2.5px"});
 		left: calc(0px + ${(p) => p.$opened ? "0px" : "2.5px"});
-		border-right: solid 1px ${(p) => p.theme.colors.boxShadow};
-		border-bottom: solid 1px ${(p) => p.theme.colors.boxShadow};
+		box-shadow: 1px 1px 0 0 ${(p) => p.theme.colors.boxShadow};
 	}
 `;
