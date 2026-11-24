@@ -45,6 +45,6 @@ export const experiences: ExperiencesType[] = [
 			"I resolved 20+ bugs across the Next.js and React codebase, including a Python issue involving the Selenium library."
 		],
 		stackLabels: ["next_js", "ts", "react_js", "docker", "nodejs", "python"],
-		dateRange: {start: new Date(2024, 1, 1), end: new Date(2024, 7, 1)}
+		dateRange: {start: new Date(2024, 2, 1), end: new Date(2024, 5, 1)}
 	}
 ];
